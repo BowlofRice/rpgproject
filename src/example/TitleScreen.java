@@ -13,12 +13,16 @@ public class TitleScreen{
 		Field gamearea=new Field();
 		gamearea.setBackground(Color.BLACK);
 		rpgproto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		rpgproto.addMouseListener(new MouseListen());
+		rpgproto.addKeyListener(new KeyListen());
 		rpgproto.setResizable(false);
 		rpgproto.add(gamearea);
 		rpgproto.pack();
 		rpgproto.setLocationRelativeTo(null);
 		rpgproto.setVisible(true);
+		while(true){
+			gamearea.repaint();
+			gamearea.timestep();
+		}
 	}
 
 
