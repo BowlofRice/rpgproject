@@ -14,7 +14,7 @@ public class KeyListen implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		keycode=e.getKeyCode();
-	    System.out.println(keycode);
+	    //System.out.println(keycode);
 	}
 	
 	@Override

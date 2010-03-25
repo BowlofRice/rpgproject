@@ -10,9 +10,12 @@ import java.awt.Image;
 
 @SuppressWarnings("serial")
 public class Field extends Canvas{
-	public int dx=0;
-	public int dy=0;
-	public int flag=0;
+	public int dx=0;//dx for main screen
+	public int dy=0;//dy for map selection screen
+	public int dxl=0;//dx for map selection screen
+	public int flag=0;//for selecting what to show
+	public int counter=0;//to make the cursor bigger
+	public int counter2=0;//to make the cursor smaller
 	public Field(){
 		setSize(800,600);
 	}
@@ -32,15 +35,27 @@ public class Field extends Canvas{
 		if(KeyListen.keycode==27 && flag==2){
 			flag=0;
 		}//return to main option
+		//code for blue screen below
 		if(KeyListen.keycode==40 && flag==1){
+			if(counter==0){
+				counter++;
+			}
+			if(counter==1){
+				dxl=50;
+			}
 			dy=100;
 		}
 		if(KeyListen.keycode==38 && 60+dy==160 && flag==1){
+			dxl=0;
 			dy=0;
 		}
-		if(KeyListen.keycode==10 && 60+dy==160 && flag==1){
-			flag=0;
+		if(KeyListen.keycode==38 && 60+dy==260 && flag==1){
+			dxl=0;
+			dy=0;
 		}
+		if(KeyListen.keycode==27 && flag==1){
+			flag=0;
+		}//return to main option
 	}
 	public void update(Graphics g)
 	{
@@ -69,16 +84,17 @@ public class Field extends Canvas{
 			g2d.setStroke(new BasicStroke(5));
 			g.setColor(Color.WHITE);
 			g.drawRoundRect(10, 10, getWidth()-20, getHeight()-20, 30, 30);
-			g.drawString("First Wave", 100, 100);
-			g.drawString("Quit", 100, 200);
-			g.drawRoundRect(90, 60+dy, 205, 50, 30, 30);
+			g.drawString("First Board", 100, 100);
+			g.drawString("Second Board", 100, 200);
+			g.drawString("Third Board", 100, 300);
+			g.drawRoundRect(90, 60+dy, 205+dxl, 50, 30, 30);
 		}
 		if(flag==2){
 			setBackground(Color.RED);
 			g.setFont(text);
 			g.drawString("Loading has not been implemented", 100, getHeight()/2);
 		}
-		//System.out.println(180+dx);
+		//System.out.println(60+dy);
 	}
 	
 
