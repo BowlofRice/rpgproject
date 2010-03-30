@@ -6,11 +6,11 @@ package example;
 
 /**
  *
- * @author andrew
+ * 
  */
 public class MapOne {
 
-    int[][] MapOne;
+    public int[][] MapOne;
 
     public MapOne(){
 
@@ -49,6 +49,15 @@ public class MapOne {
 
 
 
+    }
+/* This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucess in placing, and a 0 if not.  The flag number designates the level and unit*/
+    public int placeGoodGuy(int row, int column, int flag){
+        if(MapOne[row][column] == 0){
+        MapOne[row][column] = flag;
+        return 1;
+        }
+        else
+            return 0;
     }
 
     public void printMapOne(){

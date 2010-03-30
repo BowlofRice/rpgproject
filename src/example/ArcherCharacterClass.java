@@ -2,7 +2,7 @@ package example;
 
 /**
  *
- * @author andrew
+ * 
  */
 public class ArcherCharacterClass {
 
@@ -11,9 +11,10 @@ public class ArcherCharacterClass {
     int attack;
     int upgradelevelmeter;
     int range;
+    int flag;
 
     public ArcherCharacterClass(){
-
+    int flag = 2; //this ranges from 2 to 6 depending on level
     int level = 1;
     int location = 1;//default starting location
     int attack = 8;
@@ -24,7 +25,7 @@ public class ArcherCharacterClass {
     void gainexperience(int upgradelevelmeter)
     {
         upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=3)
+        if(upgradelevelmeter >= 1 && level<=5)
         {
             increaselevel();
             upgradelevelmeter = 0;
@@ -34,11 +35,13 @@ public class ArcherCharacterClass {
     void increaselevel(){
         increase_attack();
         level++;
+        flag++;
     }
 
     void increase_attack(){
         attack=attack*2;
     }
+
 
 
 }
