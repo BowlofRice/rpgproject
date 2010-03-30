@@ -15,4 +15,8 @@ as well as a function to print it out, so tell me what you think, and I guess we
 from here
 
 Also, Am I saving the files in the wrong folder, do they go in src/ or bin/ im confused. thanks
+
+
+
+3.30  I added a new map and flags for the characters, i also extended their levels to be able to go to level 5, which i think is better.  i stress the prophet must be exponentially bettter as time goes on because thats what makes sense, anyways lets keep in touch and let me know what you think of the maps and good luck with your stuff, i will get to making some enemies in a bit.3.30  I added a new map and flags for the characters, i also extended their levels to be able to go to level 5, which i think is better.  i stress the prophet must be exponentially bettter as time goes on because thats what makes sense, anyways lets keep in touch and let me know what you think of the maps and good luck with your stuff, i will get to making some enemies in a bit.3.30  I added a new map and flags for the characters, i also extended their levels to be able to go to level 5, which i think is better.  i stress the prophet must be exponentially bettter as time goes on because thats what makes sense, anyways lets keep in touch and let me know what you think of the maps and good luck with your stuff, i will get to making some enemies in a bit.
 Andrew
