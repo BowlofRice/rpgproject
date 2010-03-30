@@ -6,11 +6,20 @@ package example;
  */
 public class ArcherCharacterClass {
 
+    int level;
+    int location;//default starting location
+    int attack;
+    int upgradelevelmeter;
+    int range;
+
+    public ArcherCharacterClass(){
+
     int level = 1;
     int location = 1;//default starting location
     int attack = 8;
     int upgradelevelmeter = 0;
     int range = 3;
+	}
 
     void gainexperience(int upgradelevelmeter)
     {

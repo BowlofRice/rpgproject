@@ -11,6 +11,9 @@ public class ProphetCharacterClass {
     int attack = 2;
     int upgradelevelmeter = 0;
     int range = 5;
+    
+    public ProphetCharacterClass(){
+    }
 
     void gainexperience(int upgradelevelmeter)
     {

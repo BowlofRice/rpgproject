@@ -6,12 +6,18 @@ package example;
  */
 public class MeleeCharacterClass {
 
+    int level;
+    int location;//default starting location
+    int attack;
+    int upgradelevelmeter;
+    int range ;
+public MeleeCharacterClass(){
     int level = 1;
     int location = 1;//default starting location
     int attack = 8;
     int upgradelevelmeter = 0;
     int range = 1;
-
+}
     void gainexperience(int upgradelevelmeter)
     {
         upgradelevelmeter += .05;
