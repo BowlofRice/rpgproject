@@ -13,4 +13,6 @@ Hey guys i added a map one, and edited the players so there is a function to cre
 which I forgot and will probably be useful.  The map one has a function which creates it
 as well as a function to print it out, so tell me what you think, and I guess we can grow 
 from here
+
+Also, Am I saving the files in the wrong folder, do they go in src/ or bin/ im confused. thanks
 Andrew
