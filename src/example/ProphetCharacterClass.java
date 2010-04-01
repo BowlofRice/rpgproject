@@ -6,7 +6,7 @@ package example;
  */
 public class ProphetCharacterClass {
 
-    int level1;
+    int level;
     int location;//default starting location
     int attack;
     int upgradelevelmeter;
@@ -40,7 +40,7 @@ public class ProphetCharacterClass {
     }
 
     void increase_attack(){
-        attack+=attack**2;
+        attack+=attack^2;
     }
 
 

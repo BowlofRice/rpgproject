@@ -48,13 +48,8 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="TitleScreen (1)">
+    <target name="RPGProject">
         <java classname="example.TitleScreen" failonerror="true" fork="yes">
-            <classpath refid="rpgproject.classpath"/>
-        </java>
-    </target>
-    <target name="CardLayoutDemo">
-        <java classname="testingcardspace.CardLayoutDemo" failonerror="true" fork="yes">
             <classpath refid="rpgproject.classpath"/>
         </java>
     </target>
