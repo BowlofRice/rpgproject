@@ -14,12 +14,12 @@ public class BlueCasterCharacterClass {
     int flag;
 
 public BlueCasterCharacterClass(){
-    int level = 1;
-    int location = 1;//default starting location
-    int attack = 8;
-    int upgradelevelmeter = 0;
-    int range = 2;
-    int flag = 7; // this ranges from 7 - 11 depending on the level
+    this.level = 1;
+    this.location = 1;//default starting location
+    this.attack = 8;
+    this.upgradelevelmeter = 0;
+    this.range = 2;
+    this.flag = 7; // this ranges from 7 - 11 depending on the level
 }
 
     void gainexperience(int upgradelevelmeter)
