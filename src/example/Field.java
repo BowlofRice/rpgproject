@@ -16,6 +16,7 @@ public class Field extends Canvas{
 	public int flag=0;//for selecting what to show
 	public int counter=0;//to make the cursor bigger
 	public int counter2=0;//to make the cursor smaller
+	
 	public Field(){
 		setSize(800,600);
 	}

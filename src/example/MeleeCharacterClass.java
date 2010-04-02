@@ -13,12 +13,12 @@ public class MeleeCharacterClass {
     int range ;
     int flag;
 public MeleeCharacterClass(){
-    int level = 1;
-    int location = 1;//default starting location
-    int attack = 8;
-    int upgradelevelmeter = 0;
-    int range = 1;
-    int flag = 22; //ranges from 22 to 26 depending on the level
+    this.level = 1;
+    this.location = 1;//default starting location
+    this.attack = 8;
+    this.upgradelevelmeter = 0;
+    this.range = 1;
+    this.flag = 22; //ranges from 22 to 26 depending on the level
 }
     void gainexperience(int upgradelevelmeter)
     {
