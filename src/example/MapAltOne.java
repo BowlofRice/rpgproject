@@ -133,16 +133,17 @@ and a 0 if not.  The flag number designates the level and unit
     }
     
     /*public static void loadPixels(JLabel label, int[][] pixels) {
-		int width  = pixels.length;
-		int height = pixels[0].length; 
-		int i=0;
-		int[] pixarray = new int[width*height];
-		for (int y=0; y<height; y++){
-		for (int x=0; x<width;  x++){
-			pixarray[i++] = pixels[x][y];}}
-		MemoryImageSource source = new MemoryImageSource(width,height,pixarray,0,width);
-	    imageto=label.createImage(source);
-		ImageIcon imic=new ImageIcon(imageto);
-		label.setIcon(imic);		
-	}*/
+	int width  = pixels.length;
+	int height = pixels[0].length; 
+	int i=0;
+	int[] pixarray = new int[width*height];
+	for (int y=0; y<height; y++){
+	for (int x=0; x<width;  x++){
+		pixarray[i++] = pixels[x][y];}}
+	MemoryImageSource source = new MemoryImageSource(width,height,pixarray,0,width);
+    imageto=label.createImage(source);
+	ImageIcon imic=new ImageIcon(imageto);
+	label.setIcon(imic);		
+    }*/
+
 }
