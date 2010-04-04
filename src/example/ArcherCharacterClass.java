@@ -14,12 +14,12 @@ public class ArcherCharacterClass {
     int flag;
 
     public ArcherCharacterClass(){
-    int flag = 2; //this ranges from 2 to 6 depending on level
-    int level = 1;
-    int location = 1;//default starting location
-    int attack = 8;
-    int upgradelevelmeter = 0;
-    int range = 3;
+    this.flag = 2; //this ranges from 2 to 6 depending on level
+    this.level = 1;
+    this.location = 1;//default starting location
+    this.attack = 8;
+    this.upgradelevelmeter = 0;
+    this.range = 3;
 	}
 
     void gainexperience(int upgradelevelmeter)

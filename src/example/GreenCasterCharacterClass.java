@@ -14,12 +14,12 @@ public class GreenCasterCharacterClass {
     int flag;
 
 public GreenCasterCharacterClass(){
-    int level = 1;
-    int location = 1;//default starting location
-    int attack = 8;
-    int upgradelevelmeter = 0;
-    int range = 2;
-    int flag = 12; //ranges from 12 to 16 depending on the level
+    this.level = 1;
+    this.location = 1;//default starting location
+    this.attack = 8;
+    this.upgradelevelmeter = 0;
+    this.range = 2;
+    this.flag = 12; //ranges from 12 to 16 depending on the level
 }
 
     void gainexperience(int upgradelevelmeter)

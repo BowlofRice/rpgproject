@@ -15,12 +15,12 @@ public class ProphetCharacterClass {
     
     public ProphetCharacterClass(){
 
-    int level = 1;
-    int location = 1;//default starting location
-    int attack = 2;
-    int upgradelevelmeter = 0;
-    int range = 5;
-    int flag = 27; //ranges from 27 to 31 depending on range
+    this.level = 1;
+    this.location = 1;//default starting location
+    this.attack = 2;
+    this.upgradelevelmeter = 0;
+    this.range = 5;
+    this.flag = 27; //ranges from 27 to 31 depending on range
 
     }
 
@@ -40,7 +40,11 @@ public class ProphetCharacterClass {
     }
 
     void increase_attack(){
+<<<<<<< HEAD
+        attack+=attack*2;
+=======
         attack+=attack^2;
+>>>>>>> origin/master
     }
 
 
