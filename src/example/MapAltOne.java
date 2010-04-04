@@ -5,8 +5,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.awt.image.MemoryImageSource;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -128,4 +131,18 @@ and a 0 if not.  The flag number designates the level and unit
 
         }
     }
+    
+    /*public static void loadPixels(JLabel label, int[][] pixels) {
+		int width  = pixels.length;
+		int height = pixels[0].length; 
+		int i=0;
+		int[] pixarray = new int[width*height];
+		for (int y=0; y<height; y++){
+		for (int x=0; x<width;  x++){
+			pixarray[i++] = pixels[x][y];}}
+		MemoryImageSource source = new MemoryImageSource(width,height,pixarray,0,width);
+	    imageto=label.createImage(source);
+		ImageIcon imic=new ImageIcon(imageto);
+		label.setIcon(imic);		
+	}*/
 }
