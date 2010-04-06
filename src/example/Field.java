@@ -1,12 +1,16 @@
 package example;
 
 import java.awt.BasicStroke;
+import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
 public class Field extends Canvas{
@@ -16,9 +20,13 @@ public class Field extends Canvas{
 	public int flag=0;//for selecting what to show
 	public int counter=0;//to make the cursor bigger
 	public int counter2=0;//to make the cursor smaller
+	//public JButton newGameButton=new JButton("New Game");
+	//public JButton continueButton=new JButton("Continue");
+	private JFrame f;
 	
-	public Field(){
+	public Field(JFrame f){
 		setSize(800,600);
+		this.f=f;
 	}
 	public void timestep(){
 		if(KeyListen.keycode==39 && flag==0){
