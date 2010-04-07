@@ -40,7 +40,7 @@ public class ProphetCharacterClass {
     }
 
     void increase_attack(){
-        attack = attack*attack;
+        attack+=attack*attack;
     }
 
 
