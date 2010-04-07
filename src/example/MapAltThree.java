@@ -53,10 +53,10 @@ public class MapAltThree {
     
     public void paint(Graphics g, int[][] matrix)
     {   
-        Image img0 = Toolkit.getDefaultToolkit().getImage("Sand.gif");
-        Image img1 = Toolkit.getDefaultToolkit().getImage("pathway.gif");
-        Image img2 = Toolkit.getDefaultToolkit().getImage("grass.gif");
-        Image img3 = Toolkit.getDefaultToolkit().getImage("stronghold.gif");
+    	Image img0 = Toolkit.getDefaultToolkit().getImage("http://shop.advanceweb.com/images/swatches/LARose_sand.gif");
+        Image img1 = Toolkit.getDefaultToolkit().getImage("http://www.keladimaju.com/App_Themes/green/images/pathway.gif");
+        Image img2 = Toolkit.getDefaultToolkit().getImage("http://us.sollitaire.com/gallery/albums/NES-Gifs/grass.gif");
+        Image img3 = Toolkit.getDefaultToolkit().getImage("http://www.mtgcardshop.com/mtg-images/Set_icons/stronghold.gif");
         for(int i = 0; i < matrix.length; i++) {
         	for(int j = 0; j < matrix[0].length; j++) {
         		if(matrix[i][j] == 0) {
