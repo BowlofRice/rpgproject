@@ -53,20 +53,23 @@ public class MapAltOne {
     
     public void paint(Graphics g, int[][] matrix)
     {   
-        Image img0 = Toolkit.getDefaultToolkit().getImage("http://shop.advanceweb.com/images/swatches/LARose_sand.gif");
-        Image img1 = Toolkit.getDefaultToolkit().getImage("http://www.keladimaju.com/App_Themes/green/images/pathway.gif");
-        Image img2 = Toolkit.getDefaultToolkit().getImage("http://us.sollitaire.com/gallery/albums/NES-Gifs/grass.gif");
-        Image img3 = Toolkit.getDefaultToolkit().getImage("http://www.mtgcardshop.com/mtg-images/Set_icons/stronghold.gif");
-        for(int i = 0; i < matrix.length; i++) {
+    	System.out.println("we are painting!");
+        Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/LARose_sand.gif");//http://shop.advanceweb.com/images/swatches/LARose_sand.gif
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");//http://www.keladimaju.com/App_Themes/green/images/pathway.gif
+        Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/grass.gif");//http://us.sollitaire.com/gallery/albums/NES-Gifs/grass.gif
+        Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/stronghold.gif");//http://www.mtgcardshop.com/mtg-images/Set_icons/stronghold.gif
+        for(int i = 0; i < matrix.length; i++) {	
         	for(int j = 0; j < matrix[0].length; j++) {
         		if(matrix[i][j] == 0) {
-        			g.drawImage(img0, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        			g.drawImage(img0, i*matrix.length, j*matrix[0].length, null/*(ImageObserver) this*/);
         		} else if(matrix[i][j] == 1) {
-        			g.drawImage(img1, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        			g.drawImage(img1, i*matrix.length, j*matrix[0].length, null/*(ImageObserver) this*/);
         		} else if(matrix[i][j] == 2) {
-        			g.drawImage(img2, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        			g.drawImage(img2, i*matrix.length, j*matrix[0].length, null/*(ImageObserver) this*/);
         		} else if(matrix[i][j] == 3) {
-        			g.drawImage(img3, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        			g.drawImage(img3, i*matrix.length, j*matrix[0].length, null/*(ImageObserver) this*/);
+        		}else{
+        			System.err.println("should never happen!");
         		}
         	}
         }        			

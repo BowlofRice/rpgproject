@@ -6,13 +6,17 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Toolkit;
 
 public class Field extends Canvas{
 	int flag=0;
 	int dx;
 	int dy;
-	public Field(){
+	private MapAltOne maptest;
+	Image img0 = Toolkit.getDefaultToolkit().getImage("http://shop.advanceweb.com/images/swatches/LARose_sand.gif");
+	public Field(MapAltOne maptest){
 		setSize(800,600);
+		this.maptest=maptest;
 	}
 	public void update(Graphics g){
 		Image os = createImage(getWidth(), getHeight());
@@ -105,8 +109,7 @@ public class Field extends Canvas{
 			g.drawRect(211+dx, 438+dy, 100, 100);
 			break;
 		case 2://map 1
-			g.drawString("battlefield 1 goes here...", 100, 100);
-			g.drawString("b to go back", 10, 300);
+			maptest.paint(g, maptest.MapOne);
 			break;
 		case 3:
 			g.drawString("battlefield 2 goes here...", 100, 100);
