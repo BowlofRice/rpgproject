@@ -11,7 +11,7 @@ public class BlueCasterCharacterClass {
     int attack ;
     int upgradelevelmeter;
     int range ;
-    int flag;
+    int character_flag;
 
 public BlueCasterCharacterClass(){
     this.level = 1;
@@ -19,7 +19,7 @@ public BlueCasterCharacterClass(){
     this.attack = 8;
     this.upgradelevelmeter = 0;
     this.range = 2;
-    this.flag = 7; // this ranges from 7 - 11 depending on the level
+    this.character_flag = 7; // this ranges from 7 - 11 depending on the level
 }
 
     void gainexperience(int upgradelevelmeter)
@@ -35,7 +35,7 @@ public BlueCasterCharacterClass(){
     void increaselevel(){
         increase_attack();
         level++;
-        flag++;
+        character_flag++;
     }
 
     void increase_attack(){

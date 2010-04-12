@@ -11,7 +11,7 @@ public class RedCasterCharacterClass {
     int attack;
     int upgradelevelmeter;
     int range;
-    int flag;
+    int character_flag;
 
 public RedCasterCharacterClass(){
 
@@ -20,7 +20,7 @@ public RedCasterCharacterClass(){
     this.attack = 8;
     this.upgradelevelmeter = 0;
     this.range = 2;
-    this.flag = 17; //ranges from 17 to 21 depending on level
+    this.character_flag = 17; //ranges from 17 to 21 depending on level
 }
 
     void gainexperience(int upgradelevelmeter)
@@ -36,7 +36,7 @@ public RedCasterCharacterClass(){
     void increaselevel(){
         increase_attack();
         level++;
-        flag++;
+        character_flag++;
     }
 
     void increase_attack(){

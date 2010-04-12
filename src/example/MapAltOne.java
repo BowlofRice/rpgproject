@@ -19,6 +19,7 @@ import java.awt.image.ImageObserver;
 public class MapAltOne {
 
     public int[][] MapOne;
+    public int[][] MapOneCharacters;
 
     public MapAltOne(){
     	
@@ -48,6 +49,32 @@ public class MapAltOne {
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
+
+        /**
+         * The following is a map for the characters;
+         */
+        MapOneCharacters = new int[][]{
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+
         
     }
     
@@ -73,6 +100,149 @@ public class MapAltOne {
         		}
         	}
         }        			
+    }
+
+     /**
+     * paintCharacters
+     *
+     * @param matrix - this method paints the map for the characters placement
+     */
+    
+    public void paintCharacter(Graphics g, int[][] matrix)
+    {
+        //image for the basic bad guy
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
+
+        //images for the different levels of archers
+        Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char2.gif");
+        Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char3.gif");
+        Image img4 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char4.gif");
+        Image img5 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char5.gif");
+        Image img6 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char6.gif");
+
+        //images for the different levels of blue casters
+        Image img7 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char7.gif");
+        Image img8 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char8.gif");
+        Image img9 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char9.gif");
+        Image img10 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char10.gif");
+        Image img11= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char11.gif");
+
+        //green casters
+        Image img12 = Toolkit.getDefaultToolkit().getImage("");
+        Image img13 = Toolkit.getDefaultToolkit().getImage("");
+        Image img14 = Toolkit.getDefaultToolkit().getImage("");
+        Image img15 = Toolkit.getDefaultToolkit().getImage("");
+        Image img16= Toolkit.getDefaultToolkit().getImage("");
+
+        //images for different levels of redCaster
+        Image img17 = Toolkit.getDefaultToolkit().getImage("");
+        Image img18 = Toolkit.getDefaultToolkit().getImage("");
+        Image img19 = Toolkit.getDefaultToolkit().getImage("");
+        Image img20 = Toolkit.getDefaultToolkit().getImage("");
+        Image img21 = Toolkit.getDefaultToolkit().getImage("");
+
+        //images for different levels of melee fighters
+        Image img22 = Toolkit.getDefaultToolkit().getImage("");
+        Image img23 = Toolkit.getDefaultToolkit().getImage("");
+        Image img24 = Toolkit.getDefaultToolkit().getImage("");
+        Image img25 = Toolkit.getDefaultToolkit().getImage("");
+        Image img26 = Toolkit.getDefaultToolkit().getImage("");
+
+        //images for different levels of prophet
+        Image img27 = Toolkit.getDefaultToolkit().getImage("");
+        Image img28 = Toolkit.getDefaultToolkit().getImage("");
+        Image img29 = Toolkit.getDefaultToolkit().getImage("");
+        Image img30 = Toolkit.getDefaultToolkit().getImage("");
+        Image img31 = Toolkit.getDefaultToolkit().getImage("");
+
+        for(int i = 0; i < matrix.length; i++) {
+        	for(int j = 0; j < matrix[0].length; j++) {
+        		if(matrix[i][j] == 1) {
+        			g.drawImage(img1, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		}
+
+                        else if(matrix[i][j] == 2) {
+        			g.drawImage(img2, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 3) {
+        			g.drawImage(img3, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 4) {
+        			g.drawImage(img4, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 5) {
+        			g.drawImage(img5, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 6) {
+        			g.drawImage(img6, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 7) {
+        			g.drawImage(img7, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 8) {
+        			g.drawImage(img8, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 9) {
+        			g.drawImage(img9, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 10) {
+        			g.drawImage(img10, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 11) {
+        			g.drawImage(img11, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 12) {
+        			g.drawImage(img12, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 13) {
+        			g.drawImage(img13, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 14) {
+        			g.drawImage(img14, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 15) {
+        			g.drawImage(img15, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 16) {
+        			g.drawImage(img16, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 17) {
+        			g.drawImage(img17, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 18) {
+        			g.drawImage(img18, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 19) {
+        			g.drawImage(img19, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 20) {
+        			g.drawImage(img20, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 21) {
+        			g.drawImage(img21, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 22) {
+        			g.drawImage(img22, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 23) {
+        			g.drawImage(img23, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 24) {
+        			g.drawImage(img24, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 25) {
+        			g.drawImage(img25, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 26) {
+        			g.drawImage(img26, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 27) {
+        			g.drawImage(img27, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 28) {
+        			g.drawImage(img28, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 29) {
+        			g.drawImage(img29, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else if(matrix[i][j] == 30) {
+        			g.drawImage(img30, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		} else if(matrix[i][j] == 31) {
+        			g.drawImage(img31, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        }
+                        else{
+        			System.err.println("should never happen!");
+        		}
+
+        	}
+        }
+
     }
            
 /*

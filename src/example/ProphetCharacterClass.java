@@ -11,7 +11,7 @@ public class ProphetCharacterClass {
     int attack;
     int upgradelevelmeter;
     int range;
-    int flag;
+    int character_flag;
     
     public ProphetCharacterClass(){
 
@@ -20,7 +20,7 @@ public class ProphetCharacterClass {
     this.attack = 2;
     this.upgradelevelmeter = 0;
     this.range = 5;
-    this.flag = 27; //ranges from 27 to 31 depending on range
+    this.character_flag = 27; //ranges from 27 to 31 depending on range
 
     }
 
@@ -37,6 +37,7 @@ public class ProphetCharacterClass {
     void increaselevel(){
         increase_attack();
         level++;
+        character_flag++;
     }
 
     void increase_attack(){

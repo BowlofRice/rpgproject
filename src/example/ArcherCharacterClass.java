@@ -11,10 +11,10 @@ public class ArcherCharacterClass {
     int attack;
     int upgradelevelmeter;
     int range;
-    int flag;
+    int character_flag;
 
     public ArcherCharacterClass(){
-    this.flag = 2; //this ranges from 2 to 6 depending on level
+    this.character_flag = 2; //this ranges from 2 to 6 depending on level
     this.level = 1;
     this.location = 1;//default starting location
     this.attack = 8;
@@ -35,7 +35,7 @@ public class ArcherCharacterClass {
     void increaselevel(){
         increase_attack();
         level++;
-        flag++;
+        character_flag++;
     }
 
     void increase_attack(){
