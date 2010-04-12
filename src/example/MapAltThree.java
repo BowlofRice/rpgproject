@@ -51,26 +51,26 @@ public class MapAltThree {
         {1,1,1,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
 
         MapThreeCharacters = new int[][]{
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+        {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
+        {0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+        {0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+        {0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
+        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 
         
     }
@@ -108,49 +108,49 @@ public class MapAltThree {
     public void paintCharacter(Graphics g, int[][] matrix)
     {
         //image for the basic bad guy
-        Image img1 = Toolkit.getDefaultToolkit().getImage("");
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
 
         //images for the different levels of archers
-        Image img2 = Toolkit.getDefaultToolkit().getImage("");
-        Image img3 = Toolkit.getDefaultToolkit().getImage("");
-        Image img4 = Toolkit.getDefaultToolkit().getImage("");
-        Image img5 = Toolkit.getDefaultToolkit().getImage("");
-        Image img6 = Toolkit.getDefaultToolkit().getImage("");
+        Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char2.gif");
+        Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char3.gif");
+        Image img4 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char4.gif");
+        Image img5 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char5.gif");
+        Image img6 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char6.gif");
 
         //images for the different levels of blue casters
-        Image img7 = Toolkit.getDefaultToolkit().getImage("");
-        Image img8 = Toolkit.getDefaultToolkit().getImage("");
-        Image img9 = Toolkit.getDefaultToolkit().getImage("");
-        Image img10 = Toolkit.getDefaultToolkit().getImage("");
-        Image img11= Toolkit.getDefaultToolkit().getImage("");
+        Image img7 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char7.gif");
+        Image img8 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char8.gif");
+        Image img9 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char9.gif");
+        Image img10 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char10.gif");
+        Image img11= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char11.gif");
 
         //green casters
-        Image img12 = Toolkit.getDefaultToolkit().getImage("");
-        Image img13 = Toolkit.getDefaultToolkit().getImage("");
-        Image img14 = Toolkit.getDefaultToolkit().getImage("");
-        Image img15 = Toolkit.getDefaultToolkit().getImage("");
-        Image img16= Toolkit.getDefaultToolkit().getImage("");
+        Image img12 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char12.gif");
+        Image img13 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char13.gif");
+        Image img14 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char14.gif");
+        Image img15 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char15.gif");
+        Image img16= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char16.gif");
 
         //images for different levels of redCaster
-        Image img17 = Toolkit.getDefaultToolkit().getImage("");
-        Image img18 = Toolkit.getDefaultToolkit().getImage("");
-        Image img19 = Toolkit.getDefaultToolkit().getImage("");
-        Image img20 = Toolkit.getDefaultToolkit().getImage("");
-        Image img21 = Toolkit.getDefaultToolkit().getImage("");
+        Image img17 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char17.gif");
+        Image img18 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char18.gif");
+        Image img19 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char19.gif");
+        Image img20 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char20.gif");
+        Image img21 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char21.gif");
 
         //images for different levels of melee fighters
-        Image img22 = Toolkit.getDefaultToolkit().getImage("");
-        Image img23 = Toolkit.getDefaultToolkit().getImage("");
-        Image img24 = Toolkit.getDefaultToolkit().getImage("");
-        Image img25 = Toolkit.getDefaultToolkit().getImage("");
-        Image img26 = Toolkit.getDefaultToolkit().getImage("");
+        Image img22 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char22.gif");
+        Image img23 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char23.gif");
+        Image img24 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char24.gif");
+        Image img25 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char25.gif");
+        Image img26 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char26.gif");
 
         //images for different levels of prophet
-        Image img27 = Toolkit.getDefaultToolkit().getImage("");
-        Image img28 = Toolkit.getDefaultToolkit().getImage("");
-        Image img29 = Toolkit.getDefaultToolkit().getImage("");
-        Image img30 = Toolkit.getDefaultToolkit().getImage("");
-        Image img31 = Toolkit.getDefaultToolkit().getImage("");
+        Image img27 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char27.gif");
+        Image img28 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char28.gif");
+        Image img29 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char29.gif");
+        Image img30 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char30.gif");
+        Image img31 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char31.gif");
 
         for(int i = 0; i < matrix.length; i++) {
         	for(int j = 0; j < matrix[0].length; j++) {
@@ -242,16 +242,17 @@ public class MapAltThree {
 
     }
 /*
-This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing, 
+This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing,
 and a 0 if not.  The flag number designates the level and unit
+ */
     public int placeGoodGuy(int row, int column, int flag){
-        if(MapThree[row][column] == 0){
-        MapThree[row][column] = flag;
+        if(MapThreeCharacters[row][column] == 0){
+        MapThreeCharacters[row][column] = flag;
         return 1;
         }
         else
             return 0;
-    } */
+    }
     
 
     //Altered to fit my new schema

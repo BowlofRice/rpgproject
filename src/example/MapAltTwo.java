@@ -51,26 +51,26 @@ public class MapAltTwo {
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
 
         MapTwoCharacters = new int[][]{
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 
         
     }
@@ -108,21 +108,21 @@ public class MapAltTwo {
     public void paintCharacter(Graphics g, int[][] matrix)
     {
         //image for the basic bad guy
-        Image img1 = Toolkit.getDefaultToolkit().getImage("");
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
 
         //images for the different levels of archers
-        Image img2 = Toolkit.getDefaultToolkit().getImage("");
-        Image img3 = Toolkit.getDefaultToolkit().getImage("");
-        Image img4 = Toolkit.getDefaultToolkit().getImage("");
-        Image img5 = Toolkit.getDefaultToolkit().getImage("");
-        Image img6 = Toolkit.getDefaultToolkit().getImage("");
+        Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char2.gif");
+        Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char3.gif");
+        Image img4 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char4.gif");
+        Image img5 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char5.gif");
+        Image img6 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char6.gif");
 
         //images for the different levels of blue casters
-        Image img7 = Toolkit.getDefaultToolkit().getImage("");
-        Image img8 = Toolkit.getDefaultToolkit().getImage("");
-        Image img9 = Toolkit.getDefaultToolkit().getImage("");
-        Image img10 = Toolkit.getDefaultToolkit().getImage("");
-        Image img11= Toolkit.getDefaultToolkit().getImage("");
+        Image img7 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char7.gif");
+        Image img8 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char8.gif");
+        Image img9 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char9.gif");
+        Image img10 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char10.gif");
+        Image img11= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char11.gif");
 
         //green casters
         Image img12 = Toolkit.getDefaultToolkit().getImage("");
@@ -243,16 +243,17 @@ public class MapAltTwo {
     }
            
 /*
-This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing, 
+This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing,
 and a 0 if not.  The flag number designates the level and unit
+ */
     public int placeGoodGuy(int row, int column, int flag){
-        if(MapTwo[row][column] == 0){
-        MapTwo[row][column] = flag;
+        if(MapTwoCharacters[row][column] == 0){
+        MapTwoCharacters[row][column] = flag;
         return 1;
         }
         else
             return 0;
-    } */
+    }
     
 
     //Altered to fit my new schema
