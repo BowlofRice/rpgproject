@@ -75,22 +75,22 @@ public class MapAltTwo {
         
     }
     
-    public void paint(Graphics g, int[][] matrix)
+    public void paint(Graphics g)
     {   
     	Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/LARose_sand.gif");
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
         Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/grass.gif");
         Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/stronghold.gif");
-        for(int i = 0; i < matrix.length; i++) {
-        	for(int j = 0; j < matrix[0].length; j++) {
-        		if(matrix[i][j] == 0) {
-        			g.drawImage(img0, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 1) {
-        			g.drawImage(img1, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 2) {
-        			g.drawImage(img2, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 3) {
-        			g.drawImage(img3, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        for(int i = 0; i < MapTwo.length; i++) {
+        	for(int j = 0; j < MapTwo[0].length; j++) {
+        		if(MapTwo[i][j] == 0) {
+        			g.drawImage(img0, i*MapTwo.length, j*MapTwo[0].length, null);
+        		} else if(MapTwo[i][j] == 1) {
+        			g.drawImage(img1, i*MapTwo.length, j*MapTwo[0].length, null);
+        		} else if(MapTwo[i][j] == 2) {
+        			g.drawImage(img2, i*MapTwo.length, j*MapTwo[0].length, null);
+        		} else if(MapTwo[i][j] == 3) {
+        			g.drawImage(img3, i*MapTwo.length, j*MapTwo[0].length, null);
         		}
                         else{
         			System.err.println("should never happen!");
@@ -102,10 +102,10 @@ public class MapAltTwo {
      /**
      * paintCharacters
      *
-     * @param matrix - this method paints the map for the characters placement
+     * @param MapTwo - this method paints the map for the characters placement
      */
 
-    public void paintCharacter(Graphics g, int[][] matrix)
+    public void paintCharacter(Graphics g, int i, int j)
     {
         //image for the basic bad guy
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
@@ -152,95 +152,93 @@ public class MapAltTwo {
         Image img30 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char30.gif");
         Image img31 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char31.gif");
 
-        for(int i = 0; i < matrix.length; i++) {
-        	for(int j = 0; j < matrix[0].length; j++) {
-        		if(matrix[i][j] == 1) {
-        			g.drawImage(img1, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+        		if(MapTwo[i][j] == 1) {
+        			g.drawImage(img1, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
         		}
 
-                        else if(matrix[i][j] == 2) {
-        			g.drawImage(img2, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 3) {
-        			g.drawImage(img3, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 2) {
+        			g.drawImage(img2, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 3) {
+        			g.drawImage(img3, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 4) {
-        			g.drawImage(img4, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 5) {
-        			g.drawImage(img5, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 4) {
+        			g.drawImage(img4, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 5) {
+        			g.drawImage(img5, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 6) {
-        			g.drawImage(img6, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 7) {
-        			g.drawImage(img7, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 6) {
+        			g.drawImage(img6, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 7) {
+        			g.drawImage(img7, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 8) {
-        			g.drawImage(img8, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 9) {
-        			g.drawImage(img9, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 8) {
+        			g.drawImage(img8, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 9) {
+        			g.drawImage(img9, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 10) {
-        			g.drawImage(img10, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 11) {
-        			g.drawImage(img11, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 10) {
+        			g.drawImage(img10, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 11) {
+        			g.drawImage(img11, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 12) {
-        			g.drawImage(img12, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 13) {
-        			g.drawImage(img13, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 12) {
+        			g.drawImage(img12, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 13) {
+        			g.drawImage(img13, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 14) {
-        			g.drawImage(img14, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 15) {
-        			g.drawImage(img15, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 14) {
+        			g.drawImage(img14, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 15) {
+        			g.drawImage(img15, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 16) {
-        			g.drawImage(img16, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 17) {
-        			g.drawImage(img17, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 16) {
+        			g.drawImage(img16, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 17) {
+        			g.drawImage(img17, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 18) {
-        			g.drawImage(img18, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 19) {
-        			g.drawImage(img19, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 18) {
+        			g.drawImage(img18, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 19) {
+        			g.drawImage(img19, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 20) {
-        			g.drawImage(img20, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 21) {
-        			g.drawImage(img21, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 20) {
+        			g.drawImage(img20, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 21) {
+        			g.drawImage(img21, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 22) {
-        			g.drawImage(img22, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 23) {
-        			g.drawImage(img23, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 22) {
+        			g.drawImage(img22, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 23) {
+        			g.drawImage(img23, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 24) {
-        			g.drawImage(img24, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 25) {
-        			g.drawImage(img25, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 24) {
+        			g.drawImage(img24, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 25) {
+        			g.drawImage(img25, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 26) {
-        			g.drawImage(img26, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 27) {
-        			g.drawImage(img27, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 26) {
+        			g.drawImage(img26, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 27) {
+        			g.drawImage(img27, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 28) {
-        			g.drawImage(img28, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 29) {
-        			g.drawImage(img29, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 28) {
+        			g.drawImage(img28, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 29) {
+        			g.drawImage(img29, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
-                        else if(matrix[i][j] == 30) {
-        			g.drawImage(img30, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
-        		} else if(matrix[i][j] == 31) {
-        			g.drawImage(img31, i*matrix.length, j*matrix[0].length, (ImageObserver) this);
+                        else if(MapTwo[i][j] == 30) {
+        			g.drawImage(img30, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
+        		} else if(MapTwo[i][j] == 31) {
+        			g.drawImage(img31, i*MapTwo.length, j*MapTwo[0].length, (ImageObserver) this);
                         }
                         else{
         			System.err.println("should never happen!");
         		}
 
         	}
-        }
+ 
 
-    }
+    
            
 /*
 This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing,
@@ -257,14 +255,14 @@ and a 0 if not.  The flag number designates the level and unit
     
 
     //Altered to fit my new schema
-    public void printMapTwo(int[][] matrix){
+    public void printMapTwo(){
         int i, j;
-        for(i = 0; i < matrix.length; i++)
+        for(i = 0; i < MapTwo.length; i++)
         {
-            for(j = 0;j < matrix[0].length;j++)
+            for(j = 0;j < MapTwo[0].length;j++)
             {
 
-                System.out.print(matrix[i][j]+" ");
+                System.out.print(MapTwo[i][j]+" ");
             }
             System.out.print("\n");
 

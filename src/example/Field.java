@@ -6,17 +6,25 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 
+@SuppressWarnings("serial")
 public class Field extends Canvas{
 	int flag=0;
 	int dx;
 	int dy;
+	int xEnemyCoor=9;//coordinates for an enemy
+	int yEnemyCoor=0;
+	int xAllyCoor=10;//ally coordinates have to abide to valid location
+	int yAllyCoor=10;
+	int allyFlag=2;//2~31
 	private MapAltOne maptest;
-	Image img0 = Toolkit.getDefaultToolkit().getImage("http://shop.advanceweb.com/images/swatches/LARose_sand.gif");
-	public Field(MapAltOne maptest){
+	private MapAltTwo map2test;
+	private MapAltThree map3test;
+	public Field(MapAltOne maptest, MapAltTwo map2test, MapAltThree map3test){
 		setSize(800,600);
 		this.maptest=maptest;
+		this.map2test=map2test;
+		this.map3test=map3test;
 	}
 	public void update(Graphics g){
 		Image os = createImage(getWidth(), getHeight());
@@ -85,9 +93,7 @@ public class Field extends Canvas{
 		}
 	}
 	public void paint(Graphics g){
-		Font ff=new Font("Final Fantasy", Font.PLAIN,100);
 		Font text=new Font("G.B.BOOT", Font.PLAIN,40);
-		Font text2=new Font("G.B.BOOT", Font.PLAIN,10);
 		setBackground(Color.BLACK);
 		g.setFont(text);
 		switch(flag){
@@ -109,15 +115,15 @@ public class Field extends Canvas{
 			g.drawRect(211+dx, 438+dy, 100, 100);
 			break;
 		case 2://map 1
-			maptest.paint(g, maptest.MapOne);
+			maptest.paint(g);
+			maptest.paintCharacter(g, xEnemyCoor, yEnemyCoor, 1);//draws enemies
+			maptest.paintCharacter(g, xAllyCoor, yAllyCoor, allyFlag);//draws allies
 			break;
 		case 3:
-			g.drawString("battlefield 2 goes here...", 100, 100);
-			g.drawString("b to go back", 10, 300);
+			map2test.paint(g);
 			break;
 		case 4:
-			g.drawString("battlefield 3 goes here...", 100, 100);
-			g.drawString("b to go back", 10, 300);
+			map3test.paint(g);
 			break;
 	}
 		//System.out.println(flag);
