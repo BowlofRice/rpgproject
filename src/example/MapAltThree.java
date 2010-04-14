@@ -21,6 +21,42 @@ public class MapAltThree {
     public int[][] MapThree;
     public int[][] MapThreeCharacters;
 
+    public static final int ARCHER1 = 2;
+    public static final int ARCHER2 = 3;
+    public static final int ARCHER3 = 4;
+    public static final int ARCHER4 = 5;
+    public static final int ARCHER5 = 6;
+
+    public static final int BLUECASTER1 = 7;
+    public static final int BLUECASTER2 = 8;
+    public static final int BLUECASTER3 = 9;
+    public static final int BLUECASTER4 = 10;
+    public static final int BLUECASTER5 = 11;
+
+    public static final int GREENCASTER1 = 12;
+    public static final int GREENCASTER2 = 13;
+    public static final int GREENCASTER3 = 14;
+    public static final int GREENCASTER4 = 15;
+    public static final int GREENCASTER5 = 16;
+
+    public static final int REDCASTER1 = 17;
+    public static final int REDCASTER2 = 18;
+    public static final int REDCASTER3 = 19;
+    public static final int REDCASTER4 = 20;
+    public static final int REDCASTER5 = 21;
+
+    public static final int MELEE1 = 22;
+    public static final int MELEE2 = 23;
+    public static final int MELEE3 = 24;
+    public static final int MELEE4 = 25;
+    public static final int MELEE5 = 26;
+
+    public static final int PROPHET1 = 27;
+    public static final int PROPHET2 = 28;
+    public static final int PROPHET3 = 29;
+    public static final int PROPHET4 = 30;
+    public static final int PROPHET5 = 31;
+
     public MapAltThree(){
     	
         //A lengthy predefined map to use
@@ -105,7 +141,7 @@ public class MapAltThree {
      * @param MapThree - this method paints the map for the characters placement
      */
 
-    public void paintCharacter(Graphics g, int i, int j)
+    public void paintCharacter(Graphics g, int i, int j, int char_flag)
     {
         //image for the basic bad guy
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
@@ -152,83 +188,83 @@ public class MapAltThree {
         Image img30 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char30.gif");
         Image img31 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char31.gif");
 
-        		if(MapThree[i][j] == 1) {
+        		if(char_flag == 1) {
         			g.drawImage(img1, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
         		}
 
-                        else if(MapThree[i][j] == 2) {
+                        else if(char_flag == 2) {
         			g.drawImage(img2, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 3) {
+        		} else if(char_flag == 3) {
         			g.drawImage(img3, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 4) {
+                        else if(char_flag == 4) {
         			g.drawImage(img4, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 5) {
+        		} else if(char_flag == 5) {
         			g.drawImage(img5, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 6) {
+                        else if(char_flag == 6) {
         			g.drawImage(img6, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 7) {
+        		} else if(char_flag == 7) {
         			g.drawImage(img7, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 8) {
+                        else if(char_flag == 8) {
         			g.drawImage(img8, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 9) {
+        		} else if(char_flag == 9) {
         			g.drawImage(img9, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 10) {
+                        else if(char_flag == 10) {
         			g.drawImage(img10, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 11) {
+        		} else if(char_flag == 11) {
         			g.drawImage(img11, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 12) {
+                        else if(char_flag == 12) {
         			g.drawImage(img12, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 13) {
+        		} else if(char_flag == 13) {
         			g.drawImage(img13, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 14) {
+                        else if(char_flag == 14) {
         			g.drawImage(img14, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 15) {
+        		} else if(char_flag == 15) {
         			g.drawImage(img15, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 16) {
+                        else if(char_flag == 16) {
         			g.drawImage(img16, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 17) {
+        		} else if(char_flag == 17) {
         			g.drawImage(img17, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 18) {
+                        else if(char_flag == 18) {
         			g.drawImage(img18, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 19) {
+        		} else if(char_flag == 19) {
         			g.drawImage(img19, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 20) {
+                        else if(char_flag == 20) {
         			g.drawImage(img20, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 21) {
+        		} else if(char_flag == 21) {
         			g.drawImage(img21, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 22) {
+                        else if(char_flag == 22) {
         			g.drawImage(img22, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 23) {
+        		} else if(char_flag == 23) {
         			g.drawImage(img23, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 24) {
+                        else if(char_flag == 24) {
         			g.drawImage(img24, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 25) {
+        		} else if(char_flag == 25) {
         			g.drawImage(img25, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 26) {
+                        else if(char_flag == 26) {
         			g.drawImage(img26, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 27) {
+        		} else if(char_flag == 27) {
         			g.drawImage(img27, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 28) {
+                        else if(char_flag == 28) {
         			g.drawImage(img28, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 29) {
+        		} else if(char_flag == 29) {
         			g.drawImage(img29, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
-                        else if(MapThree[i][j] == 30) {
+                        else if(char_flag == 30) {
         			g.drawImage(img30, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
-        		} else if(MapThree[i][j] == 31) {
+        		} else if(char_flag == 31) {
         			g.drawImage(img31, i*MapThree.length, j*MapThree[0].length, (ImageObserver) this);
                         }
                         else{
