@@ -116,7 +116,8 @@ public class Field extends Canvas{
 			break;
 		case 2://map 1
 			maptest.paint(g);
-			maptest.paintCharacter(g, xEnemyCoor, yEnemyCoor, 1);//draws enemies
+			//maptest.paintCharacter(g, xEnemyCoor, yEnemyCoor, 1);//draws enemies
+			maptest.moveEnemy(g, maptest.MapTraversalOne, 9, 1);
 			maptest.paintCharacter(g, xAllyCoor, yAllyCoor, allyFlag);//draws allies
 			break;
 		case 3:

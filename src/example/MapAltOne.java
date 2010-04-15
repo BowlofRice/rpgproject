@@ -3,6 +3,8 @@ package example;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Random;
+
 
 
 /*
@@ -19,7 +21,7 @@ public class MapAltOne {
 
     public int[][] MapOne;
     public int[][] MapOneCharacters;
-    
+    public int[][] MapTraversalOne;
     
     
     public static final int ARCHER1 = 2;
@@ -59,10 +61,8 @@ public class MapAltOne {
     public static final int PROPHET5 = 31;
 
     public MapAltOne(){
-    //EVENTUALLY ADD FINAL INT VARS FOR CHARACTERS
 
 
-     //public static final BLUECAST4 =10;
         //A lengthy predefined map to use
     	//0 -- Sand
     	//1 -- Path
@@ -115,8 +115,147 @@ public class MapAltOne {
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 
-        
-    }
+        MapTraversalOne = new int[][] {
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},        
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},        
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},       
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},      
+        		{   0,   0,   0,   0,   0,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,3300,   0,   0,   0},     
+        		{   0,   0,   0,   0,   0,2100,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3400,   0,   0,   0},     
+        		{   0,   0,   0,   0,   0,2000,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3500,   0,   0,   0},   
+        		{   0,   0,   0,   0,   0,1900,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,4000,4100,4200,5000},   
+        		{   0,   0,   0,   0,   0,1800,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3900,   0,   0,   0},     
+        		{1000,1100,1200,1300,1400,1500,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3800,   0,   0,   0},    
+        		{   0,   0,   0,   0,   0,1600,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3700,   0,   0,   0},  
+        		{   0,   0,   0,   0,   0,1700,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3600,   0,   0,   0}, 
+        		{   0,   0,   0,   0,   0,1800,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3500,   0,   0,   0},  
+        		{   0,   0,   0,   0,   0,1900,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3400,   0,   0,   0},   
+        		{   0,   0,   0,   0,   0,2000,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,3300,   0,   0,   0},   
+        		{   0,   0,   0,   0,   0,2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,3100,3200,   0,   0,   0},  
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},    
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},       
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},        
+        		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
+        	}
+    
+    void moveEnemy(Graphics g, int[][] Matrix , int i, int j)
+	{
+    	
+	   Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
+	   Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
+	   while(Matrix[i][j]>0 && j<19)
+	   {   
+		    if(Matrix[i][j] < Matrix[i][j+1])
+		    {
+		        g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+		        g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
+               //Matrix[i][j] = Matrix[i][j+1];
+		        
+		        j+=1;
+		    } else if(Matrix[i][j] < Matrix[i+1][j]) {
+            	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i+1][j];
+            	i+=1;
+		    } else if(Matrix[i][j] < Matrix[i][j-1]) {
+            	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	g.drawImage(img0, i*Matrix.length, (j-1)*Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i][j-1];
+            	j-=1;
+		    } else if(Matrix[i][j] < Matrix[i-1][j]) {
+            	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	g.drawImage(img0, (i-1)*Matrix.length, j*Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i-1][j];
+            	i-=1;
+		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i+1][j]) {
+            	Random r = new Random();
+            	int randNum = r.nextInt(10);
+            	if(0 <= randNum && randNum <= 5) {
+            	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	       g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i][j+1];
+            	       j+=1;
+            	} else {
+                       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+                       g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i+1][j];
+                       i+=1;
+                       }
+		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i][j-1]) {
+            	Random r = new Random();
+            	int randNum = r.nextInt(10);
+            	if(0 <= randNum && randNum <= 5) {
+            	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	       g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i][j+1];
+            	       j+=1;
+            	} else {
+                    	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+                    	g.drawImage(img0, i*Matrix.length, (j-1)*Matrix[0].length, null);
+                        //Matrix[i][j] = Matrix[i][j-1];
+                    	j-=1;
+                    	}
+		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i-1][j]) {
+            	Random r = new Random();
+            	int randNum = r.nextInt(10);
+            	if(0 <= randNum && randNum <= 5) {
+            	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	       g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i][j+1];
+            	       j+=1;
+            	} else {
+                    	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+                    	g.drawImage(img0, (i-1)*Matrix.length, j*Matrix[0].length, null);
+                        //Matrix[i][j] = Matrix[i-1][j];
+                    	i-=1;
+                    	}
+		    } else if(Matrix[i][j] < Matrix[i+1][j] && Matrix[i][j] < Matrix[i][j-1]) {
+            	Random r = new Random();
+            	int randNum = r.nextInt(10);
+            	if(0 <= randNum && randNum <= 5) {
+            	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	       g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i+1][j];
+            	       i+=1;
+            	} else {
+                    	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+                    	g.drawImage(img0, i*Matrix.length, (j-1)*Matrix[0].length, null);
+                        //Matrix[i][j] = Matrix[i][j-1];
+                    	j-=1;
+                    	}
+		    } else if(Matrix[i][j] < Matrix[i+1][j] && Matrix[i][j] < Matrix[i-1][j]) {
+            	Random r = new Random();
+            	int randNum = r.nextInt(10);
+            	if(0 <= randNum && randNum <= 5) {
+            	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	       g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i+1][j];
+            	       i+=1;
+            	} else {
+                    	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+                    	g.drawImage(img0, (i-1)*Matrix.length, j*Matrix[0].length, null);
+                        //Matrix[i][j] = Matrix[i-1][j];
+                    	i-=1;
+                    	}
+		    } else if(Matrix[i][j] < Matrix[i][j-1] && Matrix[i][j] < Matrix[i-1][j]) {
+            	Random r = new Random();
+            	int randNum = r.nextInt(10);
+            	if(0 <= randNum && randNum <= 5) {
+            	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+            	       g.drawImage(img0, i*Matrix.length, (j-1)*Matrix[0].length, null);
+                       //Matrix[i][j] = Matrix[i][j-1];
+            	       j-=1;
+            	} else {
+                    	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
+                    	g.drawImage(img0, (i-1)*Matrix.length, j*Matrix[0].length, null);
+                        //Matrix[i][j] = Matrix[i-1][j];
+                    	i-=1;
+            }} else {
+            	System.out.println("Oh, snap, we stuck!"); 	
+            }
+		  
+	   	}
+	}
     
     public void paint(Graphics g)
     {   
