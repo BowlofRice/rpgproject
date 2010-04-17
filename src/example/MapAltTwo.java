@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
+import java.lang.Math;
 
 
 /*
@@ -20,6 +21,7 @@ public class MapAltTwo {
 
     public int[][] MapTwo;
     public int[][] MapTwoCharacters;
+    public int[][] MapTraversalTwo;
 
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
@@ -108,8 +110,78 @@ public class MapAltTwo {
         {1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 
+        MapTraversalTwo = new int[][]{
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,2023,2024,2025,2026},
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,2022,   0,   0,   0},
+        {   0,   0,   0,   0,   0,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,   0,   0,   0},
+        {   0,   0,   0,   0,   0,2009,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,2022,   0,   0,   0},
+        {   0,   0,   0,   0,   0,2008,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,2023,   0,   0,   0},
+        {   0,   0,   0,   0,   0,2007,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,2024,2025,2026,2027},
+        {   0,   0,   0,   0,   0,2006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,2005,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,2004,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,2002,2003,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,2001,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,2000,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,1009,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,1008,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,1007,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,1006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {1001,1002,1003,1004,1005,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
+
         
     }
+
+    /**
+     *
+     * @param g
+     * @param Matrix
+     * @param i
+     * @param j
+     *
+     * function which chooses a random number from 0 - 6 and chooses an increment
+     * in a matrix which will always choose a higher value from previous position
+     */
+    void moveEnemy2(Graphics g, int[][] Matrix, int i, int j) {
+
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
+        Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
+        double randomnum = 0;
+        int rand = 0;
+        while (Matrix[i][j] > 0 && j < 19) {
+            randomnum = Math.random();
+            randomnum = randomnum * 6;
+            rand = (int) randomnum;
+            if (rand < 2 && Matrix[i][j] < Matrix[i][j + 1]) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * Matrix.length, (j + 1) * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i][j+1];
+
+                j += 1;
+            } else if (2 <= rand && rand <= 3 && Matrix[i][j] < Matrix[i][j - 1]) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * Matrix.length, (j - 1) * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i][j-1];
+                j -= 1;
+            } else if (3 < rand && rand <= 4 && Matrix[i][j] < Matrix[i + 1][j]) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, (i + 1) * Matrix.length, j * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i+1][j];
+                i += 1;
+            } else if (4 < rand && rand <= 6 && Matrix[i][j] < Matrix[i - 1][j]) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, (i - 1) * Matrix.length, j * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i-1][j];
+                i -= 1;
+            } else {
+                System.out.println("Nothing should happen if this outputs\n");
+            }
+        }}
+
+
     
     public void paint(Graphics g)
     {   
@@ -117,7 +189,7 @@ public class MapAltTwo {
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
         Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/grass.gif");
         Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/stronghold.gif");
-        for(int i = 0; i < MapTwo.length; i++) {
+        for(int i =   0; i < MapTwo.length; i++) {
         	for(int j = 0; j < MapTwo[0].length; j++) {
         		if(MapTwo[i][j] == 0) {
         			g.drawImage(img0, i*MapTwo.length, j*MapTwo[0].length, null);
