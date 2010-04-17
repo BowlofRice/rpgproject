@@ -5,7 +5,11 @@ package example;
  * 
  */
 public class ArcherCharacterClass {
-
+    public static final int ARCHER_FLAG_1 = 2;
+    public static final int ARCHER_FLAG_2 = 3;
+    public static final int ARCHER_FLAG_3 = 4;
+    public static final int ARCHER_FLAG_4 = 5;
+    public static final int ARCHER_FLAG_5 = 6;
     int level;
     int location;//default starting location
     int attack;

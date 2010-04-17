@@ -5,7 +5,11 @@ package example;
  * 
  */
 public class MeleeCharacterClass {
-
+    public static final int MELEE_FLAG_1 = 22;
+    public static final int MELEE_FLAG_2 = 23;
+    public static final int MELEE_FLAG_3 = 24;
+    public static final int MELEE_FLAG_4 = 25;
+    public static final int MELEE_FLAG_5 = 26;
     int level;
     int location;//default starting location
     int attack;

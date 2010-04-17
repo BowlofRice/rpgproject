@@ -22,41 +22,41 @@ public class MapAltOne {
     
     
     
-    public static final int ARCHER1 = 2;
-    public static final int ARCHER2 = 3;
-    public static final int ARCHER3 = 4;
-    public static final int ARCHER4 = 5;
-    public static final int ARCHER5 = 6;
+    public static final int ARCHER_FLAG_1 = 2;
+    public static final int ARCHER_FLAG_2 = 3;
+    public static final int ARCHER_FLAG_3 = 4;
+    public static final int ARCHER_FLAG_4 = 5;
+    public static final int ARCHER_FLAG_5 = 6;
    
-    public static final int BLUECASTER1 = 7;
-    public static final int BLUECASTER2 = 8;
-    public static final int BLUECASTER3 = 9;
-    public static final int BLUECASTER4 = 10;
-    public static final int BLUECASTER5 = 11;
+    public static final int BLUECASTER_FLAG_1 = 7;
+    public static final int BLUECASTER_FLAG_2 = 8;
+    public static final int BLUECASTER_FLAG_3 = 9;
+    public static final int BLUECASTER_FLAG_4 = 10;
+    public static final int BLUECASTER_FLAG_5 = 11;
 
-    public static final int GREENCASTER1 = 12;
-    public static final int GREENCASTER2 = 13;
-    public static final int GREENCASTER3 = 14;
-    public static final int GREENCASTER4 = 15;
-    public static final int GREENCASTER5 = 16;
+    public static final int GREENCASTER_FLAG_1 = 12;
+    public static final int GREENCASTER_FLAG_2 = 13;
+    public static final int GREENCASTER_FLAG_3 = 14;
+    public static final int GREENCASTER_FLAG_4 = 15;
+    public static final int GREENCASTER_FLAG_5 = 16;
 
-    public static final int REDCASTER1 = 17;
-    public static final int REDCASTER2 = 18;
-    public static final int REDCASTER3 = 19;
-    public static final int REDCASTER4 = 20;
-    public static final int REDCASTER5 = 21;
+    public static final int REDCASTER_FLAG_1 = 17;
+    public static final int REDCASTER_FLAG_2 = 18;
+    public static final int REDCASTER_FLAG_3 = 19;
+    public static final int REDCASTER_FLAG_4 = 20;
+    public static final int REDCASTER_FLAG_5 = 21;
 
-    public static final int MELEE1 = 22;
-    public static final int MELEE2 = 23;
-    public static final int MELEE3 = 24;
-    public static final int MELEE4 = 25;
-    public static final int MELEE5 = 26;
+    public static final int MELEE_FLAG_1 = 22;
+    public static final int MELEE_FLAG_2 = 23;
+    public static final int MELEE_FLAG_3 = 24;
+    public static final int MELEE_FLAG_4 = 25;
+    public static final int MELEE_FLAG_5 = 26;
 
-    public static final int PROPHET1 = 27;
-    public static final int PROPHET2 = 28;
-    public static final int PROPHET3 = 29;
-    public static final int PROPHET4 = 30;
-    public static final int PROPHET5 = 31;
+    public static final int PROPHET_FLAG_1 = 27;
+    public static final int PROPHET_FLAG_2 = 28;
+    public static final int PROPHET_FLAG_3 = 29;
+    public static final int PROPHET_FLAG_4 = 30;
+    public static final int PROPHET_FLAG_5 = 31;
 
     public MapAltOne(){
     //EVENTUALLY ADD FINAL INT VARS FOR CHARACTERS

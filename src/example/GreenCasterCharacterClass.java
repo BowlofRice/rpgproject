@@ -5,7 +5,11 @@ package example;
  * 
  */
 public class GreenCasterCharacterClass {
-
+    public static final int GREENCASTER_FLAG_1 = 12;
+    public static final int GREENCASTER_FLAG_2 = 13;
+    public static final int GREENCASTER_FLAG_3 = 14;
+    public static final int GREENCASTER_FLAG_4 = 15;
+    public static final int GREENCASTER_FLAG_5 = 16;
     int level;
     int location;//default starting location
     int attack;

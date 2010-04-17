@@ -5,7 +5,11 @@ package example;
  * 
  */
 public class ProphetCharacterClass {
-
+    public static final int PROPHET_FLAG_1 = 27;
+    public static final int PROPHET_FLAG_2 = 28;
+    public static final int PROPHET_FLAG_3 = 29;
+    public static final int PROPHET_FLAG_4 = 30;
+    public static final int PROPHET_FLAG_5 = 31;
     int level;
     int location;//default starting location
     int attack;
