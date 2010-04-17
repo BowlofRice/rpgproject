@@ -147,11 +147,12 @@ public class MapAltTwo {
      */
     void moveEnemy2(Graphics g, int[][] Matrix, int i, int j) {
 
+        int okaydevice = 0;
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
         Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
         double randomnum = 0;
         int rand = 0;
-        while (Matrix[i][j] > 0 && j < 19) {
+        while (Matrix[i][j] > 0 && j < 19 && okaydevice ==0 ) {
             randomnum = Math.random();
             randomnum = randomnum * 6;
             rand = (int) randomnum;
@@ -159,25 +160,29 @@ public class MapAltTwo {
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * Matrix.length, (j + 1) * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j+1];
+                okaydevice=1;
 
                 j += 1;
             } else if (2 <= rand && rand <= 3 && Matrix[i][j] < Matrix[i][j - 1]) {
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * Matrix.length, (j - 1) * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j-1];
+                okaydevice=1;
                 j -= 1;
             } else if (3 < rand && rand <= 4 && Matrix[i][j] < Matrix[i + 1][j]) {
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i + 1) * Matrix.length, j * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i+1][j];
+                okaydevice=1;
                 i += 1;
             } else if (4 < rand && rand <= 6 && Matrix[i][j] < Matrix[i - 1][j]) {
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i - 1) * Matrix.length, j * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i-1][j];
+                okaydevice=1;
                 i -= 1;
             } else {
-                System.out.println("Nothing should happen if this outputs\n");
+                System.out.println("While loop will go again\n");
             }
         }}
 
