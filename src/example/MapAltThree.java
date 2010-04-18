@@ -147,8 +147,7 @@ public class MapAltThree {
      * function which chooses a random number from 0 - 6 and chooses an increment
      * in a matrix which will always choose a higher value from previous position
      */
-    void moveEnemy2(Graphics g, int[][] Matrix, int i, int j) {
-
+    void moveEnemy3(Graphics g, int[][] Matrix, int i, int j) {
 
         int c = i;
         int d = j;
@@ -165,7 +164,7 @@ public class MapAltThree {
                 g.drawImage(img0, i * Matrix.length, (j + 1) * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j+1];
 
-         
+
 
                 c = i;
                 d = j;
@@ -176,20 +175,23 @@ public class MapAltThree {
                 g.drawImage(img0, i * Matrix.length, (j - 1) * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j-1];
 
-            
+                c = i;
+                d = j;
                 j -= 1;
             } else if (3 < rand && rand <= 4 && Matrix[i][j] <= Matrix[i + 1][j] && (i+1)!=c) {
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i + 1) * Matrix.length, j * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i+1][j];
-
+                c = i;
+                d = j;
                 i += 1;
             } else if (4 < rand && rand <= 6 && Matrix[i][j] <= Matrix[i - 1][j] && (i-1)!=c) {
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i - 1) * Matrix.length, j * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i-1][j];
-             
 
+                c = i;
+                d = j;
                 i -= 1;
             } else {
                 System.out.println("While loop will go again\n");
