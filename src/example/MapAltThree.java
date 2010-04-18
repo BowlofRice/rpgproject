@@ -22,6 +22,7 @@ public class MapAltThree {
     public int[][] MapThreeCharacters;
     public int[][] MapTraversalThree;
 
+
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
     public static final int ARCHER_FLAG_3 = 4;
@@ -131,8 +132,69 @@ public class MapAltThree {
         {   0,   0,   0,1008,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
         {   0,   0,   0,1007,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
         {1003,1004,1005,1006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
-        
+
+
     }
+
+
+  /**
+     *
+     * @param g
+     * @param Matrix
+     * @param i
+     * @param j
+     *
+     * function which chooses a random number from 0 - 6 and chooses an increment
+     * in a matrix which will always choose a higher value from previous position
+     */
+    void moveEnemy2(Graphics g, int[][] Matrix, int i, int j) {
+
+
+        int c = i;
+        int d = j;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
+        Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
+        double randomnum = 0;
+        int rand = 0;
+        while (Matrix[i][j] > 0 && j < 19) {
+            randomnum = Math.random();
+            randomnum = randomnum * 6;
+            rand = (int) randomnum;
+            if (rand < 2 && Matrix[i][j] <= Matrix[i][j + 1] && (j+1) != d) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * Matrix.length, (j + 1) * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i][j+1];
+
+         
+
+                c = i;
+                d = j;
+
+                j += 1;
+            } else if (2 <= rand && rand <= 3 && Matrix[i][j] <= Matrix[i][j - 1] && (j-1)!=d) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * Matrix.length, (j - 1) * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i][j-1];
+
+            
+                j -= 1;
+            } else if (3 < rand && rand <= 4 && Matrix[i][j] <= Matrix[i + 1][j] && (i+1)!=c) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, (i + 1) * Matrix.length, j * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i+1][j];
+
+                i += 1;
+            } else if (4 < rand && rand <= 6 && Matrix[i][j] <= Matrix[i - 1][j] && (i-1)!=c) {
+                g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, (i - 1) * Matrix.length, j * Matrix[0].length, null);
+                //Matrix[i][j] = Matrix[i-1][j];
+             
+
+                i -= 1;
+            } else {
+                System.out.println("While loop will go again\n");
+            }
+        }}
     
     public void paint(Graphics g)
     {   
