@@ -17,13 +17,14 @@ public class TitleScreen {
 		sample.setResizable(false);
 		sample.addKeyListener(new KeyListen());
 		Field dS=new Field(testmap, test2map, test3map);
+		testmap.addField(dS);
+		test3map.addField(dS);
 		sample.add(dS);
 		sample.pack();
 		sample.setLocationRelativeTo(null);
 		sample.setVisible(true);
 		while(true){
 			dS.timestep();
-			dS.repaint();
 		}
 	}
 

@@ -22,6 +22,7 @@ public class MapAltOne {
     public int[][] MapOne;
     public int[][] MapOneCharacters;
     public int[][] MapTraversalOne;
+	private Field field;
     
     
     public static final int ARCHER_FLAG_1 = 2;
@@ -137,7 +138,9 @@ public class MapAltOne {
         		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},        
         		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
         	}
-    
+    public void addField(Field field){
+    	this.field=field;
+    }
     void moveEnemy(Graphics g, int[][] Matrix , int i, int j)
 	{
     	
@@ -157,20 +160,20 @@ public class MapAltOne {
             	g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i+1][j];
             	i+=1;
-		    } else if(Matrix[i][j] < Matrix[i][j-1]) {
+		    } else if(Matrix[i][j] < Matrix[i][j-1] && j!=0) {
             	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	g.drawImage(img0, i*Matrix.length, (j-1)*Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j-1];
             	j-=1;
-		    } else if(Matrix[i][j] < Matrix[i-1][j]) {
+		    } else if(Matrix[i][j] < Matrix[i-1][j] && i!=0) {
             	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	g.drawImage(img0, (i-1)*Matrix.length, j*Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i-1][j];
             	i-=1;
 		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i+1][j]) {
             	Random r = new Random();
-            	int randNum = r.nextInt(10);
-            	if(0 <= randNum && randNum <= 5) {
+            	int randNum = r.nextInt(50);
+            	if(0 <= randNum && randNum <= 24) {
             	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	       g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
                        //Matrix[i][j] = Matrix[i][j+1];
@@ -181,10 +184,10 @@ public class MapAltOne {
                        //Matrix[i][j] = Matrix[i+1][j];
                        i+=1;
                        }
-		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i][j-1]) {
+		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i][j-1] && j!=0) {
             	Random r = new Random();
-            	int randNum = r.nextInt(10);
-            	if(0 <= randNum && randNum <= 5) {
+            	int randNum = r.nextInt(50);
+            	if(0 <= randNum && randNum <= 24) {
             	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	       g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
                        //Matrix[i][j] = Matrix[i][j+1];
@@ -195,10 +198,10 @@ public class MapAltOne {
                         //Matrix[i][j] = Matrix[i][j-1];
                     	j-=1;
                     	}
-		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i-1][j]) {
+		    } else if(Matrix[i][j] < Matrix[i][j+1] && Matrix[i][j] < Matrix[i-1][j] && i!=0) {
             	Random r = new Random();
-            	int randNum = r.nextInt(10);
-            	if(0 <= randNum && randNum <= 5) {
+            	int randNum = r.nextInt(50);
+            	if(0 <= randNum && randNum <= 24) {
             	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	       g.drawImage(img0, i*Matrix.length, (j+1)*Matrix[0].length, null);
                        //Matrix[i][j] = Matrix[i][j+1];
@@ -209,10 +212,10 @@ public class MapAltOne {
                         //Matrix[i][j] = Matrix[i-1][j];
                     	i-=1;
                     	}
-		    } else if(Matrix[i][j] < Matrix[i+1][j] && Matrix[i][j] < Matrix[i][j-1]) {
+		    } else if(Matrix[i][j] < Matrix[i+1][j] && Matrix[i][j] < Matrix[i][j-1] && j!=0) {
             	Random r = new Random();
-            	int randNum = r.nextInt(10);
-            	if(0 <= randNum && randNum <= 5) {
+            	int randNum = r.nextInt(50);
+            	if(0 <= randNum && randNum <= 24) {
             	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	       g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
                        //Matrix[i][j] = Matrix[i+1][j];
@@ -223,24 +226,27 @@ public class MapAltOne {
                         //Matrix[i][j] = Matrix[i][j-1];
                     	j-=1;
                     	}
-		    } else if(Matrix[i][j] < Matrix[i+1][j] && Matrix[i][j] < Matrix[i-1][j]) {
+		    } else if(Matrix[i][j] < Matrix[i+1][j] && Matrix[i][j] < Matrix[i-1][j] && i!=0) {
             	Random r = new Random();
-            	int randNum = r.nextInt(10);
-            	if(0 <= randNum && randNum <= 5) {
+            	int randNum = r.nextInt(50);
+            	if(0 <= randNum && randNum <= 24) {
+            		   for(int h=0;h<100;h++)
             	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	       g.drawImage(img0, (i+1)*Matrix.length, j*Matrix[0].length, null);
                        //Matrix[i][j] = Matrix[i+1][j];
             	       i+=1;
             	} else {
+            			for(int h=0;h<100;h++)
                     	g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
                     	g.drawImage(img0, (i-1)*Matrix.length, j*Matrix[0].length, null);
                         //Matrix[i][j] = Matrix[i-1][j];
                     	i-=1;
                     	}
-		    } else if(Matrix[i][j] < Matrix[i][j-1] && Matrix[i][j] < Matrix[i-1][j]) {
+		    } else if(Matrix[i][j] < Matrix[i][j-1] && Matrix[i][j] < Matrix[i-1][j] && i!=0) {
             	Random r = new Random();
-            	int randNum = r.nextInt(10);
-            	if(0 <= randNum && randNum <= 5) {
+            	int randNum = r.nextInt(50);
+            	if(0 <= randNum && randNum <= 24) {
+            		   for(int h=0;h<100;h++)
             	       g.drawImage(img1, i*Matrix.length, j*Matrix[0].length, null/*(ImageObserver) this*/);
             	       g.drawImage(img0, i*Matrix.length, (j-1)*Matrix[0].length, null);
                        //Matrix[i][j] = Matrix[i][j-1];
@@ -253,7 +259,8 @@ public class MapAltOne {
             }} else {
             	System.out.println("Oh, snap, we stuck!"); 	
             }
-		  
+		    
+		    field.repaint();
 	   	}
 	}
     
