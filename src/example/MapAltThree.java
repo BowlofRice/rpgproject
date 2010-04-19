@@ -24,6 +24,7 @@ public class MapAltThree {
 	private Field field;
 
 
+
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
     public static final int ARCHER_FLAG_3 = 4;
@@ -135,11 +136,17 @@ public class MapAltThree {
         {1003,1004,1005,1006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
 
 
+<<<<<<< HEAD
     }
 
     public void addField(Field field){
     	this.field=field;
     }
+=======
+    }
+
+
+>>>>>>> ee812b5f9052426b77d385578f43a92f13ac2a40
   /**
      *
      * @param g
@@ -162,7 +169,11 @@ public class MapAltThree {
             randomnum = Math.random();
             randomnum = randomnum * 6;
             rand = (int) randomnum;
+<<<<<<< HEAD
             if (rand < 2 && Matrix[i][j] <= Matrix[i][j + 1] && (j+1) != d  && d!=0) {
+=======
+            if (rand < 2 && Matrix[i][j] <= Matrix[i][j + 1] && (j+1) != d) {
+>>>>>>> ee812b5f9052426b77d385578f43a92f13ac2a40
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * Matrix.length, (j + 1) * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j+1];
@@ -173,7 +184,11 @@ public class MapAltThree {
                 d = j;
 
                 j += 1;
+<<<<<<< HEAD
             } else if (2 <= rand && rand <= 3 && Matrix[i][j] <= Matrix[i][j - 1] && (j-1)!=d && d!=0) {
+=======
+            } else if (2 <= rand && rand <= 3 && Matrix[i][j] <= Matrix[i][j - 1] && (j-1)!=d) {
+>>>>>>> ee812b5f9052426b77d385578f43a92f13ac2a40
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * Matrix.length, (j - 1) * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i][j-1];
@@ -181,14 +196,22 @@ public class MapAltThree {
                 c = i;
                 d = j;
                 j -= 1;
+<<<<<<< HEAD
             } else if (3 < rand && rand <= 4 && Matrix[i][j] <= Matrix[i + 1][j] && (i+1)!=c  && c!=0) {
+=======
+            } else if (3 < rand && rand <= 4 && Matrix[i][j] <= Matrix[i + 1][j] && (i+1)!=c) {
+>>>>>>> ee812b5f9052426b77d385578f43a92f13ac2a40
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i + 1) * Matrix.length, j * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i+1][j];
                 c = i;
                 d = j;
                 i += 1;
+<<<<<<< HEAD
             } else if (4 < rand && rand <= 6 && Matrix[i][j] <= Matrix[i - 1][j] && (i-1)!=c  && c!=0) {
+=======
+            } else if (4 < rand && rand <= 6 && Matrix[i][j] <= Matrix[i - 1][j] && (i-1)!=c) {
+>>>>>>> ee812b5f9052426b77d385578f43a92f13ac2a40
                 g.drawImage(img1, i * Matrix.length, j * Matrix[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i - 1) * Matrix.length, j * Matrix[0].length, null);
                 //Matrix[i][j] = Matrix[i-1][j];
@@ -199,7 +222,10 @@ public class MapAltThree {
             } else {
                 System.out.println("While loop will go again\n");
             }
+<<<<<<< HEAD
             field.repaint();
+=======
+>>>>>>> ee812b5f9052426b77d385578f43a92f13ac2a40
         }}
     
     public void paint(Graphics g)
