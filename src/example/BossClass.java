@@ -12,25 +12,37 @@ public class BossClass {
     int speed;
     int attack;
     int character_flag;
-    private int level;
+    public int level;
+    public TroyCastleClass troy;
     	
-    public BossClass() {
+    
+    public BossClass(TroyCastleClass troy) {
     	this.level = 1;
     	this.location = 1;
     	this.attack = 10;
     	this.speed = 2;
     	this.character_flag = 37;
+        this.troy = troy;
     	
     }
     
-    void increaselevel() {
+    public void increaselevel() {
     	increase_attack();
+        increase_health();
     	level++;
     	character_flag++;
     }
     
-    void increase_attack() {
+    public void increase_health() {
+        //Left Blank for now
+    }
+    
+    public void increase_attack() {
     	attack=attack*attack;
+    }
+    
+    public void deal_damage() {
+        troy.health -= this.attack;
     }
     
     

@@ -12,24 +12,33 @@ public class EnemyClass {
     int speed;
     int attack;
     int character_flag;
-    private int level;
+    int level;
+    public TroyCastleClass troy;
     
-    public EnemyClass() {
+    public EnemyClass(TroyCastleClass troy) {
     	this.level = 1;
     	this.location = 1;
     	this.attack = 1;
     	this.speed = 1;
     	this.character_flag = 31; //ranges from 32 to 36
+        this.troy = troy;
     }
     
-    void increaselevel() {
+    public void increaselevel() {
     	increase_attack();
+        increase_health();
     	level++;
     	character_flag++;
     }
-    
-    void increase_attack() {
+    public void increase_health() {
+        //left blank for now until needed.
+    }
+    public void increase_attack() {
     	attack=attack*2;
+    }
+    
+    public void deal_damage() {
+        troy.health -= this.attack; 
     }
     
     
