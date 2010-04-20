@@ -12,6 +12,7 @@ public class BossClass {
     int speed;
     int attack;
     int character_flag;
+    private int level;
     	
     public BossClass() {
     	this.level = 1;

@@ -12,6 +12,7 @@ public class EnemyClass {
     int speed;
     int attack;
     int character_flag;
+    private int level;
     
     public EnemyClass() {
     	this.level = 1;
