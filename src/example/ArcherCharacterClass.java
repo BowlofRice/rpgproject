@@ -13,6 +13,7 @@ public class ArcherCharacterClass {
     int level;
     int location;//default starting location
     int attack;
+    int attack_speed;
     int upgradelevelmeter;
     int range;
     int character_flag;
@@ -22,11 +23,12 @@ public class ArcherCharacterClass {
     this.level = 1;
     this.location = 1;//default starting location
     this.attack = 8;
+    this.attack_speed = 1;
     this.upgradelevelmeter = 0;
     this.range = 3;
 	}
 
-    void gainexperience(int upgradelevelmeter)
+    public void gainexperience(int upgradelevelmeter)
     {
         upgradelevelmeter += .05;
         if(upgradelevelmeter >= 1 && level<=5)
@@ -36,16 +38,23 @@ public class ArcherCharacterClass {
         }
     }
 
-    void increaselevel(){
+    public void increaselevel(){
         increase_attack();
+        increase_attack_speed();
+        increase_range();
         level++;
         character_flag++;
     }
 
-    void increase_attack(){
+    public void increase_attack(){
         attack=attack*2;
     }
+   
+    public void increase_attack_speed() {
+        attack_speed = attack_speed * 2;
+    }
 
-
-
+    public void increase_range() {
+        range *= range;
+    }
 }

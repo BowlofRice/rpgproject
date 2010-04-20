@@ -16,18 +16,20 @@ public class RedCasterCharacterClass {
     int upgradelevelmeter;
     int range;
     int character_flag;
+    int attack_speed;
 
 public RedCasterCharacterClass(){
 
     this.level = 1;
     this.location = 1;//default starting location
     this.attack = 8;
+    this.attack_speed = 1;
     this.upgradelevelmeter = 0;
     this.range = 2;
     this.character_flag = 17; //ranges from 17 to 21 depending on level
 }
 
-    void gainexperience(int upgradelevelmeter)
+    public void gainexperience(int upgradelevelmeter)
     {
         upgradelevelmeter += .05;
         if(upgradelevelmeter >= 1 && level<=5)
@@ -37,15 +39,25 @@ public RedCasterCharacterClass(){
         }
     }
 
-    void increaselevel(){
+    public void increaselevel(){
         increase_attack();
+        increase_attack_speed();
         level++;
         character_flag++;
     }
-
-    void increase_attack(){
-        attack=attack*2;
+    
+    public void increase_attack_speed() {
+        attack_speed = attack_speed * 2;
     }
 
+    public  void increase_attack(){
+        attack=attack*2;
+    }
+   
+    public deal_damage() {
+        // do damage
+        // random number generator
+        // if in range of RN, do 0.35 * current attack extra damage
+    }
 
 }
