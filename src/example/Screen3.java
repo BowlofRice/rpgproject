@@ -14,6 +14,6 @@ public class Screen3 extends Canvas{
 	}
 	public void paint(Graphics g){
 		map.paint(g);
-		map.moveEnemy(g,19, 1);
+		map.moveEnemy(g,18, 1);
 	}
 }

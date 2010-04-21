@@ -144,6 +144,51 @@ public class MapTwo {
             randomnum = Math.random();
             randomnum = randomnum * 6;
             rand = (int) randomnum;
+            if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j-1]))
+           {
+                g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                //mapTraversal[i][j] = mapTraversal[i][j+1];
+
+
+
+                c = i;
+                d = j;
+
+                j += 1;
+           }
+
+           else if (mapTraversal[i][j]<=mapTraversal[i][j-1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1]))
+           {
+                g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+                //mapTraversal[i][j] = mapTraversal[i][j-1];
+
+                c = i;
+                d = j;
+                j -= 1;
+           }
+
+           else if(mapTraversal[i][j]<=mapTraversal[i+1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1]))
+           {
+                g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                //mapTraversal[i][j] = mapTraversal[i+1][j];
+                c = i;
+                d = j;
+                i += 1;
+
+           }
+           else if(mapTraversal[i][j]<=mapTraversal[i-1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1]))
+           {
+                g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                //mapTraversal[i][j] = mapTraversal[i-1][j];
+
+                c = i;
+                d = j;
+                i -= 1;
+           }
             if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d) {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);

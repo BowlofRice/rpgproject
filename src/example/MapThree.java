@@ -56,8 +56,8 @@ public class MapThree {
     	//2 -- Different Kind of Sand / Grass
     	//3 -- Castle Walls
         MapThree = new int[][] {
+        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {1,1,1,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2},
@@ -74,12 +74,12 @@ public class MapThree {
         {0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2},
         {0,0,0,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {1,1,1,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
+        {1,1,1,1,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
+        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
 
         MapThreeCharacters = new int[][]{
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
@@ -96,13 +96,13 @@ public class MapThree {
         {0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
         {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
+        {1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 
         mapTraversal = new int[][]{
 
-        {1001,1002,1003,1005,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
-        {   0,   0,   0,1006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {1003,1004,1005,1006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
         {   0,   0,   0,1007,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
         {   0,   0,   0,1008,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
         {   0,   0,   0,1009,   0,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028,1029,1030,   0,   0,   0},
@@ -119,8 +119,8 @@ public class MapThree {
         {   0,   0,   0,1010,   0,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028,1029,   0,   0,   0},
         {   0,   0,   0,1009,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
         {   0,   0,   0,1008,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
-        {   0,   0,   0,1007,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
-        {1003,1004,1005,1006,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
+        {1003,1004,1005,1007,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
+        {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
 
 
 
@@ -154,8 +154,7 @@ public class MapThree {
             randomnum = Math.random();
             randomnum = randomnum * 6;
             rand = (int) randomnum;
-
-           if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j-1]))
+            if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]> mapTraversal[i+1][j] && mapTraversal[i][j]> mapTraversal[i-1][j] && mapTraversal[i][j]> mapTraversal[i][j-1]))
            {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
@@ -169,7 +168,7 @@ public class MapThree {
                 j += 1;
            }
 
-           else if (mapTraversal[i][j]<=mapTraversal[i][j-1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1]))
+           else if (mapTraversal[i][j]<=mapTraversal[i][j-1] && (mapTraversal[i][j]> mapTraversal[i+1][j] && mapTraversal[i][j]> mapTraversal[i-1][j] && mapTraversal[i][j]> mapTraversal[i][j+1]))
            {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
@@ -180,7 +179,7 @@ public class MapThree {
                 j -= 1;
            }
 
-           else if(mapTraversal[i][j]<=mapTraversal[i+1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1]))
+           else if(mapTraversal[i][j]<=mapTraversal[i+1][j] && (mapTraversal[i][j]> mapTraversal[i][j-1] && mapTraversal[i][j]> mapTraversal[i-1][j] && mapTraversal[i][j]> mapTraversal[i][j+1]))
            {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
@@ -190,7 +189,7 @@ public class MapThree {
                 i += 1;
 
            }
-           else if(mapTraversal[i][j]<=mapTraversal[i-1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1]))
+           else if(mapTraversal[i][j]<=mapTraversal[i-1][j] && (mapTraversal[i][j]> mapTraversal[i][j-1] && mapTraversal[i][j]> mapTraversal[i+1][j] && mapTraversal[i][j]> mapTraversal[i][j+1]))
            {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
@@ -200,8 +199,8 @@ public class MapThree {
                 d = j;
                 i -= 1;
            }
-
-            else if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d && d!=0) {
+            if(j<19){
+            if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d) {
 
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
@@ -214,7 +213,7 @@ public class MapThree {
 
                 j += 1;
 
-            } else if (2 <= rand && rand <= 3 && mapTraversal[i][j] <= mapTraversal[i][j - 1] && (j-1)!=d && d!=0) {
+            } else if (2 <= rand && rand <= 3 && mapTraversal[i][j] <= mapTraversal[i][j - 1] && (j-1)!=d) {
 
             
 
@@ -226,7 +225,7 @@ public class MapThree {
                 d = j;
                 j -= 1;
 
-            } else if (3 < rand && rand <= 4 && mapTraversal[i][j] <= mapTraversal[i + 1][j] && (i+1)!=c  && c!=0) {
+            } else if (3 < rand && rand <= 4 && mapTraversal[i][j] <= mapTraversal[i + 1][j] && (i+1)!=c) {
 
            
 
@@ -237,7 +236,7 @@ public class MapThree {
                 d = j;
                 i += 1;
 
-            } else if (4 < rand && rand <= 6 && mapTraversal[i][j] <= mapTraversal[i - 1][j] && (i-1)!=c  && c!=0) {
+            } else if (4 < rand && rand <= 6 && mapTraversal[i][j] <= mapTraversal[i - 1][j] && (i-1)!=c) {
 
            
 
@@ -250,7 +249,7 @@ public class MapThree {
                 i -= 1;
             } else {
                 System.out.println("While loop will go again\n");
-            }
+            }}
            try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
