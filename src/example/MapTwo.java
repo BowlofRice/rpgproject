@@ -189,6 +189,7 @@ public class MapTwo {
                 d = j;
                 i -= 1;
            }
+            if(j<19){
             if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d) {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
@@ -225,7 +226,7 @@ public class MapTwo {
                 i -= 1;
             } else {
                 ///System.out.println("While loop will go again\n");
-            }
+            }}
             try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
