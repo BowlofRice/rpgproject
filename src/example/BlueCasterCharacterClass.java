@@ -53,7 +53,7 @@ public BlueCasterCharacterClass(){
         attack=attack*2;
     }
     
-    public deal_damage() {
+    public void deal_damage() {
         //deal damage
         // Random Number Generator
         // If in range, do damage and slow enemy by 50% 

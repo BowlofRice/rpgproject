@@ -53,7 +53,7 @@ public GreenCasterCharacterClass(){
         attack=attack*2;
     }
     
-    public attack_enemy(){
+    public void attack_enemy(){
       //do damage
       // Random Number Generator to see if poisoned
       // For 8 seconds, take 0.2* current attack extra damage    

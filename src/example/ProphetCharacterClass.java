@@ -55,7 +55,7 @@ public class ProphetCharacterClass {
          attack_speed = attack_speed * 2;
     }
     
-    public EasterEgg() {
+    public void EasterEgg() {
         // Switch Statement of Prophet Sayings
     }
 

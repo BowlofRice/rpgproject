@@ -54,7 +54,7 @@ public RedCasterCharacterClass(){
         attack=attack*2;
     }
    
-    public deal_damage() {
+    public void deal_damage() {
         // do damage
         // random number generator
         // if in range of RN, do 0.35 * current attack extra damage
