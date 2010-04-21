@@ -154,6 +154,21 @@ public class MapThree {
             randomnum = Math.random();
             randomnum = randomnum * 6;
             rand = (int) randomnum;
+            if(j==0)
+            {
+                g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                //mapTraversal[i][j] = mapTraversal[i][j+1];
+
+
+
+                c = i;
+                d = j;
+
+                j += 1;
+            }
+            if(j!=0)
+            {
             if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]> mapTraversal[i+1][j] && mapTraversal[i][j]> mapTraversal[i-1][j] && mapTraversal[i][j]> mapTraversal[i][j-1]))
            {
                 g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
@@ -249,7 +264,7 @@ public class MapThree {
                 i -= 1;
             } else {
                 System.out.println("While loop will go again\n");
-            }}
+            }}}
            try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
