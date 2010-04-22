@@ -4,8 +4,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
+import java.util.Vector;
 
 public class MapTwo {
+	public Vector<Ally> allies=new Vector<Ally>();
+	public Vector<Enemy> enemies=new Vector<Enemy>();
 	public int[][] MapTwo;
     public int[][] MapTwoCharacters;
     public int[][] mapTraversal;

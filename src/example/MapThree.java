@@ -4,8 +4,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
+import java.util.Vector;
 
 public class MapThree {
+	public Vector<Ally> allies=new Vector<Ally>();
+	public Vector<Enemy> enemies=new Vector<Enemy>();
 	public int[][] MapThree;
     public int[][] MapThreeCharacters;
     public int[][] mapTraversal;
@@ -263,7 +266,7 @@ public class MapThree {
                 d = j;
                 i -= 1;
             } else {
-                System.out.println("While loop will go again\n");
+                //System.out.println("While loop will go again\n");
             }}}
            try {
 				Thread.sleep(100);

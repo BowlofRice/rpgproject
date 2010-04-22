@@ -4,8 +4,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.Random;
+import java.util.Vector;
 
 public class MapOne {
+	public Vector<Ally> allies=new Vector<Ally>();
+	public Vector<Enemy> enemies=new Vector<Enemy>();
 	public int[][] MapOne;
     public int[][] MapOneCharacters;
     public int[][] mapTraversal;
