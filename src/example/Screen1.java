@@ -20,7 +20,8 @@ public class Screen1 extends Canvas{
 			break;
 		case 1:
 			map.paint(g);
-			map.moveEnemy(g,9, 0);
+			for(int i=1;i<=3;i++)
+				map.moveEnemy(g,9, 0);
 			break;
 		}
 	}

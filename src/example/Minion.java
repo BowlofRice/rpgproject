@@ -1,7 +1,5 @@
 package example;
 
-import java.awt.Point;
-
 /**
  *
  *
@@ -9,7 +7,6 @@ import java.awt.Point;
  
 public class Minion extends Enemy{
     public static final int ENEMYCLASS_FLAG_1 = 32;
-    Point location;
     int health;
     int speed;
     int attack;

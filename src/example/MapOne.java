@@ -9,6 +9,8 @@ import java.util.Vector;
 public class MapOne {
 	public Vector<Ally> allies=new Vector<Ally>();
 	public Vector<Enemy> enemies=new Vector<Enemy>();
+	public TroyCastle troy=new TroyCastle();
+	int k=0;//enemy counter
 	public int[][] MapOne;
     public int[][] MapOneCharacters;
     public int[][] mapTraversal;
@@ -130,123 +132,140 @@ public class MapOne {
 
     void moveEnemy(Graphics g, int i, int j)
 	{
-    	
+    	Minion baddie=new Minion(troy);
+        enemies.add(baddie);
+        enemies.elementAt(k).setLocation(j, i);
+        System.out.println(enemies.elementAt(k).getLocation());
 	   Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
 	   Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
 	   while(mapTraversal[i][j]>0 && j<19)
 	   {   
                 if(mapTraversal[i][j] < mapTraversal[i][j+1])
 		{
-		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-                    //mapTraversal[i][j] = mapTraversal[i][j+1];
 		        
 		    j+=1;
+		    enemies.elementAt(k).setLocation(j, i);
+		    System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i+1][j]) {
-		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-		    //mapTraversal[i][j] = mapTraversal[i+1][j];
 		    i+=1;
+		    enemies.elementAt(k).setLocation(j, i);
+		    System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
-		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-		    //mapTraversal[i][j] = mapTraversal[i][j-1];
 		    j-=1;
+		    enemies.elementAt(k).setLocation(j, i);
+		    System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
-		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-		    //mapTraversal[i][j] = mapTraversal[i-1][j];
 		    i-=1;
+		    enemies.elementAt(k).setLocation(j, i);
+		    System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i+1][j]) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
 		    if(0 <= randNum && randNum <= 24) {
-			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i][j+1];
 			   j+=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
-			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i+1][j];
 			   i+=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		   }
 		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
 		    if(0 <= randNum && randNum <= 24) {
-			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i][j+1];
 			   j+=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
-			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-			    //mapTraversal[i][j] = mapTraversal[i][j-1];
 			    j-=1;
+			    enemies.elementAt(k).setLocation(j, i);
+			    System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
 		    if(0 <= randNum && randNum <= 24) {
-			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i][j+1];
 			   j+=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
-			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-			    //mapTraversal[i][j] = mapTraversal[i-1][j];
 			    i-=1;
+			    enemies.elementAt(k).setLocation(j, i);
+			    System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
 		    if(0 <= randNum && randNum <= 24) {
-			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i+1][j];
 			   i+=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
-			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-			    //mapTraversal[i][j] = mapTraversal[i][j-1];
 			    j-=1;
+			    enemies.elementAt(k).setLocation(j, i);
+			    System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
 		    if(0 <= randNum && randNum <= 24) {
-			   //for(int h=0;h<100;h++)
-			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i+1][j];
 			   i+=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
-		           // for(int h=0;h<100;h++)
-			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-			    //mapTraversal[i][j] = mapTraversal[i-1][j];
 			    i-=1;
+			    enemies.elementAt(k).setLocation(j, i);
+			    System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i][j-1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
 		    if(0 <= randNum && randNum <= 24) {
-			   //for(int h=0;h<100;h++)
 			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
 			   g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-			   //mapTraversal[i][j] = mapTraversal[i][j-1];
 			   j-=1;
+			   enemies.elementAt(k).setLocation(j, i);
+			   System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
 			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-			    //mapTraversal[i][j] = mapTraversal[i-1][j];
 			    i-=1;
+			    enemies.elementAt(k).setLocation(j, i);
+			    System.out.println(enemies.elementAt(k).getLocation());
                     }
 		} else {
 		    System.out.println("Oh, snap, we stuck!"); 	
 	        }
+        
         
 		try {
 		    Thread.sleep(100);
@@ -255,6 +274,8 @@ public class MapOne {
 	            e.printStackTrace();
 		}
 	   }
+	   k++;
+	   System.out.println(enemies.size());
     }
     
     public void paint(Graphics g)
