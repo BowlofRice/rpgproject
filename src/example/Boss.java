@@ -15,10 +15,10 @@ public class Boss extends Enemy{
     int attack;
     int character_flag;
     public int level;
-    public TroyCastleClass troy;
+    public TroyCastle troy;
     	
     
-    public Boss(TroyCastleClass troy) {
+    public Boss(TroyCastle troy) {
     	level = 1;
     	attack = 10;
     	speed = 2;

@@ -247,6 +247,7 @@ public class MapOne {
 		} else {
 		    System.out.println("Oh, snap, we stuck!"); 	
 	        }
+        
 		try {
 		    Thread.sleep(100);
 		} catch (InterruptedException e) {

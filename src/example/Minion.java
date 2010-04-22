@@ -15,9 +15,9 @@ public class Minion extends Enemy{
     int attack;
     int character_flag;
     int level;
-    public TroyCastleClass troy;
+    public TroyCastle troy;
     
-    public Minion(TroyCastleClass troy) {
+    public Minion(TroyCastle troy) {
     	level = 1;
     	attack = 1;
     	speed = 1;
