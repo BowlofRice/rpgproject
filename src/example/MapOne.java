@@ -135,125 +135,126 @@ public class MapOne {
 	   Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
 	   while(mapTraversal[i][j]>0 && j<19)
 	   {   
-		    if(mapTraversal[i][j] < mapTraversal[i][j+1])
-		    {
-		        g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-		        g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-               //mapTraversal[i][j] = mapTraversal[i][j+1];
+                if(mapTraversal[i][j] < mapTraversal[i][j+1])
+		{
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
+                    //mapTraversal[i][j] = mapTraversal[i][j+1];
 		        
-		        j+=1;
-		    } else if(mapTraversal[i][j] < mapTraversal[i+1][j]) {
-            	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                //mapTraversal[i][j] = mapTraversal[i+1][j];
-            	i+=1;
-		    } else if(mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
-            	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-                //mapTraversal[i][j] = mapTraversal[i][j-1];
-            	j-=1;
-		    } else if(mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
-            	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                //mapTraversal[i][j] = mapTraversal[i-1][j];
-            	i-=1;
-		    } else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i+1][j]) {
-            	Random r = new Random();
-            	int randNum = r.nextInt(50);
-            	if(0 <= randNum && randNum <= 24) {
-            	       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	       g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i][j+1];
-            	       j+=1;
-            	} else {
-                       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-                       g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i+1][j];
-                       i+=1;
-                       }
-		    } else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
-            	Random r = new Random();
-            	int randNum = r.nextInt(50);
-            	if(0 <= randNum && randNum <= 24) {
-            	       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	       g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i][j+1];
-            	       j+=1;
-            	} else {
-                    	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-                    	g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-                        //mapTraversal[i][j] = mapTraversal[i][j-1];
-                    	j-=1;
-                    	}
-		    } else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
-            	Random r = new Random();
-            	int randNum = r.nextInt(50);
-            	if(0 <= randNum && randNum <= 24) {
-            	       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	       g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i][j+1];
-            	       j+=1;
-            	} else {
-                    	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-                    	g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                        //mapTraversal[i][j] = mapTraversal[i-1][j];
-                    	i-=1;
-                    	}
-		    } else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
-            	Random r = new Random();
-            	int randNum = r.nextInt(50);
-            	if(0 <= randNum && randNum <= 24) {
-            	       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	       g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i+1][j];
-            	       i+=1;
-            	} else {
-                    	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-                    	g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-                        //mapTraversal[i][j] = mapTraversal[i][j-1];
-                    	j-=1;
-                    	}
-		    } else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
-            	Random r = new Random();
-            	int randNum = r.nextInt(50);
-            	if(0 <= randNum && randNum <= 24) {
-            		   for(int h=0;h<100;h++)
-            	       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	       g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i+1][j];
-            	       i+=1;
-            	} else {
-            			for(int h=0;h<100;h++)
-                    	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-                    	g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                        //mapTraversal[i][j] = mapTraversal[i-1][j];
-                    	i-=1;
-                    	}
-		    } else if(mapTraversal[i][j] < mapTraversal[i][j-1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
-            	Random r = new Random();
-            	int randNum = r.nextInt(50);
-            	if(0 <= randNum && randNum <= 24) {
-            		   for(int h=0;h<100;h++)
-            	       g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-            	       g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-                       //mapTraversal[i][j] = mapTraversal[i][j-1];
-            	       j-=1;
-            	} else {
-                    	g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-                    	g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-                        //mapTraversal[i][j] = mapTraversal[i-1][j];
-                    	i-=1;
-            }} else {
-            	System.out.println("Oh, snap, we stuck!"); 	
-            }
-		    try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	   	}
-	}
+		    j+=1;
+		} else if(mapTraversal[i][j] < mapTraversal[i+1][j]) {
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
+		    //mapTraversal[i][j] = mapTraversal[i+1][j];
+		    i+=1;
+		} else if(mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
+		    //mapTraversal[i][j] = mapTraversal[i][j-1];
+		    j-=1;
+		} else if(mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
+		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+		    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
+		    //mapTraversal[i][j] = mapTraversal[i-1][j];
+		    i-=1;
+		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i+1][j]) {
+		    Random r = new Random();
+		    int randNum = r.nextInt(50);
+		    if(0 <= randNum && randNum <= 24) {
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i][j+1];
+			   j+=1;
+		    } else {
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i+1][j];
+			   i+=1;
+		   }
+		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
+		    Random r = new Random();
+		    int randNum = r.nextInt(50);
+		    if(0 <= randNum && randNum <= 24) {
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i][j+1];
+			   j+=1;
+		    } else {
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
+			    //mapTraversal[i][j] = mapTraversal[i][j-1];
+			    j-=1;
+		    }
+		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
+		    Random r = new Random();
+		    int randNum = r.nextInt(50);
+		    if(0 <= randNum && randNum <= 24) {
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i][j+1];
+			   j+=1;
+		    } else {
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
+			    //mapTraversal[i][j] = mapTraversal[i-1][j];
+			    i-=1;
+		    }
+		} else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
+		    Random r = new Random();
+		    int randNum = r.nextInt(50);
+		    if(0 <= randNum && randNum <= 24) {
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i+1][j];
+			   i+=1;
+		    } else {
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
+			    //mapTraversal[i][j] = mapTraversal[i][j-1];
+			    j-=1;
+		    }
+		} else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
+		    Random r = new Random();
+		    int randNum = r.nextInt(50);
+		    if(0 <= randNum && randNum <= 24) {
+			   //for(int h=0;h<100;h++)
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i+1][j];
+			   i+=1;
+		    } else {
+		           // for(int h=0;h<100;h++)
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
+			    //mapTraversal[i][j] = mapTraversal[i-1][j];
+			    i-=1;
+		    }
+		} else if(mapTraversal[i][j] < mapTraversal[i][j-1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
+		    Random r = new Random();
+		    int randNum = r.nextInt(50);
+		    if(0 <= randNum && randNum <= 24) {
+			   //for(int h=0;h<100;h++)
+			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			   g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
+			   //mapTraversal[i][j] = mapTraversal[i][j-1];
+			   j-=1;
+		    } else {
+			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
+			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
+			    //mapTraversal[i][j] = mapTraversal[i-1][j];
+			    i-=1;
+                    }
+		} else {
+		    System.out.println("Oh, snap, we stuck!"); 	
+	        }
+		try {
+		    Thread.sleep(100);
+		} catch (InterruptedException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+		}
+	   }
+    }
     
     public void paint(Graphics g)
     {   
