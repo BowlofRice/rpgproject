@@ -1,27 +1,26 @@
 package example;
 
-import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class CharSelection {
+	public boolean ARCHER=false;
+	public boolean FIGHTER=false;
+	public boolean BLUE=false;
+	public boolean RED=false;
+	public boolean GREEN=false;
+	public boolean PROPHET=false;
 	final JFrame charHolder=new JFrame();
 	private Screen1 s;
-/*
-        final JPanel parent=new JPanel();
-        final CardLayout myLayout=new CardLayout();
-
-        MapOne mapone=new MapOne();
-	MapTwo maptwo=new MapTwo();
-	MapThree mapthree=new MapThree();
-*/
+	private JTextArea funds=new JTextArea();
 	public CharSelection(){
 		charHolder.addWindowListener(new WindowListener(){
 
@@ -71,68 +70,69 @@ public class CharSelection {
 		JPanel holder=new JPanel();
 		GridLayout my_layout=new GridLayout();
 		my_layout.setColumns(2);
-		my_layout.setRows(4);
+		my_layout.setRows(5);
 		holder.setLayout(my_layout);
 		JButton selectArcher=new JButton("Archer");
-        JButton selectMelee=new JButton("Fighter");
+        JButton selectFighter=new JButton("Fighter");
         JButton selectBlue=new JButton("Blue Caster");
         JButton selectRed=new JButton("Red Caster");
         JButton selectGreen=new JButton("Green Caster");
         JButton selectProphet=new JButton("Prophet");
         JButton startRound=new JButton("Play!");
+        JLabel blank=new JLabel();
+        JLabel fund_label=new JLabel("Funds:");
         holder.add(selectArcher);
-        holder.add(selectMelee);
+        holder.add(selectFighter);
         holder.add(selectBlue);
         holder.add(selectRed);
         holder.add(selectGreen);
         holder.add(selectProphet);
         holder.add(startRound);
+        holder.add(blank);
+        holder.add(fund_label);
+        holder.add(funds);
+        selectArcher.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		// TODO Auto-generated method stub
+        		ARCHER=true;
+            	}
+        });
+        selectFighter.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		// TODO Auto-generated method stub
 
-            selectMelee.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // TODO Auto-generated method stub
-
-                }
-            });
-
-            selectBlue.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // TODO Auto-generated method stub
-
-                }
-            });
-
-            selectRed.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // TODO Auto-generated method stub
-	//	myLayout.show(parent, "map1");
-	//	screenone.paint(screenone.getGraphics());
-                }
-            });
-
-            selectGreen.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // TODO Auto-generated method stub
+            	}
+        });
+        selectBlue.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		// TODO Auto-generated method stub
 
                 }
-            });
-
-            selectProphet.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // TODO Auto-generated method stub
+        });
+        selectRed.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		// TODO Auto-generated method stub
 
                 }
-            });
+        });
+        selectGreen.addActionListener(new ActionListener(){
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		// TODO Auto-generated method stub
+
+                }
+        });
+        selectProphet.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	// TODO Auto-generated method stub
+
+                }
+        });
 
 
         startRound.addActionListener(new ActionListener(){
@@ -153,5 +153,8 @@ public class CharSelection {
 	}
 	public void addScreen(Screen1 s){
 		this.s=s;
+		funds.setText(""+s.funds);
+		funds.setEditable(false);
+		
 	}
 }

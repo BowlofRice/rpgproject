@@ -65,14 +65,14 @@ public class CharSelection2 {
 		my_layout.setRows(4);
 		holder.setLayout(my_layout);
 		JButton selectArcher=new JButton("Archer");
-        JButton selectMelee=new JButton("Fighter");
+        JButton selectFighter=new JButton("Fighter");
         JButton selectBlue=new JButton("Blue Caster");
         JButton selectRed=new JButton("Red Caster");
         JButton selectGreen=new JButton("Green Caster");
         JButton selectProphet=new JButton("Prophet");
         JButton startRound=new JButton("Play!");
         holder.add(selectArcher);
-        holder.add(selectMelee);
+        holder.add(selectFighter);
         holder.add(selectBlue);
         holder.add(selectRed);
         holder.add(selectGreen);

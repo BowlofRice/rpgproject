@@ -9,6 +9,7 @@ import java.util.Vector;
 public class MapOne {
 	public Vector<Ally> allies=new Vector<Ally>();
 	public Vector<Enemy> enemies=new Vector<Enemy>();
+	public Vector<Square> squares=new Vector<Square>();
 	public TroyCastle troy=new TroyCastle();
 	int k=0;//enemy counter
 	public int[][] MapOne;
@@ -135,7 +136,7 @@ public class MapOne {
     	Minion baddie=new Minion(troy);
         enemies.add(baddie);
         enemies.elementAt(k).setLocation(j, i);
-        System.out.println(enemies.elementAt(k).getLocation());
+        //System.out.println(enemies.elementAt(k).getLocation());
 	   Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
 	   Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
 	   while(mapTraversal[i][j]>0 && j<19)
@@ -147,25 +148,25 @@ public class MapOne {
 		        
 		    j+=1;
 		    enemies.elementAt(k).setLocation(j, i);
-		    System.out.println(enemies.elementAt(k).getLocation());
+		    //System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i+1][j]) {
 		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
 		    i+=1;
 		    enemies.elementAt(k).setLocation(j, i);
-		    System.out.println(enemies.elementAt(k).getLocation());
+		    //System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
 		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
 		    j-=1;
 		    enemies.elementAt(k).setLocation(j, i);
-		    System.out.println(enemies.elementAt(k).getLocation());
+		    //System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 		    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
 		    i-=1;
 		    enemies.elementAt(k).setLocation(j, i);
-		    System.out.println(enemies.elementAt(k).getLocation());
+		    //System.out.println(enemies.elementAt(k).getLocation());
 		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i+1][j]) {
 		    Random r = new Random();
 		    int randNum = r.nextInt(50);
@@ -174,13 +175,13 @@ public class MapOne {
 			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
 			   j+=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			   g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
 			   i+=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		   }
 		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
 		    Random r = new Random();
@@ -190,13 +191,13 @@ public class MapOne {
 			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
 			   j+=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
 			    j-=1;
 			    enemies.elementAt(k).setLocation(j, i);
-			    System.out.println(enemies.elementAt(k).getLocation());
+			    //System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    Random r = new Random();
@@ -206,13 +207,13 @@ public class MapOne {
 			   g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
 			   j+=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
 			    i-=1;
 			    enemies.elementAt(k).setLocation(j, i);
-			    System.out.println(enemies.elementAt(k).getLocation());
+			    //System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0) {
 		    Random r = new Random();
@@ -222,13 +223,13 @@ public class MapOne {
 			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
 			   i+=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
 			    j-=1;
 			    enemies.elementAt(k).setLocation(j, i);
-			    System.out.println(enemies.elementAt(k).getLocation());
+			    //System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    Random r = new Random();
@@ -238,13 +239,13 @@ public class MapOne {
 			   g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
 			   i+=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
 			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
 			    i-=1;
 			    enemies.elementAt(k).setLocation(j, i);
-			    System.out.println(enemies.elementAt(k).getLocation());
+			    //System.out.println(enemies.elementAt(k).getLocation());
 		    }
 		} else if(mapTraversal[i][j] < mapTraversal[i][j-1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0) {
 		    Random r = new Random();
@@ -254,13 +255,13 @@ public class MapOne {
 			   g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
 			   j-=1;
 			   enemies.elementAt(k).setLocation(j, i);
-			   System.out.println(enemies.elementAt(k).getLocation());
+			   //System.out.println(enemies.elementAt(k).getLocation());
 		    } else {
 			    g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
 			    g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
 			    i-=1;
 			    enemies.elementAt(k).setLocation(j, i);
-			    System.out.println(enemies.elementAt(k).getLocation());
+			    //System.out.println(enemies.elementAt(k).getLocation());
                     }
 		} else {
 		    System.out.println("Oh, snap, we stuck!"); 	
@@ -275,7 +276,7 @@ public class MapOne {
 		}
 	   }
 	   k++;
-	   System.out.println(enemies.size());
+	   //System.out.println(enemies.size());
     }
     
     public void paint(Graphics g)
@@ -288,17 +289,35 @@ public class MapOne {
         	for(int j = 0; j < MapOne[0].length; j++) {
         		if(MapOne[i][j] == 0) {
         			g.drawImage(img0, i*MapOne.length, j*MapOne[0].length, null);
+    				Square sq=new Square(j*20+1,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
         		} else if(MapOne[i][j] == 1) {
         			g.drawImage(img1, i*MapOne.length, j*MapOne[0].length, null);
+    				Square sq=new Square(j*20+1,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
         		} else if(MapOne[i][j] == 2) {
         			g.drawImage(img2, i*MapOne.length, j*MapOne[0].length, null);
+    				Square sq=new Square(j*20+1,i*20);
+
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
         		} else if(MapOne[i][j] == 3) {
         			g.drawImage(img3, i*MapOne.length, j*MapOne[0].length, null);
+    				Square sq=new Square(j*20+1,i*20);
+
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
         		}else{
         			System.err.println("should never happen!");
         		}
         	}
-        }        			
+        } 
     }
 
      /**
