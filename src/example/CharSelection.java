@@ -1,5 +1,6 @@
 package example;
 
+import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,14 @@ import javax.swing.JPanel;
 public class CharSelection {
 	final JFrame charHolder=new JFrame();
 	private Screen1 s;
+/*
+        final JPanel parent=new JPanel();
+        final CardLayout myLayout=new CardLayout();
+
+        MapOne mapone=new MapOne();
+	MapTwo maptwo=new MapTwo();
+	MapThree mapthree=new MapThree();
+*/
 	public CharSelection(){
 		charHolder.addWindowListener(new WindowListener(){
 
@@ -78,6 +87,54 @@ public class CharSelection {
         holder.add(selectGreen);
         holder.add(selectProphet);
         holder.add(startRound);
+
+            selectMelee.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+            selectBlue.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+            selectRed.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // TODO Auto-generated method stub
+	//	myLayout.show(parent, "map1");
+	//	screenone.paint(screenone.getGraphics());
+                }
+            });
+
+            selectGreen.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+            selectProphet.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+
         startRound.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
