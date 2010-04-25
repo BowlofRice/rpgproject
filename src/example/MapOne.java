@@ -301,13 +301,7 @@ public class MapOne {
         } 
     }
 
-     /**
-     * paintCharacters
-     *
-     * @param MapOne - this method paints the map for the characters placement
-     */
-    
-           
+  
 /*
 This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing, 
 and a 0 if not.  The flag number designates the level and unit

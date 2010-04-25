@@ -18,6 +18,7 @@ public class Minion extends Enemy{
     	level = 1;
     	attack = 1;
     	speed = 1;
+    	health=10;
     	character_flag = ENEMYCLASS_FLAG_1; //ranges from 32 to 36
         this.troy = troy;
     }
@@ -36,7 +37,7 @@ public class Minion extends Enemy{
     }
     
     public void dealDamage() {
-        troy.health -= this.attack; 
+        troy.health-=attack; 
     }
     
     
