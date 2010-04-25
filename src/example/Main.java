@@ -21,9 +21,9 @@ public class Main {
 		final JPanel parent=new JPanel();
 		final CharSelection cs1=new CharSelection(jf);
 		final CharSelection2 cs2=new CharSelection2(jf);
-		final CharSelection3 cs3=new CharSelection3();
+		final CharSelection3 cs3=new CharSelection3(jf);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel main=new JPanel(), mapselect=new JPanel(), playmap1Menu=new JPanel(), playmap2Menu=new JPanel();
+		JPanel main=new JPanel(), mapselect=new JPanel(), playmap1Menu=new JPanel(), playmap2Menu=new JPanel(), playmap3Menu=new JPanel();
 		JPanel playmap1=new JPanel();
 		JPanel playmap2=new JPanel();
 		JPanel playmap3=new JPanel();
@@ -53,26 +53,32 @@ public class Main {
 		mapselect.add(new SelectaMap());
 		final MapOne mapone=new MapOne();
 		final MapTwo maptwo=new MapTwo();
-		MapThree mapthree=new MapThree();
+		final MapThree mapthree=new MapThree();
 		playmap1Menu.setLayout(grid);
 		playmap1Menu.add(quittomapsel);
 		playmap1Menu.add(selectplayers);
 		playmap2Menu.setLayout(grid);
 		playmap2Menu.add(quittomapsel1);
 		playmap2Menu.add(selectplayers1);
+		playmap3Menu.setLayout(grid);
+		playmap3Menu.add(quittomapsel2);
+		playmap3Menu.add(selectplayers2);
 		//playmap2.add(quittomapsel1);
-		playmap3.add(quittomapsel2);
+		//playmap3.add(quittomapsel2);
         //playmap2.add(selectplayers1);
-        playmap3.add(selectplayers2);
+        //playmap3.add(selectplayers2);
         final Screen1 screenone=new Screen1(mapone);
 		final Screen2 screentwo=new Screen2(maptwo);
 		final Screen3 screenthree=new Screen3(mapthree);
 		MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
 		MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
+		MouseTracer3 mouse3=new MouseTracer3(mapthree, cs3, screenthree, cs3.charHolder);
 		screenone.addMouseTracer(mouse);
 		screenone.addMouseListener(mouse);
 		screentwo.addMouseTracer(mouse2);
 		screentwo.addMouseListener(mouse2);
+		screenthree.addMouseTracer(mouse3);
+		screenthree.addMouseListener(mouse3);
 		cs1.addScreen(screenone);
 		cs2.addScreen(screentwo);
 		cs3.addScreen(screenthree);
@@ -80,8 +86,11 @@ public class Main {
 		playmap1Menu.add(cs1.funds);
 		playmap2Menu.add(new JLabel("Funds/Score: "));
 		playmap2Menu.add(cs2.funds);
+		playmap3Menu.add(new JLabel("Funds/Score: "));
+		playmap3Menu.add(cs3.funds);
 		playmap1.add(playmap1Menu);
 		playmap2.add(playmap2Menu);
+		playmap3.add(playmap3Menu);
 		playmap1.add(screenone);
 		playmap2.add(screentwo);
 		playmap3.add(screenthree);
@@ -147,7 +156,7 @@ public class Main {
 				maptwo.enemies.removeAllElements();
 				maptwo.k=0;
 				screentwo.funds=RESET_FUNDS;
-				cs2.funds.setText(""+screenone.funds);
+				cs2.funds.setText(""+screentwo.funds);
 				screentwo.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -156,6 +165,11 @@ public class Main {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				screenthree.mouse.allies.removeAllElements();
+				mapthree.enemies.removeAllElements();
+				mapthree.k=0;
+				screenthree.funds=RESET_FUNDS;
+				cs3.funds.setText(""+screenthree.funds);
 				screenthree.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
