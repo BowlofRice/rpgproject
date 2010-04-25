@@ -18,6 +18,8 @@ public class CharSelection {
 	public boolean RED=false;
 	public boolean GREEN=false;
 	public boolean PROPHET=false;
+        public int x_on_click;
+        public int y_on_click;
 	final JFrame charHolder=new JFrame();
 	private Screen1 s;
 	private JTextArea funds=new JTextArea();
@@ -95,7 +97,21 @@ public class CharSelection {
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		// TODO Auto-generated method stub
+                        charHolder.setVisible(false);
+                        //while mouse has not been clicked empty loop
+                        //while()
+
+                        x_on_click=s.getX();
+                        x_on_click/=20;
+
+                        y_on_click=s.getY();
+                        y_on_click/=20;
+                        
         		ARCHER=true;
+                        s.funds-=200;
+                       // s.add_goodguy(,x_on_click, y_on_click, Archer.ARCHER_FLAG_1);
+                        s.repaint();
+                        charHolder.setVisible(true);
             	}
         });
         selectFighter.addActionListener(new ActionListener() {
@@ -139,6 +155,7 @@ public class CharSelection {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+                                charHolder.setVisible(false);
 				s.playTime=1;
 				s.repaint();
 			}

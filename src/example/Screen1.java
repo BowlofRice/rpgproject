@@ -14,10 +14,15 @@ public class Screen1 extends Canvas{
 		setBackground(Color.DARK_GRAY);
 		this.map=map;
 	}
+        public void add_goodguy(Graphics g, int x, int y, int flag)
+        {
+            map.paintCharacter(g, x, y, flag);
+        }
 	public void paint(Graphics g){
 		switch(playTime){
 		case 0:
 			map.paint(g);
+                       // map.paintCharacter(g, WIDTH, WIDTH, playTime);
 			break;
 		case 1:
 			map.paint(g);
