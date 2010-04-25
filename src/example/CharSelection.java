@@ -98,7 +98,6 @@ public class CharSelection {
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		// TODO Auto-generated method stub
-<<<<<<< HEAD
         		FIGHTER=false;
         		BLUE=false;
         		RED=false;
@@ -110,25 +109,8 @@ public class CharSelection {
         		}else{
         			JOptionPane.showMessageDialog(charHolder, "you're currently deploying an archer. do so already.");
         		}
-        		
-=======
-                        charHolder.setVisible(false);
-                        //while mouse has not been clicked empty loop
-                        //while()
 
-                        x_on_click=s.getX();
-                        x_on_click/=20;
-
-                        y_on_click=s.getY();
-                        y_on_click/=20;
-                        
-        		ARCHER=true;
-                        s.funds-=200;
-                       // s.add_goodguy(,x_on_click, y_on_click, Archer.ARCHER_FLAG_1);
-                        s.repaint();
-                        charHolder.setVisible(true);
->>>>>>> 433e5a95330ff66495b8c26907e2920bed274d39
-            	}
+            }
         });
         selectFighter.addActionListener(new ActionListener() {
         	@Override

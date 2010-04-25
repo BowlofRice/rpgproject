@@ -289,26 +289,26 @@ public class MapOne {
         	for(int j = 0; j < MapOne[0].length; j++) {
         		if(MapOne[i][j] == 0) {
         			g.drawImage(img0, i*MapOne.length, j*MapOne[0].length, null);
-    				Square sq=new Square(j*20+1,i*20);
+    				Square sq=new Square(j*20,i*20);
         			if(squares.size()<400){
         				squares.add(sq);
         			}
         		} else if(MapOne[i][j] == 1) {
         			g.drawImage(img1, i*MapOne.length, j*MapOne[0].length, null);
-    				Square sq=new Square(j*20+1,i*20);
+    				Square sq=new Square(j*20,i*20);
         			if(squares.size()<400){
         				squares.add(sq);
         			}
         		} else if(MapOne[i][j] == 2) {
         			g.drawImage(img2, i*MapOne.length, j*MapOne[0].length, null);
-    				Square sq=new Square(j*20+1,i*20);
+    				Square sq=new Square(j*20,i*20);
 
         			if(squares.size()<400){
         				squares.add(sq);
         			}
         		} else if(MapOne[i][j] == 3) {
         			g.drawImage(img3, i*MapOne.length, j*MapOne[0].length, null);
-    				Square sq=new Square(j*20+1,i*20);
+    				Square sq=new Square(j*20,i*20);
 
         			if(squares.size()<400){
         				squares.add(sq);
@@ -372,8 +372,9 @@ public class MapOne {
         Image img29 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char29.gif");
         Image img30 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char30.gif");
         Image img31 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char31.gif");
-
-       
+        
+        
+       /*
         		if(char_flag == 1) {
         			if(MapOne[i][j]==1)
         				g.drawImage(img1, i*MapOne.length, j*MapOne[0].length, null);
@@ -459,7 +460,7 @@ public class MapOne {
         			System.err.println("should never happen at characters!");
         		}
 
-        	
+        	*/
         
 
     }

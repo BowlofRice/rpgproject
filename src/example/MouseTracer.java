@@ -7,6 +7,8 @@ public class MouseTracer implements MouseListener{
 	
 	private MapOne mapone;
 	private CharSelection cs1;
+	public int arrayLocationX=0;
+	public int arrayLocationY=0;
 
 	public MouseTracer(MapOne mapone, CharSelection cs1){
 		this.mapone=mapone;
@@ -21,6 +23,8 @@ public class MouseTracer implements MouseListener{
 					if(mapone.squares.elementAt(i).getPoint().x+19>arg0.getX() && mapone.squares.elementAt(i).getPoint().y+19>arg0.getY()){
 						//System.out.println("square at:"+mapone.squares.elementAt(i).getPoint()+" click at:"+arg0.getX()+" "+arg0.getY());
 						if(cs1.ARCHER){
+							arrayLocationX=mapone.squares.elementAt(i).getPoint().x/20;
+							arrayLocationY=mapone.squares.elementAt(i).getPoint().y/20;
 							
 						}
 					}
