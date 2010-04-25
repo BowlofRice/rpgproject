@@ -380,7 +380,7 @@ public class MapOne {
         		}
 
                   else if(char_flag == 2) {
-                	if(MapOne[i][j]!=1)
+                	
                 		g.drawImage(img2, i*MapOne.length, j*MapOne[0].length, null);
         		} else if(char_flag == 3) {
         			g.drawImage(img3, i*MapOne.length, j*MapOne[0].length, null);
