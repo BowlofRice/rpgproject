@@ -9,23 +9,25 @@ public class Screen1 extends Canvas{
 	private MapOne map;
 	public int playTime=0;
 	public int funds=20000;
+	private MouseTracer mouse;
 	public Screen1(MapOne map){
 		setSize(400,400);
 		setBackground(Color.DARK_GRAY);
 		this.map=map;
 	}
-        public void add_goodguy(Graphics g, int x, int y, int flag)
-        {
-            map.paintCharacter(g, x, y, flag);
-        }
+    public void addMouseTracer(MouseTracer mouse){
+    	this.mouse=mouse;
+    }
+        
 	public void paint(Graphics g){
 		switch(playTime){
 		case 0:
 			map.paint(g);
-                       // map.paintCharacter(g, WIDTH, WIDTH, playTime);
 			break;
 		case 1:
 			map.paint(g);
+			for(int i=0;i<mouse.allies.size();i++)
+				mouse.allies.elementAt(i).drawUnit(g);
 			for(int i=1;i<=3;i++)
 				map.moveEnemy(g,9, 0);
 			break;

@@ -58,10 +58,12 @@ public class Main {
         playmap1.add(selectplayers);
         playmap2.add(selectplayers1);
         playmap3.add(selectplayers2);
-		final Screen1 screenone=new Screen1(mapone);
+        final Screen1 screenone=new Screen1(mapone);
 		final Screen2 screentwo=new Screen2(maptwo);
 		final Screen3 screenthree=new Screen3(mapthree);
-		screenone.addMouseListener(new MouseTracer(mapone, cs1));
+		MouseTracer mouse=new MouseTracer(mapone, cs1, screenone);
+		screenone.addMouseTracer(mouse);
+		screenone.addMouseListener(mouse);
 		cs1.addScreen(screenone);
 		cs2.addScreen(screentwo);
 		cs3.addScreen(screenthree);

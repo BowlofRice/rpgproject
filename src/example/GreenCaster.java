@@ -1,6 +1,9 @@
 package example;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 
 /**
  *
@@ -12,6 +15,13 @@ public class GreenCaster extends Ally{
     public static final int GREENCASTER_FLAG_3 = 14;
     public static final int GREENCASTER_FLAG_4 = 15;
     public static final int GREENCASTER_FLAG_5 = 16;
+    
+    Image img12 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char12.gif");
+    Image img13 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char13.gif");
+    Image img14 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char14.gif");
+    Image img15 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char15.gif");
+    Image img16= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char16.gif");
+    
     int level;
     Point location;//default starting location
     int attack;
@@ -20,7 +30,9 @@ public class GreenCaster extends Ally{
     int range;
     int character_flag;
 
-    public GreenCaster(){
+    public GreenCaster(int x, int y){
+    	location.x=x;
+    	location.y=y;
     	level = 1;
     	attack = 8;
     	attack_speed = 1;
@@ -59,5 +71,27 @@ public class GreenCaster extends Ally{
       // Random Number Generator to see if poisoned
       // For 8 seconds, take 0.2* current attack extra damage    
     }
+
+	@Override
+	public void drawUnit(Graphics g) {
+		// TODO Auto-generated method stub
+		switch(character_flag){
+			case GREENCASTER_FLAG_1:
+				g.drawImage(img12, location.x, location.y, null);
+				break;
+			case GREENCASTER_FLAG_2:
+				g.drawImage(img13, location.x, location.y, null);
+				break;
+			case GREENCASTER_FLAG_3:
+				g.drawImage(img14, location.x, location.y, null);
+				break;
+			case GREENCASTER_FLAG_4:
+				g.drawImage(img15, location.x, location.y, null);
+				break;
+			case GREENCASTER_FLAG_5:
+				g.drawImage(img16, location.x, location.y, null);
+				break;
+		}
+	}
 
 }

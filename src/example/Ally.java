@@ -1,5 +1,6 @@
 package example;
 
+import java.awt.Graphics;
 import java.awt.Point;
 
 abstract public class Ally {
@@ -9,6 +10,7 @@ abstract public class Ally {
 	abstract public void increaseAttack();
 	abstract public void increaseAttackSpeed();
 	abstract public void dealDamage();
+	abstract public void drawUnit(Graphics g);
 	public Point getLocation(){
 		return location;
 	}

@@ -1,6 +1,9 @@
 package example;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 
 /**
  *
@@ -12,6 +15,13 @@ public class Prophet extends Ally{
     public static final int PROPHET_FLAG_3 = 29;
     public static final int PROPHET_FLAG_4 = 30;
     public static final int PROPHET_FLAG_5 = 31;
+    
+    Image img27 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char27.gif");
+    Image img28 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char28.gif");
+    Image img29 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char29.gif");
+    Image img30 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char30.gif");
+    Image img31 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char31.gif");
+    
     int level;
     Point location;//default starting location
     int attack;
@@ -20,8 +30,9 @@ public class Prophet extends Ally{
     int range;
     int character_flag;
     
-    public Prophet(){
-
+    public Prophet(int x, int y){
+    location.x=x;
+    location.y=y;
     level = 1;
     attack = 2;
     attack_speed = 1;
@@ -62,5 +73,27 @@ public class Prophet extends Ally{
     public void EasterEgg() {
         // Switch Statement of Prophet Sayings
     }
+
+	@Override
+	public void drawUnit(Graphics g) {
+		// TODO Auto-generated method stub
+		switch(character_flag){
+			case PROPHET_FLAG_1:
+				g.drawImage(img27, location.x, location.y, null);
+				break;
+			case PROPHET_FLAG_2:
+				g.drawImage(img28, location.x, location.y, null);
+				break;
+			case PROPHET_FLAG_3:
+				g.drawImage(img29, location.x, location.y, null);
+				break;
+			case PROPHET_FLAG_4:
+				g.drawImage(img30, location.x, location.y, null);
+				break;
+			case PROPHET_FLAG_5:
+				g.drawImage(img31, location.x, location.y, null);
+				break;
+		}
+	}
 
 }
