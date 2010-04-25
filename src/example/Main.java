@@ -61,7 +61,7 @@ public class Main {
 		final Screen1 screenone=new Screen1(mapone);
 		final Screen2 screentwo=new Screen2(maptwo);
 		final Screen3 screenthree=new Screen3(mapthree);
-		screenone.addMouseListener(new MouseTracer(mapone));
+		screenone.addMouseListener(new MouseTracer(mapone, cs1));
 		cs1.addScreen(screenone);
 		cs2.addScreen(screentwo);
 		cs3.addScreen(screenthree);

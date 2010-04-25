@@ -8,6 +8,7 @@ import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -95,7 +96,18 @@ public class CharSelection {
         	@Override
         	public void actionPerformed(ActionEvent e) {
         		// TODO Auto-generated method stub
-        		ARCHER=true;
+        		FIGHTER=false;
+        		BLUE=false;
+        		RED=false;
+        		GREEN=false;
+        		PROPHET=false;
+        		if(!ARCHER){
+        			ARCHER=true;
+        			JOptionPane.showMessageDialog(charHolder, "click on the map to deploy an archer there. deploying an archer costs 1000G");
+        		}else{
+        			JOptionPane.showMessageDialog(charHolder, "you're currently deploying an archer. do so already.");
+        		}
+        		
             	}
         });
         selectFighter.addActionListener(new ActionListener() {
