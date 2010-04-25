@@ -23,7 +23,7 @@ public class BlueCaster extends Ally{
     Image img11= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char11.gif");
     
     int level;
-    Point location ;
+    Point location=new Point() ;
     int attack ;
     int attack_speed;
     int upgradelevelmeter;

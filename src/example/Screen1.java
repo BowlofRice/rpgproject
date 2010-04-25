@@ -9,7 +9,7 @@ public class Screen1 extends Canvas{
 	private MapOne map;
 	public int playTime=0;
 	public int funds=20000;
-	private MouseTracer mouse;
+	public MouseTracer mouse;
 	public Screen1(MapOne map){
 		setSize(400,400);
 		setBackground(Color.DARK_GRAY);

@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Main {
@@ -15,13 +16,14 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		final int RESET_FUNDS=20000;
 		final JFrame jf=new JFrame();
 		final JPanel parent=new JPanel();
-		final CharSelection cs1=new CharSelection();
+		final CharSelection cs1=new CharSelection(jf);
 		final CharSelection2 cs2=new CharSelection2();
 		final CharSelection3 cs3=new CharSelection3();
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel main=new JPanel(), mapselect=new JPanel();
+		JPanel main=new JPanel(), mapselect=new JPanel(), playmap1Menu=new JPanel();
 		JPanel playmap1=new JPanel();
 		JPanel playmap2=new JPanel();
 		JPanel playmap3=new JPanel();
@@ -52,21 +54,25 @@ public class Main {
 		final MapOne mapone=new MapOne();
 		MapTwo maptwo=new MapTwo();
 		MapThree mapthree=new MapThree();
-		playmap1.add(quittomapsel);
+		playmap1Menu.setLayout(grid);
+		playmap1Menu.add(quittomapsel);
+		playmap1Menu.add(selectplayers);
 		playmap2.add(quittomapsel1);
 		playmap3.add(quittomapsel2);
-        playmap1.add(selectplayers);
         playmap2.add(selectplayers1);
         playmap3.add(selectplayers2);
         final Screen1 screenone=new Screen1(mapone);
 		final Screen2 screentwo=new Screen2(maptwo);
 		final Screen3 screenthree=new Screen3(mapthree);
-		MouseTracer mouse=new MouseTracer(mapone, cs1, screenone);
+		MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
 		screenone.addMouseTracer(mouse);
 		screenone.addMouseListener(mouse);
 		cs1.addScreen(screenone);
 		cs2.addScreen(screentwo);
 		cs3.addScreen(screenthree);
+		playmap1Menu.add(new JLabel("Funds/Score: "));
+		playmap1Menu.add(cs1.funds);
+		playmap1.add(playmap1Menu);
 		playmap1.add(screenone);
 		playmap2.add(screentwo);
 		playmap3.add(screenthree);
@@ -115,6 +121,9 @@ public class Main {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				screenone.mouse.allies.removeAllElements();
+				screenone.funds=RESET_FUNDS;
+				cs1.funds.setText(""+screenone.funds);
 				screenone.playTime=0;
 				myLayout.show(parent, "maps");
 			}			

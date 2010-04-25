@@ -23,7 +23,7 @@ public class RedCaster extends Ally{
     Image img21 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char21.gif");
     
     int level;
-    Point location;//default starting location
+    Point location=new Point();//default starting location
     int attack;
     int upgradelevelmeter;
     int range;

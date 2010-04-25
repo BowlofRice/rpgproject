@@ -23,7 +23,7 @@ public class GreenCaster extends Ally{
     Image img16= Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char16.gif");
     
     int level;
-    Point location;//default starting location
+    Point location=new Point();//default starting location
     int attack;
     int attack_speed;
     int upgradelevelmeter;
