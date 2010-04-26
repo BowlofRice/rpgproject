@@ -24,7 +24,7 @@ public class GreenCaster extends Ally{
     
     int level;
     Point location=new Point();//default starting location
-    int attack;
+    float attack;
     int attack_speed;
     int upgradelevelmeter;
     int range;
@@ -66,10 +66,19 @@ public class GreenCaster extends Ally{
         attack=attack*2;
     }
     
-    public void dealDamage(){
-      //do damage
-      // Random Number Generator to see if poisoned
-      // For 8 seconds, take 0.2* current attack extra damage    
+    public void dealDamage(Minion m){
+         m.health -= attack;
+         Random r = new Random();
+         int randNum = r.nextInt(100) + 1;
+         //Enemy is Poisoned. Extra 20% Damage over 8 seconds. 
+         if(randNum % 2 == 0) {
+              while(m.health > 0) {
+                   for(int counter = 0; counter < 8; counter++)
+                   {
+                        m.health -= attack * 0.20;
+                   }
+              }
+         }    
     }
 
 	@Override

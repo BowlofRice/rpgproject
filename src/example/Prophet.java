@@ -24,7 +24,7 @@ public class Prophet extends Ally{
     
     int level;
     Point location=new Point();//default starting location
-    int attack;
+    float attack;
     int attack_speed;
     int upgradelevelmeter;
     int range;
@@ -66,9 +66,8 @@ public class Prophet extends Ally{
     public void increaseAttackSpeed() {
          attack_speed = attack_speed * 2;
     }
-    public void dealDamage() {
-        //deal damage
-        // Random Number Generator 
+    public void dealDamage(Minon m) {
+         m.health -= attack; 
     }
     public void EasterEgg() {
         // Switch Statement of Prophet Sayings

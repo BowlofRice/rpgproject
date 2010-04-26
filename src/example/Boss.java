@@ -9,9 +9,9 @@ import java.awt.Point;
  
 public class Boss extends Enemy{
     public static final int BOSSCLASS_FLAG_1 = 37;
-    Point location;
-    int health;
-    int speed;
+    Point location=new point();
+    float health;
+    float speed;
     int attack;
     int character_flag;
     public int level;
@@ -45,6 +45,5 @@ public class Boss extends Enemy{
     public void dealDamage() {
         troy.health -= this.attack;
     }
-    
     
 }

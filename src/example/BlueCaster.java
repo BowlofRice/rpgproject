@@ -24,7 +24,7 @@ public class BlueCaster extends Ally{
     
     int level;
     Point location=new Point() ;
-    int attack ;
+    float attack ;
     int attack_speed;
     int upgradelevelmeter;
     int range ;
@@ -66,10 +66,16 @@ public BlueCaster(int x, int y){
         attack=attack*2;
     }
     
-    public void dealDamage() {
-        //deal damage
-        // Random Number Generator
-        // If in range, do damage and slow enemy by 50% 
+    public void dealDamage(Minion m) {
+         m.health -= attack;
+         Random r = new Random();
+         int randNum = r.nextInt(100) + 1;
+         // Enemy is Chilled. Movement Speed is Decreased by Half
+         if(randNum % 2 == 0) {
+              while(m.health > 0) {
+                   m.speed *= 0.50;
+              }
+         } 
     }
 
 	@Override

@@ -24,7 +24,7 @@ public class Archer extends Ally{
     
     int level;
     Point location=new Point();
-    int attack;
+    float attack;
     int attack_speed;
     int upgradelevelmeter;
     int range;
@@ -66,9 +66,8 @@ public class Archer extends Ally{
     public void increaseAttackSpeed() {
         attack_speed = attack_speed * 2;
     }
-    public void dealDamage() {
-        //deal damage
-        // Random Number Generator 
+    public void dealDamage(Minion m) {
+         m.health -= attack; 
     }
     public void increaseRange() {
         range *= range;

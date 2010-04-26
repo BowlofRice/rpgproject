@@ -7,9 +7,9 @@ package example;
  
 public class Minion extends Enemy{
     public static final int ENEMYCLASS_FLAG_1 = 32;
-    int health;
-    int speed;
-    int attack;
+    float health;
+    float speed;
+    float attack;
     int character_flag;
     int level;
     public TroyCastle troy;

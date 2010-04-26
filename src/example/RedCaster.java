@@ -24,7 +24,7 @@ public class RedCaster extends Ally{
     
     int level;
     Point location=new Point();//default starting location
-    int attack;
+    float attack;
     int upgradelevelmeter;
     int range;
     int character_flag;
@@ -66,10 +66,16 @@ public RedCaster(int x, int y){
         attack=attack*2;
     }
    
-    public void dealDamage() {
-        // do damage
-        // random number generator
-        // if in range of RN, do 0.35 * current attack extra damage
+    public void dealDamage(Minion m) {
+        m.health -= attack;
+        Random r = new Random();
+        int randNum = r.nextInt(100) + 1;
+        if(randNum % 2 == 0) {
+            // Enemy is Burned (Extra 35% damage)
+            while(m.health > 0) {
+                m.health -= 0.35 * attack;
+            }
+        }   
     }
 
 	@Override
