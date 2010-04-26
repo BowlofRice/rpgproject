@@ -67,9 +67,9 @@ public class MapOne {
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2},
         {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,2,2},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,3,3},
+        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,4,3},
         {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,1,1,1},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,3,3},
+        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,4,3},
         {1,1,1,1,1,1,0,0,0,2,2,2,2,2,2,2,1,2,2,2},
         {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,2,2},
         {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,2,2},
@@ -139,7 +139,7 @@ public class MapOne {
         }
         int c = i;
         int d = j;
-        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newpath1.png");
         Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
         double randomnum = 0;
         int rand = 0;
@@ -277,10 +277,11 @@ public class MapOne {
         k++;
     }
     public void paint(Graphics g){   
-        Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/LARose_sand.gif");//http://shop.advanceweb.com/images/swatches/LARose_sand.gif
-        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");//http://www.keladimaju.com/App_Themes/green/images/pathway.gif
-        Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/grass.gif");//http://us.sollitaire.com/gallery/albums/NES-Gifs/grass.gif
-        Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/stronghold.gif");//http://www.mtgcardshop.com/mtg-images/Set_icons/stronghold.gif
+        Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newsand1.png");
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newpath1.png");
+        Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newgrass.png");
+        Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/castlelower.png");
+        Image img4 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/castleupper.png");
         for(int i = 0; i < MapOne.length; i++) {	
         	for(int j = 0; j < MapOne[0].length; j++) {
         		if(MapOne[i][j] == 0) {
@@ -304,6 +305,13 @@ public class MapOne {
         			}
         		} else if(MapOne[i][j] == 3) {
         			g.drawImage(img3, i*MapOne.length, j*MapOne[0].length, null);
+    				Square sq=new Square(j*20,i*20);
+
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		} else if(MapOne[i][j] == 4) {
+        			g.drawImage(img4, i*MapOne.length, j*MapOne[0].length, null);
     				Square sq=new Square(j*20,i*20);
 
         			if(squares.size()<400){

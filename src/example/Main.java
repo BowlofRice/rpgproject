@@ -95,7 +95,7 @@ public class Main {
 		playmap3Menu.add(cs3.funds);
 		playmap3Menu.add(new JLabel("Troy HP: "));
 		mapthree.troyHP.setEditable(false);
-		playmap3Menu.add(maptwo.troyHP);
+		playmap3Menu.add(mapthree.troyHP);
 		playmap1.add(playmap1Menu);
 		playmap2.add(playmap2Menu);
 		playmap3.add(playmap3Menu);
