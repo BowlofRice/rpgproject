@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.Vector;
 
 /**
  *
@@ -86,6 +87,30 @@ public class Fighter extends Ally{
 				g.drawImage(img26, location.x, location.y, null);
 				break;
 		}
+	}
+	@Override
+	public boolean withinRange(Minion m) {
+		// TODO Auto-generated method stub
+		boolean result=false;
+		Vector<Point> points=new Vector<Point>();
+		int x=location.x/20;
+		int y=location.y/20;
+		Point a=new Point(x,y-1);
+		points.add(a);
+		Point b=new Point(x+1,y);
+		points.add(b);
+		Point c=new Point(x,y+1);
+		points.add(c);
+		Point d=new Point(x-1,y);
+		points.add(d);//4 different location where a fighter can strike
+		
+		for(int i=0;i<points.size();i++){
+			if(points.elementAt(i).equals(m.getLocation()))
+				result=true;
+			else
+				result=false;
+		}
+		return result;
 	}
 
 }

@@ -3,17 +3,20 @@ package example;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.Random;
 import java.util.Vector;
 
+import javax.swing.JTextArea;
+
 public class MapOne {
-	public Vector<Enemy> enemies=new Vector<Enemy>();
+	public Vector<Minion> enemies=new Vector<Minion>();
 	public Vector<Square> squares=new Vector<Square>();
 	public TroyCastle troy=new TroyCastle();
+	public JTextArea troyHP=new JTextArea(""+troy.health+"/100");
 	int k=0;//enemy counter
 	public int[][] MapOne;
     public int[][] MapOneCharacters;
     public int[][] mapTraversal;
+	private MouseTracer mt;
     
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
@@ -130,119 +133,143 @@ public class MapOne {
     	Minion baddie=new Minion(troy);
         enemies.add(baddie);
         enemies.elementAt(k).setLocation(j, i);
+        for(int b=0;b<mt.allies.size();b++){
+        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+        		System.out.println("enemy sighted!");
+        }
+        int c = i;
+        int d = j;
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
         Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/char1.gif");
-        while(mapTraversal[i][j]>0 && j<19){   
-        	if(mapTraversal[i][j] < mapTraversal[i][j+1]){
-        		g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        		g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-        		enemies.elementAt(k).setLocation(j, i);
-        		j+=1;
-        	}else if(mapTraversal[i][j] < mapTraversal[i+1][j]){
-        		g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        		g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        		enemies.elementAt(k).setLocation(j, i);
-        		i+=1;
-        	}else if(mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0){
-        		g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        		g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-        		enemies.elementAt(k).setLocation(j, i);
-        		j-=1;
-        	}else if(mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0){
-        		g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        		g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        		enemies.elementAt(k).setLocation(j, i);
-        		i-=1;
-        	}else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i+1][j]){
-        		Random r = new Random();
-        		int randNum = r.nextInt(50);
-        		if(0 <= randNum && randNum <= 24){
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			j+=1;
-        		}else{
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			i+=1;
-        		}
-        	}else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0){
-        		Random r = new Random();
-        		int randNum = r.nextInt(50);
-        		if(0 <= randNum && randNum <= 24){
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			j+=1;
-        		}else{
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			j-=1;
-        		}
-        	}else if(mapTraversal[i][j] < mapTraversal[i][j+1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0){
-        		Random r = new Random();
-        		int randNum = r.nextInt(50);
-        		if(0 <= randNum && randNum <= 24){
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, i*mapTraversal.length, (j+1)*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			j+=1;
-        		}else{
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			i-=1;
-        		}
-        	}else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i][j-1] && j!=0){
-        		Random r = new Random();
-        		int randNum = r.nextInt(50);
-        		if(0 <= randNum && randNum <= 24){
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			i+=1;
-        		}else{
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			j-=1;
-        		}
-        	}else if(mapTraversal[i][j] < mapTraversal[i+1][j] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0){
-        		Random r = new Random();
-        		int randNum = r.nextInt(50);
-        		if(0 <= randNum && randNum <= 24){
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, (i+1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			i+=1;
-        		}else{
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null);
-        			g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			i-=1;
-        		}
-        	}else if(mapTraversal[i][j] < mapTraversal[i][j-1] && mapTraversal[i][j] < mapTraversal[i-1][j] && i!=0){
-        		Random r = new Random();
-        		int randNum = r.nextInt(50);
-        		if(0 <= randNum && randNum <= 24){
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-        			g.drawImage(img0, i*mapTraversal.length, (j-1)*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			j-=1;
-        		}else{
-        			g.drawImage(img1, i*mapTraversal.length, j*mapTraversal[0].length, null/*(ImageObserver) this*/);
-        			g.drawImage(img0, (i-1)*mapTraversal.length, j*mapTraversal[0].length, null);
-        			enemies.elementAt(k).setLocation(j, i);
-        			i-=1;
-        		}
-        	}else{
-        		System.out.println("Oh, snap, we stuck!"); 	
-	        }
-        	try {
-        		Thread.sleep(100);
-			}catch(InterruptedException e){
+        double randomnum = 0;
+        int rand = 0;
+        while (mapTraversal[i][j] > 0 && j < 19) {
+            randomnum = Math.random();
+            randomnum = randomnum * 6;
+            rand = (int) randomnum;
+            if(j==0){
+            	g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+                g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                //mapTraversal[i][j] = mapTraversal[i][j+1];
+                enemies.elementAt(k).setLocation(j, i);
+                for(int b=0;b<mt.allies.size();b++){
+                	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                		System.out.println("enemy sighted!");
+                }
+                c = i;
+                d = j;
+                j += 1;
+            }
+            if(j!=0){
+            	if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j-1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+            		//mapTraversal[i][j] = mapTraversal[i][j+1];
+            		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
+            		c = i;
+            		d = j;
+            		j += 1;
+            	}
+            	else if (mapTraversal[i][j]<=mapTraversal[i][j-1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+            		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
+            		//mapTraversal[i][j] = mapTraversal[i][j-1];
+            		c = i;
+            		d = j;
+            		j -= 1;
+            	}
+            	else if(mapTraversal[i][j]<=mapTraversal[i+1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
+            		//mapTraversal[i][j] = mapTraversal[i+1][j];
+            		c = i;
+            		d = j;
+            		i += 1;
+            	}
+            	else if(mapTraversal[i][j]<=mapTraversal[i-1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
+            		//mapTraversal[i][j] = mapTraversal[i-1][j];
+            		c = i;
+            		d = j;
+            		i -= 1;
+            	}
+            	if(j<19){
+            		if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+            			enemies.elementAt(k).setLocation(j, i);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+            	        		System.out.println("enemy sighted!");
+            	        }
+            			//mapTraversal[i][j] = mapTraversal[i][j+1];
+            			c = i;
+            			d = j;
+            			j += 1;
+            		}else if(2 <= rand && rand <= 3 && mapTraversal[i][j] <= mapTraversal[i][j - 1] && (j-1)!=d) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+            			enemies.elementAt(k).setLocation(j, i);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+            	        		System.out.println("enemy sighted!");
+            	        }
+            			//mapTraversal[i][j] = mapTraversal[i][j-1];
+            			c = i;
+            			d = j;
+            			j -= 1;
+            		}else if (3 < rand && rand <= 4 && mapTraversal[i][j] <= mapTraversal[i + 1][j] && (i+1)!=c) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            			enemies.elementAt(k).setLocation(j, i);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+            	        		System.out.println("enemy sighted!");
+            	        }
+            			//mapTraversal[i][j] = mapTraversal[i+1][j];
+            			c = i;
+            			d = j;
+            			i += 1;
+            		}else if (4 < rand && rand <= 6 && mapTraversal[i][j] <= mapTraversal[i - 1][j] && (i-1)!=c) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            			enemies.elementAt(k).setLocation(j, i);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+            	        		System.out.println("enemy sighted!");
+            	        }
+            			//mapTraversal[i][j] = mapTraversal[i-1][j];
+            			c = i;
+            			d = j;
+            			i -= 1;
+            		}else{
+            			///System.out.println("While loop will go again\n");
+            		}
+            	}
+            }
+            try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -318,5 +345,8 @@ and a 0 if not.  The flag number designates the level and unit
 
 
         }
+    }
+    public void setTracer(MouseTracer mt){
+    	this.mt=mt;
     }
 }

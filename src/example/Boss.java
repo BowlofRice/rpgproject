@@ -9,7 +9,7 @@ import java.awt.Point;
  
 public class Boss extends Enemy{
     public static final int BOSSCLASS_FLAG_1 = 37;
-    Point location=new point();
+    Point location=new Point();
     float health;
     float speed;
     int attack;

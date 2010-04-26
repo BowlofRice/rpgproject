@@ -9,7 +9,8 @@ abstract public class Ally {
 	abstract public void increaseLevel();
 	abstract public void increaseAttack();
 	abstract public void increaseAttackSpeed();
-	abstract public void dealDamage();
+	abstract public void dealDamage(Minion m);
+	abstract public boolean withinRange(Minion m);
 	abstract public void drawUnit(Graphics g);
 	public Point getLocation(){
 		return location;

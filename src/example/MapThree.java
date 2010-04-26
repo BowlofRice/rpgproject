@@ -5,14 +5,18 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.Vector;
 
+import javax.swing.JTextArea;
+
 public class MapThree {
-	public Vector<Enemy> enemies=new Vector<Enemy>();
+	public Vector<Minion> enemies=new Vector<Minion>();
 	public Vector<Square> squares=new Vector<Square>();
 	public TroyCastle troy=new TroyCastle();
+	JTextArea troyHP=new JTextArea(""+troy.health+"/100");
 	int k=0;//enemy counter
 	public int[][] MapThree;
     public int[][] MapThreeCharacters;
     public int[][] mapTraversal;
+	private MouseTracer3 mt;
 
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
@@ -127,6 +131,10 @@ public class MapThree {
     	Minion baddie=new Minion(troy);
         enemies.add(baddie);
         enemies.elementAt(k).setLocation(j, i);
+        for(int b=0;b<mt.allies.size();b++){
+        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+        		System.out.println("enemy sighted!");
+        }
     	int c = i;
         int d = j;
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/pathway.gif");
@@ -141,6 +149,10 @@ public class MapThree {
             	g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
                 g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                 enemies.elementAt(k).setLocation(j, i);
+                for(int b=0;b<mt.allies.size();b++){
+                	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                		System.out.println("enemy sighted!");
+                }
                 //mapTraversal[i][j] = mapTraversal[i][j+1];
                 c = i;
                 d = j;
@@ -151,6 +163,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i][j+1];
             		c = i;
             		d = j;
@@ -159,6 +175,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i][j-1];
             		c = i;
             		d = j;
@@ -167,6 +187,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i+1][j];
             		c = i;
             		d = j;
@@ -176,6 +200,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i-1][j];
             		c = i;
             		d = j;
@@ -186,6 +214,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i][j+1];
             		c = i;
             		d = j;
@@ -195,6 +227,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i][j-1];
             		c = i;
             		d = j;
@@ -203,6 +239,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i+1][j];
             		c = i;
             		d = j;
@@ -211,6 +251,10 @@ public class MapThree {
             		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
             		g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
             		enemies.elementAt(k).setLocation(j, i);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
+                    		System.out.println("enemy sighted!");
+                    }
             		//mapTraversal[i][j] = mapTraversal[i-1][j];
             		c = i;
             		d = j;
@@ -227,6 +271,7 @@ public class MapThree {
 				e.printStackTrace();
 			}
         }
+        k++;
     }
     public void paint(Graphics g){   
     	Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/LARose_sand.gif");
@@ -293,5 +338,8 @@ and a 0 if not.  The flag number designates the level and unit
 
 
         }
+    }
+    public void setTracer(MouseTracer3 mt){
+    	this.mt=mt;
     }
 }

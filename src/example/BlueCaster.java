@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.Random;
+import java.util.Vector;
 
 /**
  *
@@ -98,5 +100,37 @@ public BlueCaster(int x, int y){
 				g.drawImage(img11, location.x, location.y, null);
 				break;
 		}
+	}
+
+	@Override
+	public boolean withinRange(Minion m) {
+		// TODO Auto-generated method stub
+		boolean result=false;
+		Vector<Point> points=new Vector<Point>();
+		int x=location.x/20;
+		int y=location.y/20;
+		Point a=new Point(x,y-2);
+		points.add(a);
+		Point b=new Point(x+1,y-1);
+		points.add(b);
+		Point c=new Point(x+2,y);
+		points.add(c);
+		Point d=new Point(x+1,y+1);
+		points.add(d);
+		Point e=new Point(x,y+2);
+		points.add(e);
+		Point f=new Point(x-1,y+1);
+		points.add(f);
+		Point g=new Point(x-2,y);
+		points.add(g);
+		Point h=new Point(x-1,y-1);//8 different location where a blue caster can strike
+		points.add(h);
+		for(int i=0;i<points.size();i++){
+			if(points.elementAt(i).equals(m.getLocation()))
+				result=true;
+			else
+				result=false;
+		}
+		return result;
 	}
 }

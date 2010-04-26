@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.util.Vector;
 
 /**
  *
@@ -66,7 +67,7 @@ public class Prophet extends Ally{
     public void increaseAttackSpeed() {
          attack_speed = attack_speed * 2;
     }
-    public void dealDamage(Minon m) {
+    public void dealDamage(Minion m) {
          m.health -= attack; 
     }
     public void EasterEgg() {
@@ -93,6 +94,38 @@ public class Prophet extends Ally{
 				g.drawImage(img31, location.x, location.y, null);
 				break;
 		}
+	}
+
+	@Override
+	public boolean withinRange(Minion m) {
+		// TODO Auto-generated method stub
+		boolean result=false;
+		Vector<Point> points=new Vector<Point>();
+		int x=location.x/20;
+		int y=location.y/20;
+		Point a=new Point(x,y-2);
+		points.add(a);
+		Point b=new Point(x+1,y-1);
+		points.add(b);
+		Point c=new Point(x+2,y);
+		points.add(c);
+		Point d=new Point(x+1,y+1);
+		points.add(d);
+		Point e=new Point(x,y+2);
+		points.add(e);
+		Point f=new Point(x-1,y+1);
+		points.add(f);
+		Point g=new Point(x-2,y);
+		points.add(g);
+		Point h=new Point(x-1,y-1);//8 different location where a prophet can strike
+		points.add(h);
+		for(int i=0;i<points.size();i++){
+			if(points.elementAt(i).equals(m.getLocation()))
+				result=true;
+			else
+				result=false;
+		}
+		return result;
 	}
 
 }

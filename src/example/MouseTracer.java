@@ -30,81 +30,111 @@ public class MouseTracer implements MouseListener{
 					if(mapone.squares.elementAt(i).getPoint().x+19>arg0.getX() && mapone.squares.elementAt(i).getPoint().y+19>arg0.getY()){
 						if(cs1.ARCHER){
 							cost=1000;
-							if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
-								Archer archer=new Archer(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
-								allies.add(archer);
-								remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
-								screenone.funds=remainingFunds;
-								cs1.funds.setText(""+remainingFunds);
-								archer.drawUnit(screenone.getGraphics());
+							if(Integer.parseInt(cs1.funds.getText())-cost>0){
+								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
+									Archer archer=new Archer(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									allies.add(archer);
+									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
+									screenone.funds=remainingFunds;
+									cs1.funds.setText(""+remainingFunds);
+									archer.drawUnit(screenone.getGraphics());
+									cs1.ARCHER=false;
+								}else
+									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}else{
+								JOptionPane.showMessageDialog(parent, "Not enough funds to make purchase");
 								cs1.ARCHER=false;
-							}else
-								JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}
 						}
 						if(cs1.FIGHTER){
 							cost=1500;
-							if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
-								Fighter fighter=new Fighter(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
-								allies.add(fighter);
-								remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
-								screenone.funds=remainingFunds;
-								cs1.funds.setText(""+remainingFunds);
-								fighter.drawUnit(screenone.getGraphics());
+							if(Integer.parseInt(cs1.funds.getText())-cost>0){
+								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
+									Fighter fighter=new Fighter(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									allies.add(fighter);
+									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
+									screenone.funds=remainingFunds;
+									cs1.funds.setText(""+remainingFunds);
+									fighter.drawUnit(screenone.getGraphics());
+									cs1.FIGHTER=false;
+								}else
+									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}else{
+								JOptionPane.showMessageDialog(parent, "Not enough funds to make purchase");
 								cs1.FIGHTER=false;
-							}else
-								JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}
 						}
 						if(cs1.BLUE){
 							cost=2000;
-							if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
-								BlueCaster blue=new BlueCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
-								allies.add(blue);
-								remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
-								screenone.funds=remainingFunds;
-								cs1.funds.setText(""+remainingFunds);
-								blue.drawUnit(screenone.getGraphics());
+							if(Integer.parseInt(cs1.funds.getText())-cost>0){
+								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
+									BlueCaster blue=new BlueCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									allies.add(blue);
+									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
+									screenone.funds=remainingFunds;
+									cs1.funds.setText(""+remainingFunds);
+									blue.drawUnit(screenone.getGraphics());
+									cs1.BLUE=false;
+								}else
+									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}else{
+								JOptionPane.showMessageDialog(parent, "Not enough funds to make purchase");
 								cs1.BLUE=false;
-							}else
-								JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}
 						}
 						if(cs1.RED){
 							cost=2000;
-							if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
-								RedCaster red=new RedCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
-								allies.add(red);
-								remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
-								screenone.funds=remainingFunds;
-								cs1.funds.setText(""+remainingFunds);
-								red.drawUnit(screenone.getGraphics());
+							if(Integer.parseInt(cs1.funds.getText())-cost>0){
+								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
+									RedCaster red=new RedCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									allies.add(red);
+									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
+									screenone.funds=remainingFunds;
+									cs1.funds.setText(""+remainingFunds);
+									red.drawUnit(screenone.getGraphics());
+									cs1.RED=false;
+								}else
+									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}else{
+								JOptionPane.showMessageDialog(parent, "Not enough funds to make purchase");
 								cs1.RED=false;
-							}else
-								JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}
 						}
 						if(cs1.GREEN){
 							cost=2000;
-							if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
-								GreenCaster green=new GreenCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
-								allies.add(green);
-								remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
-								screenone.funds=remainingFunds;
-								cs1.funds.setText(""+remainingFunds);
-								green.drawUnit(screenone.getGraphics());
+							if(Integer.parseInt(cs1.funds.getText())-cost>0){
+								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
+									GreenCaster green=new GreenCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									allies.add(green);
+									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
+									screenone.funds=remainingFunds;
+									cs1.funds.setText(""+remainingFunds);
+									green.drawUnit(screenone.getGraphics());
+									cs1.GREEN=false;
+								}else	
+									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}else{
+								JOptionPane.showMessageDialog(parent, "Not enough funds to make purchase");
 								cs1.GREEN=false;
-							}else
-								JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}
 						}
 						if(cs1.PROPHET){
 							cost=5000;
-							if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
-								Prophet prophet=new Prophet(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
-								allies.add(prophet);
-								remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
-								screenone.funds=remainingFunds;
-								cs1.funds.setText(""+remainingFunds);
-								prophet.drawUnit(screenone.getGraphics());
+							if(Integer.parseInt(cs1.funds.getText())-cost>0){
+								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
+									Prophet prophet=new Prophet(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									allies.add(prophet);
+									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
+									screenone.funds=remainingFunds;
+									cs1.funds.setText(""+remainingFunds);
+									prophet.drawUnit(screenone.getGraphics());
+									cs1.PROPHET=false;
+								}else
+									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}else{
+								JOptionPane.showMessageDialog(parent, "Not enough funds to make purchase");
 								cs1.PROPHET=false;
-							}else
-								JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
+							}
 						}
 					}
 				}

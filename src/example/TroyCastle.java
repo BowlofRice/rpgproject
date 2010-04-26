@@ -12,9 +12,9 @@ public class TroyCastle {
 	int character_flag;
 
     public TroyCastle() {
-    	this.location = 1;
-    	this.health = 100;
-    	this.character_flag = 42;
+    	location = 1;
+    	health = 100;
+    	character_flag = 42;
     }
     
     public void increaseHealth() {
