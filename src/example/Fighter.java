@@ -4,7 +4,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.util.Vector;
 
 /**
  *
@@ -91,26 +90,17 @@ public class Fighter extends Ally{
 	@Override
 	public boolean withinRange(Minion m) {
 		// TODO Auto-generated method stub
-		boolean result=false;
-		Vector<Point> points=new Vector<Point>();
-		int x=location.x/20;
-		int y=location.y/20;
-		Point a=new Point(x,y-1);
-		points.add(a);
-		Point b=new Point(x+1,y);
-		points.add(b);
-		Point c=new Point(x,y+1);
-		points.add(c);
-		Point d=new Point(x-1,y);
-		points.add(d);//4 different location where a fighter can strike
-		
-		for(int i=0;i<points.size();i++){
-			if(points.elementAt(i).equals(m.getLocation()))
-				result=true;
-			else
-				result=false;
-		}
-		return result;
+		double dist;
+		int dx=m.getLocation().x-location.x/20;
+		int dy=m.getLocation().y-location.y/20;
+		dist= Math.sqrt(dx*dx + dy*dy);
+		//System.out.println("ally location is x="+location.x/20+", location y="+location.y/20);
+		//System.out.println("enemy location is "+m.getLocation());
+		//System.out.println("distance is "+dist);
+		if(dist<=range)
+			return true;
+		else
+			return false;
 	}
 
 }

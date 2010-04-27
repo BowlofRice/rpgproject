@@ -51,9 +51,9 @@ public class Main {
 		main.add(new Title());
 		mapselect.add(mapselectbuttons);
 		mapselect.add(new SelectaMap());
-		final MapOne mapone=new MapOne();
-		final MapTwo maptwo=new MapTwo();
-		final MapThree mapthree=new MapThree();
+		final MapOne mapone=new MapOne(cs1);
+		final MapTwo maptwo=new MapTwo(cs2);
+		final MapThree mapthree=new MapThree(cs3);
 		playmap1Menu.setLayout(grid);
 		playmap1Menu.add(quittomapsel);
 		playmap1Menu.add(selectplayers);
@@ -208,8 +208,10 @@ public class Main {
 		parent.add(playmap3, "map3");
 		jf.add(parent);
 		jf.pack();
+		//Dimension scrSize=Toolkit.getDefaultToolkit().getScreenSize();
+		
 		jf.setResizable(false);
-		jf.setLocationRelativeTo(null);
+		jf.setLocation(250,100);
 		jf.setVisible(true);
 	}
 
