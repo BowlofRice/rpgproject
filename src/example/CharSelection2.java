@@ -213,7 +213,7 @@ public class CharSelection2 {
         });
 		charHolder.add(holder);
 		charHolder.pack();
-		charHolder.setLocation(parent.getX()+78, parent.getY()+200);
+		charHolder.setLocation(parent.getX()+27, parent.getY()+220);
 	}
 	public void setVisible(boolean b){
 		charHolder.setVisible(b);
