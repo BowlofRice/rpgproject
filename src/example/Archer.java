@@ -102,9 +102,6 @@ public class Archer extends Ally{
 		int dx=m.getLocation().x-location.x/20;
 		int dy=m.getLocation().y-location.y/20;
 		dist= Math.sqrt(dx*dx + dy*dy);
-		//System.out.println("ally location is x="+location.x/20+", location y="+location.y/20);
-		//System.out.println("enemy location is "+m.getLocation());
-		//System.out.println("distance is "+dist);
 		if(dist<=range)
 			return true;
 		else

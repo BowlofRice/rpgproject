@@ -10,8 +10,13 @@ import javax.swing.JTextArea;
 public class MapOne {
 	public Vector<Minion> enemies=new Vector<Minion>();
 	public Vector<Square> squares=new Vector<Square>();
-	public TroyCastle troy=new TroyCastle();
-	public JTextArea troyHP=new JTextArea(""+troy.health+"/100");
+	public Vector<TroyCastle> castles=new Vector<TroyCastle>();
+	public TroyCastle troyA=new TroyCastle(8,19);
+	public TroyCastle troyB=new TroyCastle(8,18);
+	public TroyCastle troyC=new TroyCastle(6,18);
+	public TroyCastle troyD=new TroyCastle(6,19);
+	public int totalHP=troyA.health+troyB.health+troyC.health+troyD.health;
+	public JTextArea troyHP=new JTextArea(""+totalHP+"/400");
 	int k=0;//enemy counter
 	boolean isitDead=false;
 	public int[][] MapOne;
@@ -57,6 +62,10 @@ public class MapOne {
 
     public MapOne(CharSelection cs){
     	this.cs=cs;
+    	castles.add(troyA);
+    	castles.add(troyB);
+    	castles.add(troyC);
+    	castles.add(troyD);
     	//A lengthy predefined map to use
     	//0 -- Sand
     	//1 -- Path
@@ -107,17 +116,17 @@ public class MapOne {
         		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
     }
     void moveEnemy(Graphics g, int i, int j){
-    	Minion baddie=new Minion(troy);
+    	Minion baddie=new Minion();
         enemies.add(baddie);
         enemies.elementAt(k).setLocation(i, j);
         for(int b=0;b<mt.allies.size();b++){
         	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-        		System.out.println("enemy sighted!");
+        		//System.out.println("enemy sighted!");
         		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
         		if(enemies.elementAt(k).health<0)
         			isitDead=true;
-        		else
-        			System.out.println(enemies.elementAt(k).health);
+        		//else
+        			//System.out.println(enemies.elementAt(k).health);
         	}
         }
         if(isitDead){
@@ -126,6 +135,10 @@ public class MapOne {
         	currFunds+=500;
         	cs.funds.setText(""+currFunds);
         	return;
+        }
+        for(int a=0;a<castles.size();a++){
+        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+        		System.out.println("Ahoy! therr be a castle!");
         }
         int c = i;
         int d = j;
@@ -143,12 +156,12 @@ public class MapOne {
                 enemies.elementAt(k).setLocation(i, j);
                 for(int b=0;b<mt.allies.size();b++){
                 	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                		System.out.println("enemy sighted!");
+                		//System.out.println("enemy sighted!");
                 		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                 		if(enemies.elementAt(k).health<0)
                 			isitDead=true;
-                		else
-                			System.out.println(enemies.elementAt(k).health);
+                		//else
+                			//System.out.println(enemies.elementAt(k).health);
                 	}
                 }
                 if(isitDead){
@@ -158,6 +171,10 @@ public class MapOne {
                 	cs.funds.setText(""+currFunds);
                 	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                 	break;
+                }
+                for(int a=0;a<castles.size();a++){
+                	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                		System.out.println("Ahoy! therr be a castle!");
                 }
                 c = i;
                 d = j;
@@ -170,12 +187,12 @@ public class MapOne {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
+                    		//System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -185,6 +202,10 @@ public class MapOne {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
@@ -196,12 +217,12 @@ public class MapOne {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
+                    		//System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -211,6 +232,10 @@ public class MapOne {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
@@ -222,12 +247,12 @@ public class MapOne {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
+                    		//System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -237,6 +262,10 @@ public class MapOne {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
@@ -248,12 +277,12 @@ public class MapOne {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
+                    		//System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -263,6 +292,10 @@ public class MapOne {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
@@ -275,12 +308,12 @@ public class MapOne {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
+            	        		//System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
             	        		if(enemies.elementAt(k).health<0)
             	        			isitDead=true;
-            	        		else
-            	        			System.out.println(enemies.elementAt(k).health);
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
             	        	}
             	        }
             			if(isitDead){
@@ -291,6 +324,10 @@ public class MapOne {
                         	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                         	break;
                         }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			j += 1;
@@ -300,12 +337,12 @@ public class MapOne {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
+            	        		//System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
             	        		if(enemies.elementAt(k).health<0)
             	        			isitDead=true;
-            	        		else
-            	        			System.out.println(enemies.elementAt(k).health);
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
             	        	}
             	        }
             			if(isitDead){
@@ -316,6 +353,10 @@ public class MapOne {
                         	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
                         	break;
                         }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			j -= 1;
@@ -325,12 +366,12 @@ public class MapOne {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
+            	        		//System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
             	        		if(enemies.elementAt(k).health<0)
             	        			isitDead=true;
-            	        		else
-            	        			System.out.println(enemies.elementAt(k).health);
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
             	        	}
             	        }
             			if(isitDead){
@@ -341,6 +382,10 @@ public class MapOne {
                         	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                         	break;
                         }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			i += 1;
@@ -350,12 +395,12 @@ public class MapOne {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
+            	        		//System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
             	        		if(enemies.elementAt(k).health<0)
             	        			isitDead=true;
-            	        		else
-            	        			System.out.println(enemies.elementAt(k).health);
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
             	        	}
             	        }
             			if(isitDead){
@@ -366,6 +411,10 @@ public class MapOne {
                         	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                         	break;
                         }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			i -= 1;

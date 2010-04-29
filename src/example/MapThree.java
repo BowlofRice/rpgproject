@@ -10,8 +10,17 @@ import javax.swing.JTextArea;
 public class MapThree {
 	public Vector<Minion> enemies=new Vector<Minion>();
 	public Vector<Square> squares=new Vector<Square>();
-	public TroyCastle troy=new TroyCastle();
-	JTextArea troyHP=new JTextArea(""+troy.health+"/100");
+	public Vector<TroyCastle> castles=new Vector<TroyCastle>();
+	public TroyCastle troyA=new TroyCastle(6,19);
+	public TroyCastle troyB=new TroyCastle(6,18);
+	public TroyCastle troyC=new TroyCastle(8,18);
+	public TroyCastle troyD=new TroyCastle(8,19);
+	public TroyCastle troyE=new TroyCastle(11,19);
+	public TroyCastle troyF=new TroyCastle(13,19);
+	public TroyCastle troyG=new TroyCastle(13,18);
+	public TroyCastle troyH=new TroyCastle(11,18);
+	public int totalHP=troyA.health+troyB.health+troyC.health+troyD.health+troyE.health+troyF.health+troyG.health+troyH.health;
+	public JTextArea troyHP=new JTextArea(""+totalHP+"/800");
 	int k=0;//enemy counter
 	boolean isitDead=false;
 	public int[][] MapThree;
@@ -57,6 +66,14 @@ public class MapThree {
 
     public MapThree(CharSelection3 cs){
     	this.cs=cs;
+    	castles.add(troyA);
+    	castles.add(troyB);
+    	castles.add(troyC);
+    	castles.add(troyD);
+    	castles.add(troyE);
+    	castles.add(troyF);
+    	castles.add(troyG);
+    	castles.add(troyH);
     	//A lengthy predefined map to use
     	//0 -- Sand
     	//1 -- Path
@@ -108,7 +125,7 @@ public class MapThree {
         {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
     }
     void moveEnemy(Graphics g, int i, int j){
-    	Minion baddie=new Minion(troy);
+    	Minion baddie=new Minion();
         enemies.add(baddie);
         enemies.elementAt(k).setLocation(i, j);
         for(int b=0;b<mt.allies.size();b++){
@@ -127,6 +144,10 @@ public class MapThree {
         	currFunds+=500;
         	cs.funds.setText(""+currFunds);
         	return;
+        }
+        for(int a=0;a<castles.size();a++){
+        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+        		System.out.println("Ahoy! therr be a castle!");
         }
     	int c = i;
         int d = j;
@@ -160,6 +181,10 @@ public class MapThree {
                 	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                 	break;
                 }
+                for(int a=0;a<castles.size();a++){
+                	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                		System.out.println("Ahoy! therr be a castle!");
+                }
                 c = i;
                 d = j;
                 j += 1;
@@ -187,6 +212,10 @@ public class MapThree {
                     	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                     	break;
                     }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		j += 1;
@@ -211,6 +240,10 @@ public class MapThree {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
@@ -237,6 +270,10 @@ public class MapThree {
                     	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                     	break;
                     }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		i += 1;
@@ -262,6 +299,10 @@ public class MapThree {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
@@ -290,6 +331,10 @@ public class MapThree {
                     	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
                     	break;
                     }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		j += 1;
@@ -316,6 +361,10 @@ public class MapThree {
                     	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
                     	break;
                     }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		j -= 1;
@@ -341,6 +390,10 @@ public class MapThree {
                     	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                     	break;
                     }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		i += 1;
@@ -365,6 +418,10 @@ public class MapThree {
                     	cs.funds.setText(""+currFunds);
                     	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
                     	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
