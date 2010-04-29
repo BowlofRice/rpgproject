@@ -23,6 +23,7 @@ public class MapOne {
     public int[][] mapTraversal;
 	private MouseTracer mt;
 	private CharSelection cs;
+
     
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
