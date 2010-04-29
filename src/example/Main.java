@@ -17,6 +17,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		final int RESET_FUNDS=20000;
+		final int RESET_HP=100;
+		final int RESET_HP_2=200;
 		final JFrame jf=new JFrame();
 		final JPanel parent=new JPanel();
 		final CharSelection cs1=new CharSelection(jf);
@@ -152,6 +154,8 @@ public class Main {
 				mapone.k=0;
 				screenone.funds=RESET_FUNDS;
 				cs1.funds.setText(""+screenone.funds);
+				mapone.HP=RESET_HP;
+				mapone.troyHP.setText(mapone.HP+"/100");
 				screenone.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -165,6 +169,8 @@ public class Main {
 				maptwo.k=0;
 				screentwo.funds=RESET_FUNDS;
 				cs2.funds.setText(""+screentwo.funds);
+				maptwo.HP=RESET_HP_2;
+				maptwo.troyHP.setText(maptwo.HP+"/200");
 				screentwo.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -178,6 +184,8 @@ public class Main {
 				mapthree.k=0;
 				screenthree.funds=RESET_FUNDS;
 				cs3.funds.setText(""+screenthree.funds);
+				mapthree.HP=RESET_HP_2;
+				mapthree.troyHP.setText(mapthree.HP+"/200");
 				screenthree.playTime=0;
 				myLayout.show(parent, "maps");
 			}			

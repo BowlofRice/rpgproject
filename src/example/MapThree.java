@@ -11,16 +11,10 @@ public class MapThree {
 	public Vector<Minion> enemies=new Vector<Minion>();
 	public Vector<Square> squares=new Vector<Square>();
 	public Vector<TroyCastle> castles=new Vector<TroyCastle>();
-	public TroyCastle troyA=new TroyCastle(6,19);
-	public TroyCastle troyB=new TroyCastle(6,18);
-	public TroyCastle troyC=new TroyCastle(8,18);
-	public TroyCastle troyD=new TroyCastle(8,19);
-	public TroyCastle troyE=new TroyCastle(11,19);
-	public TroyCastle troyF=new TroyCastle(13,19);
-	public TroyCastle troyG=new TroyCastle(13,18);
-	public TroyCastle troyH=new TroyCastle(11,18);
-	public int totalHP=troyA.health+troyB.health+troyC.health+troyD.health+troyE.health+troyF.health+troyG.health+troyH.health;
-	public JTextArea troyHP=new JTextArea(""+totalHP+"/800");
+	public TroyCastle troyA=new TroyCastle(6,18);
+	public TroyCastle troyB=new TroyCastle(11,18);
+	public int HP=troyA.health+troyB.health;
+	public JTextArea troyHP=new JTextArea(HP+"/200");
 	int k=0;//enemy counter
 	boolean isitDead=false;
 	public int[][] MapThree;
@@ -68,12 +62,6 @@ public class MapThree {
     	this.cs=cs;
     	castles.add(troyA);
     	castles.add(troyB);
-    	castles.add(troyC);
-    	castles.add(troyD);
-    	castles.add(troyE);
-    	castles.add(troyF);
-    	castles.add(troyG);
-    	castles.add(troyH);
     	//A lengthy predefined map to use
     	//0 -- Sand
     	//1 -- Path
@@ -130,12 +118,9 @@ public class MapThree {
         enemies.elementAt(k).setLocation(i, j);
         for(int b=0;b<mt.allies.size();b++){
         	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-        		System.out.println("enemy sighted!");
         		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
         		if(enemies.elementAt(k).health<0)
         			isitDead=true;
-        		else
-        			System.out.println(enemies.elementAt(k).health);
         	}
         }
         if(isitDead){
@@ -146,8 +131,11 @@ public class MapThree {
         	return;
         }
         for(int a=0;a<castles.size();a++){
-        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-        		System.out.println("Ahoy! therr be a castle!");
+        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+        		HP-=enemies.elementAt(k).attack;
+        		troyHP.setText(HP+"/200");
+        	}
         }
     	int c = i;
         int d = j;
@@ -165,12 +153,9 @@ public class MapThree {
                 enemies.elementAt(k).setLocation(i, j);
                 for(int b=0;b<mt.allies.size();b++){
                 	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                		System.out.println("enemy sighted!");
                 		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                 		if(enemies.elementAt(k).health<0)
                 			isitDead=true;
-                		else
-                			System.out.println(enemies.elementAt(k).health);
                 	}
                 }
                 if(isitDead){
@@ -182,8 +167,11 @@ public class MapThree {
                 	break;
                 }
                 for(int a=0;a<castles.size();a++){
-                	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                		System.out.println("Ahoy! therr be a castle!");
+                	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                		HP-=enemies.elementAt(k).attack;
+                		troyHP.setText(HP+"/200");
+                	}
                 }
                 c = i;
                 d = j;
@@ -196,12 +184,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -213,8 +198,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -225,12 +213,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -242,8 +227,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -254,12 +242,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -271,8 +256,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -284,12 +272,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -301,8 +286,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -315,12 +303,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -332,8 +317,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -345,12 +333,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -362,8 +347,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -374,12 +362,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -391,8 +376,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
@@ -403,12 +391,9 @@ public class MapThree {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
                     		if(enemies.elementAt(k).health<0)
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
                     	}
                     }
             		if(isitDead){
@@ -420,8 +405,11 @@ public class MapThree {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    	}
                     }
             		c = i;
             		d = j;
