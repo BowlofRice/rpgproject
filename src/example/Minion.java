@@ -12,15 +12,13 @@ public class Minion extends Enemy{
     float attack;
     int character_flag;
     int level;
-    public TroyCastle troy;
     
-    public Minion(TroyCastle troy) {
+    public Minion() {
     	level = 1;
     	attack = 1;
     	speed = 1;
     	health=10;
     	character_flag = ENEMYCLASS_FLAG_1; //ranges from 32 to 36
-        this.troy = troy;
     }
     
     public void increaseLevel() {
@@ -36,7 +34,7 @@ public class Minion extends Enemy{
     	attack=attack*2;
     }
     
-    public void dealDamage() {
+    public void dealDamage(TroyCastle troy) {
         troy.health-=attack; 
     }
     

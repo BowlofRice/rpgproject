@@ -1,5 +1,7 @@
 package example;
 
+import java.awt.Point;
+
 /**
  *
  *
@@ -7,12 +9,13 @@ package example;
  
 public class TroyCastle {
 	public static final int TROYCASTLECLASS_FLAG_1 = 42;
-	int location;
+	private Point location=new Point();
 	int health;
 	int character_flag;
 
-    public TroyCastle() {
-    	location = 1;
+    public TroyCastle(int x, int y) {
+    	location.x=x;
+    	location.y=y;
     	health = 100;
     	character_flag = 42;
     }
@@ -21,6 +24,8 @@ public class TroyCastle {
     	if(this.health != 100)
     		this.health += 15; 
     }
-    
+    public Point getLocation(){
+    	return location;
+    }
     
 }
