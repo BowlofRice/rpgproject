@@ -4,7 +4,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.util.Vector;
 
 /**
  *
@@ -99,32 +98,13 @@ public class Archer extends Ally{
 	@Override
 	public boolean withinRange(Minion m) {
 		// TODO Auto-generated method stub
-		boolean result=false;
-		Vector<Point> points=new Vector<Point>();
-		int x=location.x/20;
-		int y=location.y/20;
-		Point a=new Point(x,y-2);
-		points.add(a);
-		Point b=new Point(x+1,y-1);
-		points.add(b);
-		Point c=new Point(x+2,y);
-		points.add(c);
-		Point d=new Point(x+1,y+1);
-		points.add(d);
-		Point e=new Point(x,y+2);
-		points.add(e);
-		Point f=new Point(x-1,y+1);
-		points.add(f);
-		Point g=new Point(x-2,y);
-		points.add(g);
-		Point h=new Point(x-1,y-1);//8 different location where an archer can strike
-		points.add(h);
-		for(int i=0;i<points.size();i++){
-			if(points.elementAt(i).equals(m.getLocation()))
-				result=true;
-			else
-				result=false;
-		}
-		return result;
+		double dist;
+		int dx=m.getLocation().x-location.x/20;
+		int dy=m.getLocation().y-location.y/20;
+		dist= Math.sqrt(dx*dx + dy*dy);
+		if(dist<=range)
+			return true;
+		else
+			return false;
 	}
 }

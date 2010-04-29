@@ -10,13 +10,19 @@ import javax.swing.JTextArea;
 public class MapOne {
 	public Vector<Minion> enemies=new Vector<Minion>();
 	public Vector<Square> squares=new Vector<Square>();
-	public TroyCastle troy=new TroyCastle();
-	public JTextArea troyHP=new JTextArea(""+troy.health+"/100");
+	public Vector<TroyCastle> castles=new Vector<TroyCastle>();
+	public TroyCastle troyA=new TroyCastle(8,19);
+	public TroyCastle troyB=new TroyCastle(8,18);
+	public TroyCastle troyC=new TroyCastle(6,18);
+	public TroyCastle troyD=new TroyCastle(6,19);
+	public int totalHP=troyA.health+troyB.health+troyC.health+troyD.health;
+	public JTextArea troyHP=new JTextArea(""+totalHP+"/400");
 	int k=0;//enemy counter
+	boolean isitDead=false;
 	public int[][] MapOne;
-    public int[][] MapOneCharacters;
     public int[][] mapTraversal;
 	private MouseTracer mt;
+	private CharSelection cs;
     
     public static final int ARCHER_FLAG_1 = 2;
     public static final int ARCHER_FLAG_2 = 3;
@@ -54,7 +60,12 @@ public class MapOne {
     public static final int PROPHET_FLAG_4 = 30;
     public static final int PROPHET_FLAG_5 = 31;
 
-    public MapOne(){
+    public MapOne(CharSelection cs){
+    	this.cs=cs;
+    	castles.add(troyA);
+    	castles.add(troyB);
+    	castles.add(troyC);
+    	castles.add(troyD);
     	//A lengthy predefined map to use
     	//0 -- Sand
     	//1 -- Path
@@ -82,31 +93,6 @@ public class MapOne {
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
         {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
 
-        /**
-         * The following is a map for the characters;
-         */
-        MapOneCharacters = new int[][]{
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
-
         mapTraversal = new int[][] {
         		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},        
         		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},        
@@ -130,12 +116,29 @@ public class MapOne {
         		{   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0} };
     }
     void moveEnemy(Graphics g, int i, int j){
-    	Minion baddie=new Minion(troy);
+    	Minion baddie=new Minion();
         enemies.add(baddie);
-        enemies.elementAt(k).setLocation(j, i);
+        enemies.elementAt(k).setLocation(i, j);
         for(int b=0;b<mt.allies.size();b++){
-        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-        		System.out.println("enemy sighted!");
+        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+        		//System.out.println("enemy sighted!");
+        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+        		if(enemies.elementAt(k).health<0)
+        			isitDead=true;
+        		//else
+        			//System.out.println(enemies.elementAt(k).health);
+        	}
+        }
+        if(isitDead){
+        	isitDead=false;
+        	int currFunds=Integer.parseInt(cs.funds.getText());
+        	currFunds+=500;
+        	cs.funds.setText(""+currFunds);
+        	return;
+        }
+        for(int a=0;a<castles.size();a++){
+        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+        		System.out.println("Ahoy! therr be a castle!");
         }
         int c = i;
         int d = j;
@@ -148,13 +151,30 @@ public class MapOne {
             randomnum = randomnum * 6;
             rand = (int) randomnum;
             if(j==0){
-            	g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            	g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
                 g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
-                //mapTraversal[i][j] = mapTraversal[i][j+1];
-                enemies.elementAt(k).setLocation(j, i);
+                enemies.elementAt(k).setLocation(i, j);
                 for(int b=0;b<mt.allies.size();b++){
-                	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-                		System.out.println("enemy sighted!");
+                	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+                		//System.out.println("enemy sighted!");
+                		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+                		if(enemies.elementAt(k).health<0)
+                			isitDead=true;
+                		//else
+                			//System.out.println(enemies.elementAt(k).health);
+                	}
+                }
+                if(isitDead){
+                	isitDead=false;
+                	int currFunds=Integer.parseInt(cs.funds.getText());
+                	currFunds+=500;
+                	cs.funds.setText(""+currFunds);
+                	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                	break;
+                }
+                for(int a=0;a<castles.size();a++){
+                	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                		System.out.println("Ahoy! therr be a castle!");
                 }
                 c = i;
                 d = j;
@@ -162,109 +182,243 @@ public class MapOne {
             }
             if(j!=0){
             	if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j-1])){
-            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             		g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
-            		//mapTraversal[i][j] = mapTraversal[i][j+1];
-            		enemies.elementAt(k).setLocation(j, i);
+            		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
-                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-                    		System.out.println("enemy sighted!");
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+                    		//System.out.println("enemy sighted!");
+                    		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+                    		if(enemies.elementAt(k).health<0)
+                    			isitDead=true;
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
+                    	}
+                    }
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
                     }
             		c = i;
             		d = j;
             		j += 1;
             	}
             	else if (mapTraversal[i][j]<=mapTraversal[i][j-1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
-            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             		g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
-            		enemies.elementAt(k).setLocation(j, i);
+            		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
-                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-                    		System.out.println("enemy sighted!");
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+                    		//System.out.println("enemy sighted!");
+                    		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+                    		if(enemies.elementAt(k).health<0)
+                    			isitDead=true;
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
+                    	}
                     }
-            		//mapTraversal[i][j] = mapTraversal[i][j-1];
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		j -= 1;
             	}
             	else if(mapTraversal[i][j]<=mapTraversal[i+1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
-            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             		g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
-            		enemies.elementAt(k).setLocation(j, i);
+            		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
-                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-                    		System.out.println("enemy sighted!");
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+                    		//System.out.println("enemy sighted!");
+                    		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+                    		if(enemies.elementAt(k).health<0)
+                    			isitDead=true;
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
+                    	}
                     }
-            		//mapTraversal[i][j] = mapTraversal[i+1][j];
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		i += 1;
             	}
             	else if(mapTraversal[i][j]<=mapTraversal[i-1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
-            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             		g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
-            		enemies.elementAt(k).setLocation(j, i);
+            		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
-                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-                    		System.out.println("enemy sighted!");
+                    	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+                    		//System.out.println("enemy sighted!");
+                    		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+                    		if(enemies.elementAt(k).health<0)
+                    			isitDead=true;
+                    		//else
+                    			//System.out.println(enemies.elementAt(k).health);
+                    	}
                     }
-            		//mapTraversal[i][j] = mapTraversal[i-1][j];
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+                    		System.out.println("Ahoy! therr be a castle!");
+                    }
             		c = i;
             		d = j;
             		i -= 1;
             	}
             	if(j<19){
             		if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d) {
-            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             			g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
-            			enemies.elementAt(k).setLocation(j, i);
+            			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
-            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-            	        		System.out.println("enemy sighted!");
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+            	        		//System.out.println("enemy sighted!");
+            	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+            	        		if(enemies.elementAt(k).health<0)
+            	        			isitDead=true;
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
+            	        	}
             	        }
-            			//mapTraversal[i][j] = mapTraversal[i][j+1];
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			j += 1;
             		}else if(2 <= rand && rand <= 3 && mapTraversal[i][j] <= mapTraversal[i][j - 1] && (j-1)!=d) {
-            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             			g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
-            			enemies.elementAt(k).setLocation(j, i);
+            			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
-            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-            	        		System.out.println("enemy sighted!");
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+            	        		//System.out.println("enemy sighted!");
+            	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+            	        		if(enemies.elementAt(k).health<0)
+            	        			isitDead=true;
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
+            	        	}
             	        }
-            			//mapTraversal[i][j] = mapTraversal[i][j-1];
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			j -= 1;
             		}else if (3 < rand && rand <= 4 && mapTraversal[i][j] <= mapTraversal[i + 1][j] && (i+1)!=c) {
-            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             			g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
-            			enemies.elementAt(k).setLocation(j, i);
+            			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
-            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-            	        		System.out.println("enemy sighted!");
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+            	        		//System.out.println("enemy sighted!");
+            	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+            	        		if(enemies.elementAt(k).health<0)
+            	        			isitDead=true;
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
+            	        	}
             	        }
-            			//mapTraversal[i][j] = mapTraversal[i+1][j];
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			i += 1;
             		}else if (4 < rand && rand <= 6 && mapTraversal[i][j] <= mapTraversal[i - 1][j] && (i-1)!=c) {
-            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null/*(ImageObserver) this*/);
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
             			g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
-            			enemies.elementAt(k).setLocation(j, i);
+            			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
-            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k)))
-            	        		System.out.println("enemy sighted!");
+            	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
+            	        		//System.out.println("enemy sighted!");
+            	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
+            	        		if(enemies.elementAt(k).health<0)
+            	        			isitDead=true;
+            	        		//else
+            	        			//System.out.println(enemies.elementAt(k).health);
+            	        	}
             	        }
-            			//mapTraversal[i][j] = mapTraversal[i-1][j];
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
+            	        		System.out.println("Ahoy! therr be a castle!");
+            	        }
             			c = i;
             			d = j;
             			i -= 1;
-            		}else{
-            			///System.out.println("While loop will go again\n");
-            		}
+            		}else{}
             	}
             }
             try {
@@ -317,28 +471,10 @@ public class MapOne {
         			if(squares.size()<400){
         				squares.add(sq);
         			}
-        		}else{
-        			System.err.println("should never happen!");
-        		}
+        		}else{}
         	}
         } 
     }
-
-  
-/*
-This function returns an int value and places a flag number on the space selected.  It will return 1 if there was a sucesss in placing, 
-and a 0 if not.  The flag number designates the level and unit
- */
-    public int placeGoodGuy(int row, int column, int flag){
-        if(MapOneCharacters[row][column] == 0){
-        MapOneCharacters[row][column] = flag;
-        return 1;
-        }
-        else
-            return 0;
-    } 
-    
-
     //Altered to fit my new schema
     public void printMapOne(){
         int i, j;
