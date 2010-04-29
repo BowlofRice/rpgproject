@@ -14,12 +14,14 @@ public class MouseTracer implements MouseListener{
 	private CharSelection cs1;
 	private Screen1 screenone;
 	private JFrame parent;
+
 	
 	public MouseTracer(MapOne mapone, CharSelection cs1, Screen1 screenone, JFrame parent){
 		this.mapone=mapone;
 		this.cs1=cs1;
 		this.screenone=screenone;
 		this.parent=parent;
+
 	}
 	@Override
 	public void mouseClicked(MouseEvent arg0) {

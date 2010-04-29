@@ -19,6 +19,17 @@ public class CharUpgrade {
 	public boolean RED_UPGRADE=false;
 	public boolean GREEN_UPGRADE=false;
 	public boolean PROPHET_UPGRADE=false;
+
+        public boolean Increase_Attack_5=false;
+        public boolean Increase_Attack_10=false;
+        public boolean Increase_Attack_15=false;
+        public boolean Increase_Attack_20=false;
+
+        public boolean Increase_Level=false;
+
+
+
+
 	final JFrame charHolder=new JFrame();
         final JFrame upgradeoptions=new JFrame();
         //upgradeoptions
@@ -84,7 +95,7 @@ public class CharUpgrade {
         JButton selectRed=new JButton("Red Caster Upgrade");
         JButton selectGreen=new JButton("Green Caster Upgrade");
         JButton selectProphet=new JButton("Prophet Upgrade");
-        JButton startRound=new JButton("Return to Map");
+        JButton startRound=new JButton("Next Round");
 
         JPanel holder2=new JPanel();
         GridLayout my_layout2=new GridLayout();
@@ -96,11 +107,11 @@ public class CharUpgrade {
         JButton selectIncreaseAttack_10=new JButton("Increase Attack 10%");
         JButton selectIncreaseAttack_15=new JButton("Increase Attack 15%");
         JButton selectIncreaseAttack_20=new JButton("Increase Attack 20%");
-        JButton selectIncreaseSpeed_5=new JButton("Increase Speed 5%");
-        JButton selectIncreaseSpeed_10=new JButton("Increase Speed 10%");
-        JButton selectIncreaseSpeed_15=new JButton("Increase Speed 15%");
-        JButton selectIncreaseSpeed_20=new JButton("Increase Speed 20%");
+
         JButton selectIncreaseLVL=new JButton("Increase Level");
+        JButton goBack=new JButton("Back");
+
+
 
 
 
@@ -108,11 +119,9 @@ public class CharUpgrade {
         holder2.add(selectIncreaseAttack_10);
         holder2.add(selectIncreaseAttack_15);
         holder2.add(selectIncreaseAttack_20);
-        holder2.add(selectIncreaseSpeed_5);
-        holder2.add(selectIncreaseSpeed_10);
-        holder2.add(selectIncreaseSpeed_15);
-        holder2.add(selectIncreaseSpeed_20);
+
         holder2.add(selectIncreaseLVL);
+        holder2.add(goBack);
 
 
         JLabel blank=new JLabel();
@@ -137,9 +146,9 @@ public class CharUpgrade {
         		PROPHET_UPGRADE=false;
         		if(!ARCHER_UPGRADE){
         			ARCHER_UPGRADE=true;
-        			JOptionPane.showMessageDialog(charHolder, "click on the map to deploy an archer there. deploying an archer costs 1000G");
+        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade an archer. Upgrading an archer costs 1000G");
         		}else{
-        			JOptionPane.showMessageDialog(charHolder, "you're currently deploying an archer. do so already.");
+        			JOptionPane.showMessageDialog(charHolder, "you're currently upgrading an archer. do so already.");
         		}
 
             }
@@ -155,9 +164,9 @@ public class CharUpgrade {
         		PROPHET_UPGRADE=false;
         		if(!FIGHTER_UPGRADE){
         			FIGHTER_UPGRADE=true;
-        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade a fighter. deploying a fighter costs 1500G");
+        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade a fighter. upgrading a fighter costs 1500G");
         		}else{
-        			JOptionPane.showMessageDialog(charHolder, "you're currently deploying a fighter. do so already.");
+        			JOptionPane.showMessageDialog(charHolder, "you're currently upgrading a fighter. do so already.");
         		}
             }
         });
@@ -172,9 +181,9 @@ public class CharUpgrade {
         		PROPHET_UPGRADE=false;
         		if(!BLUE_UPGRADE){
         			BLUE_UPGRADE=true;
-        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade a blue mage. deploying a blue mage costs 2000G");
+        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade a blue mage. upgrading a blue mage costs 2000G");
         		}else{
-        			JOptionPane.showMessageDialog(charHolder, "you're currently deploying a blue mage. do so already.");
+        			JOptionPane.showMessageDialog(charHolder, "you're currently upgrading a blue mage. do so already.");
         		}
         	}
         });
@@ -206,7 +215,7 @@ public class CharUpgrade {
         		PROPHET_UPGRADE=false;
         		if(!GREEN_UPGRADE){
         			GREEN_UPGRADE=true;
-        			JOptionPane.showMessageDialog(charHolder, "click on the map to select a green mage. upgrading a green mage costs 2000G");
+        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade a green mage. upgrading a green mage costs 2000G");
         		}else{
         			JOptionPane.showMessageDialog(charHolder, "you're currently upgrading a green mage. do so already.");
         		}
@@ -223,7 +232,7 @@ public class CharUpgrade {
         		GREEN_UPGRADE=false;
         		if(!PROPHET_UPGRADE){
         			PROPHET_UPGRADE=true;
-        			JOptionPane.showMessageDialog(charHolder, "click on the map to select a prophet. upgrading a prophet costs 5000G");
+        			JOptionPane.showMessageDialog(charHolder, "click on the map to upgrade a prophet. upgrading a prophet costs 5000G");
         		}else{
         			JOptionPane.showMessageDialog(charHolder, "you're currently upgrading a prophet. do so already.");
         		}
@@ -248,6 +257,10 @@ public class CharUpgrade {
 		charHolder.add(holder);
 		charHolder.pack();
 		charHolder.setLocation(parent.getX()+78, parent.getY()+200);
+                upgradeoptions.add(holder2);
+                upgradeoptions.pack();
+                upgradeoptions.setLocation(parent.getX()+78, parent.getY()+200);
+
 	}
 	public void setVisible(boolean b){
 		charHolder.setVisible(b);
