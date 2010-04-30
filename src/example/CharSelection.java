@@ -28,50 +28,23 @@ public class CharSelection {
 	public CharSelection(JFrame parent) {
 		this.parent = parent;
 		charHolder.addWindowListener(new WindowListener() {
-
 			@Override
-			public void windowActivated(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
+			public void windowActivated(WindowEvent arg0) {}
 			@Override
-			public void windowClosed(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
+			public void windowClosed(WindowEvent arg0) {}
 			@Override
 			public void windowClosing(WindowEvent arg0) {
 				// TODO Auto-generated method stub
 				charHolder.setVisible(false);
 			}
-
 			@Override
-			public void windowDeactivated(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
+			public void windowDeactivated(WindowEvent arg0) {}
 			@Override
-			public void windowDeiconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
+			public void windowDeiconified(WindowEvent arg0) {}
 			@Override
-			public void windowIconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
+			public void windowIconified(WindowEvent arg0) {}
 			@Override
-			public void windowOpened(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});
+			public void windowOpened(WindowEvent arg0) {}});
 		JPanel holder = new JPanel();
 		GridLayout my_layout = new GridLayout();
 		my_layout.setColumns(2);
@@ -104,15 +77,9 @@ public class CharSelection {
 				PROPHET = false;
 				if (!ARCHER) {
 					ARCHER = true;
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"click on the map to deploy an archer there. deploying an archer costs 1000G");
-				} else {
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"you're currently deploying an archer. do so already.");
-				}
-
+					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy an archer there. deploying an archer costs 1000G");
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"you're currently deploying an archer. do so already.");
 			}
 		});
 		selectFighter.addActionListener(new ActionListener() {
@@ -126,14 +93,9 @@ public class CharSelection {
 				PROPHET = false;
 				if (!FIGHTER) {
 					FIGHTER = true;
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"click on the map to deploy a fighter there. deploying a fighter costs 1500G");
-				} else {
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"you're currently deploying a fighter. do so already.");
-				}
+					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy a fighter there. deploying a fighter costs 1500G");
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"you're currently deploying a fighter. do so already.");
 			}
 		});
 		selectBlue.addActionListener(new ActionListener() {
@@ -147,15 +109,9 @@ public class CharSelection {
 				PROPHET = false;
 				if (!BLUE) {
 					BLUE = true;
-					JOptionPane
-							.showMessageDialog(
-									charHolder,
-									"click on the map to deploy a blue mage there. deploying a blue mage costs 2000G");
-				} else {
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"you're currently deploying a blue mage. do so already.");
-				}
+					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy a blue mage there. deploying a blue mage costs 2000G");
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"you're currently deploying a blue mage. do so already.");
 			}
 		});
 		selectRed.addActionListener(new ActionListener() {
@@ -169,14 +125,9 @@ public class CharSelection {
 				PROPHET = false;
 				if (!RED) {
 					RED = true;
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"click on the map to deploy a red mage there. deploying a red mage costs 2000G");
-				} else {
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"you're currently deploying a red mage. do so already.");
-				}
+					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy a red mage there. deploying a red mage costs 2000G");
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"you're currently deploying a red mage. do so already.");
 			}
 		});
 		selectGreen.addActionListener(new ActionListener() {
@@ -190,15 +141,9 @@ public class CharSelection {
 				PROPHET = false;
 				if (!GREEN) {
 					GREEN = true;
-					JOptionPane
-							.showMessageDialog(
-									charHolder,
-									"click on the map to deploy a green mage there. deploying a green mage costs 2000G");
-				} else {
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"you're currently deploying a green mage. do so already.");
-				}
+					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy a green mage there. deploying a green mage costs 2000G");
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"you're currently deploying a green mage. do so already.");
 			}
 		});
 		selectProphet.addActionListener(new ActionListener() {
@@ -212,14 +157,9 @@ public class CharSelection {
 				GREEN = false;
 				if (!PROPHET) {
 					PROPHET = true;
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"click on the map to deploy a prophet there. deploying a prophet costs 5000G");
-				} else {
-					JOptionPane
-							.showMessageDialog(charHolder,
-									"you're currently deploying a prophet. do so already.");
-				}
+					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy a prophet there. deploying a prophet costs 5000G");
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"you're currently deploying a prophet. do so already.");
 			}
 		});
 
@@ -231,10 +171,8 @@ public class CharSelection {
 					charHolder.setVisible(false);
 					s.playTime = 1;
 					s.repaint();
-				} else {
-					JOptionPane.showMessageDialog(charHolder,
-							"No units deployed. Add some units to play");
-				}
+				} else 
+					JOptionPane.showMessageDialog(charHolder,"No units deployed. Add some units to play");
 			}
 
 		});

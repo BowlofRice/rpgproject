@@ -132,6 +132,7 @@ public class MapOne {
         	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
         		enemies.elementAt(k).dealDamage(castles.elementAt(a));
         		troyHP.setText(castles.elementAt(a).health+"/100");
+        		HP=castles.elementAt(a).health;
         	}
         }
         int c = i;
@@ -167,6 +168,7 @@ public class MapOne {
                 	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
                 		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                 		troyHP.setText(castles.elementAt(a).health+"/100");
+                		HP=castles.elementAt(a).health;
                 	}
                 }
                 c = i;
@@ -197,6 +199,7 @@ public class MapOne {
                     	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
                     	}
                     }
             		c = i;
@@ -226,6 +229,7 @@ public class MapOne {
                     	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
                     	}
                     }
             		c = i;
@@ -255,6 +259,7 @@ public class MapOne {
                     	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
                     	}
                     }
             		c = i;
@@ -284,6 +289,7 @@ public class MapOne {
                     	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
                     	}
                     }
             		c = i;
@@ -314,6 +320,7 @@ public class MapOne {
             	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
             	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
             	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
             	        	}
             	        }
             			c = i;
@@ -342,6 +349,7 @@ public class MapOne {
             	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
             	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
             	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
             	        	}
             	        }
             			c = i;
@@ -370,6 +378,7 @@ public class MapOne {
             	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
             	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
             	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
             	        	}
             	        }
             			c = i;
@@ -398,6 +407,7 @@ public class MapOne {
             	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
             	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
             	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
             	        	}
             	        }
             			c = i;
