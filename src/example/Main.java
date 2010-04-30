@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Main {
@@ -17,6 +18,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		final int RESET_FUNDS=20000;
+		final int RESET_HP=100;
+		final int RESET_HP_2=200;
 		final JFrame jf=new JFrame();
 		final JPanel parent=new JPanel();
 		final CharSelection cs1=new CharSelection(jf);
@@ -30,7 +33,7 @@ public class Main {
 		JButton start=new JButton("start");
 		GridLayout grid=new GridLayout();
 		grid.setColumns(2);
-		grid.setRows(3);
+		grid.setRows(4);
 		JPanel mapselectbuttons=new JPanel();
 		mapselectbuttons.setLayout(grid);
 		JButton map1=new JButton("map1");
@@ -48,6 +51,9 @@ public class Main {
 		JButton selectplayers=new JButton("Player Select");
 		JButton selectplayers1=new JButton("Player Select");
         JButton selectplayers2=new JButton("Player Select");
+        JButton healtroy=new JButton("restore troy");
+        JButton healtroy1=new JButton("restore troy");
+        JButton healtroy2=new JButton("restore troy");
         main.add(start);
         main.add(quit2);
 		main.add(new Title());
@@ -88,16 +94,19 @@ public class Main {
 		playmap1Menu.add(new JLabel("Troy HP: "));
 		mapone.troyHP.setEditable(false);
 		playmap1Menu.add(mapone.troyHP);
+		playmap1Menu.add(healtroy);
 		playmap2Menu.add(new JLabel("Funds/Score: "));
 		playmap2Menu.add(cs2.funds);
 		playmap2Menu.add(new JLabel("Troy HP: "));
 		maptwo.troyHP.setEditable(false);
 		playmap2Menu.add(maptwo.troyHP);
+		playmap2Menu.add(healtroy1);
 		playmap3Menu.add(new JLabel("Funds/Score: "));
 		playmap3Menu.add(cs3.funds);
 		playmap3Menu.add(new JLabel("Troy HP: "));
 		mapthree.troyHP.setEditable(false);
 		playmap3Menu.add(mapthree.troyHP);
+		playmap3Menu.add(healtroy2);
 		playmap1.add(playmap1Menu);
 		playmap2.add(playmap2Menu);
 		playmap3.add(playmap3Menu);
@@ -152,6 +161,72 @@ public class Main {
 				screenthree.paint(screenthree.getGraphics());
 			}			
 		});
+		healtroy.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int choice;
+				if(Integer.parseInt(cs1.funds.getText())>=10000 && mapone.HP<100){
+					choice=JOptionPane.showConfirmDialog(jf, "Do you want to restore Troy? Restoration costs 10000G.");
+					if(choice==0){
+						int leftovers=Integer.parseInt(cs1.funds.getText())-10000;
+						cs1.funds.setText(""+leftovers);
+						mapone.HP=100;
+						mapone.troyHP.setText(mapone.HP+"/100");
+						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
+					}else if(choice==1 || choice==2)
+						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
+					//yes = 0 no = 1 cancel = 2
+				}else
+					JOptionPane.showMessageDialog(jf, "Troy could not be restored or does not need to be restored at this time. Restoration costs 10000G.");
+			}
+			
+		});
+		healtroy1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int choice;
+				if(Integer.parseInt(cs2.funds.getText())>=10000 && maptwo.HP<200){
+					choice=JOptionPane.showConfirmDialog(jf, "Do you want to restore Troy? Restoration costs 10000G.");
+					if(choice==0){
+						int leftovers=Integer.parseInt(cs2.funds.getText())-10000;
+						cs2.funds.setText(""+leftovers);
+						maptwo.HP=200;
+						maptwo.troyHP.setText(maptwo.HP+"/200");
+						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
+					}else if(choice==1 || choice==2)
+						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
+					//yes = 0 no = 1 cancel = 2
+				}else
+					JOptionPane.showMessageDialog(jf, "Troy could not be restored or does not need to be restored at this time. Restoration costs 10000G.");
+			}
+			
+		});
+		healtroy2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int choice;
+				if(Integer.parseInt(cs3.funds.getText())>=10000 && mapthree.HP<200){
+					choice=JOptionPane.showConfirmDialog(jf, "Do you want to restore Troy? Restoration costs 10000G.");
+					if(choice==0){
+						int leftovers=Integer.parseInt(cs3.funds.getText())-10000;
+						cs3.funds.setText(""+leftovers);
+						mapthree.HP=200;
+						mapthree.troyHP.setText(mapthree.HP+"/200");
+						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
+					}else if(choice==1 || choice==2)
+						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
+					//yes = 0 no = 1 cancel = 2
+				}else
+					JOptionPane.showMessageDialog(jf, "Troy could not be restored or does not need to be restored at this time. Restoration costs 10000G.");
+			}
+			
+		});
 		quittomapsel.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -161,6 +236,8 @@ public class Main {
 				mapone.k=0;
 				screenone.funds=RESET_FUNDS;
 				cs1.funds.setText(""+screenone.funds);
+				mapone.HP=RESET_HP;
+				mapone.troyHP.setText(mapone.HP+"/100");
 				screenone.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -174,6 +251,8 @@ public class Main {
 				maptwo.k=0;
 				screentwo.funds=RESET_FUNDS;
 				cs2.funds.setText(""+screentwo.funds);
+				maptwo.HP=RESET_HP_2;
+				maptwo.troyHP.setText(maptwo.HP+"/200");
 				screentwo.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -187,6 +266,8 @@ public class Main {
 				mapthree.k=0;
 				screenthree.funds=RESET_FUNDS;
 				cs3.funds.setText(""+screenthree.funds);
+				mapthree.HP=RESET_HP_2;
+				mapthree.troyHP.setText(mapthree.HP+"/200");
 				screenthree.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
