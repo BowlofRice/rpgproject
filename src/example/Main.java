@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,14 +34,14 @@ public class Main {
 		JButton start=new JButton("start");
 		GridLayout grid=new GridLayout();
 		grid.setColumns(2);
-		grid.setRows(4);
+		grid.setRows(6);
 		JPanel mapselectbuttons=new JPanel();
 		mapselectbuttons.setLayout(grid);
 		JButton map1=new JButton("map1");
 		JButton map2=new JButton("map2");
 		JButton map3=new JButton("map3");
 		JButton quit=new JButton("quit");
-                JButton quit2=new JButton("quit");
+        JButton quit2=new JButton("quit");
 		mapselectbuttons.add(map1);
 		mapselectbuttons.add(map2);
 		mapselectbuttons.add(map3);
@@ -54,9 +55,12 @@ public class Main {
         JButton healtroy=new JButton("restore troy");
         JButton healtroy1=new JButton("restore troy");
         JButton healtroy2=new JButton("restore troy");
-        main.add(start);
+        JButton startRound = new JButton("Play!");
+        JButton startRound2 = new JButton("Play!");
+        JButton startRound3 = new JButton("Play!");
         main.add(quit2);
-		main.add(new Title());
+        main.add(start);
+        main.add(new Title());
 		mapselect.add(mapselectbuttons);
 		mapselect.add(new SelectaMap());
 		final MapOne mapone=new MapOne(cs1);
@@ -74,11 +78,11 @@ public class Main {
         final Screen1 screenone=new Screen1(mapone);
 		final Screen2 screentwo=new Screen2(maptwo);
 		final Screen3 screenthree=new Screen3(mapthree);
-		MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
+		final MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
 		mapone.setTracer(mouse);
-		MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
+		final MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
 		maptwo.setTracer(mouse2);
-		MouseTracer3 mouse3=new MouseTracer3(mapthree, cs3, screenthree, cs3.charHolder);
+		final MouseTracer3 mouse3=new MouseTracer3(mapthree, cs3, screenthree, cs3.charHolder);
 		mapthree.setTracer(mouse3);
 		screenone.addMouseTracer(mouse);
 		screenone.addMouseListener(mouse);
@@ -95,18 +99,33 @@ public class Main {
 		mapone.troyHP.setEditable(false);
 		playmap1Menu.add(mapone.troyHP);
 		playmap1Menu.add(healtroy);
+		playmap1Menu.add(startRound);
+		playmap1Menu.add(new JLabel());
+		playmap1Menu.add(new JLabel());
+		playmap1Menu.add(new JLabel("                 Round"));
+		playmap1Menu.add(screenone.roundDisp);
 		playmap2Menu.add(new JLabel("Funds/Score: "));
 		playmap2Menu.add(cs2.funds);
 		playmap2Menu.add(new JLabel("Troy HP: "));
 		maptwo.troyHP.setEditable(false);
 		playmap2Menu.add(maptwo.troyHP);
 		playmap2Menu.add(healtroy1);
+		playmap2Menu.add(startRound2);
+		playmap2Menu.add(new JLabel());
+		playmap2Menu.add(new JLabel());
+		playmap2Menu.add(new JLabel("                 Round"));
+		playmap2Menu.add(screentwo.roundDisp);
 		playmap3Menu.add(new JLabel("Funds/Score: "));
 		playmap3Menu.add(cs3.funds);
 		playmap3Menu.add(new JLabel("Troy HP: "));
 		mapthree.troyHP.setEditable(false);
 		playmap3Menu.add(mapthree.troyHP);
 		playmap3Menu.add(healtroy2);
+		playmap3Menu.add(startRound3);
+		playmap3Menu.add(new JLabel());
+		playmap3Menu.add(new JLabel());
+		playmap3Menu.add(new JLabel("                 Round"));
+		playmap3Menu.add(screenthree.roundDisp);
 		playmap1.add(playmap1Menu);
 		playmap2.add(playmap2Menu);
 		playmap3.add(playmap3Menu);
@@ -114,12 +133,12 @@ public class Main {
 		playmap2.add(screentwo);
 		playmap3.add(screenthree);
 		final CardLayout myLayout=new CardLayout();
-                quit2.addActionListener(new ActionListener(){
-                    @Override
-                    public void actionPerformed(ActionEvent e){
-                        System.exit(0);
-                    }
-                });
+        quit2.addActionListener(new ActionListener(){
+        	@Override
+            public void actionPerformed(ActionEvent e){
+        		System.exit(0);
+            }
+        });
 		start.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -160,6 +179,54 @@ public class Main {
 				myLayout.show(parent, "map3");
 				screenthree.paint(screenthree.getGraphics());
 			}			
+		});
+		startRound.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if (mouse.allies.size() != 0) {
+					cs1.setVisible(false);
+					screenone.playTime = 1;
+					screenone.roundDisp.setText(""+screenone.round);
+					screenone.repaint();
+				}else if(screenone.playTime==2)
+					screenone.repaint();
+				else
+					JOptionPane.showMessageDialog(jf,"No units deployed. Add some units to play");
+			}
+
+		});
+		startRound2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if (mouse2.allies.size() != 0) {
+					cs2.setVisible(false);
+					screentwo.playTime = 1;
+					screentwo.roundDisp.setText(""+screentwo.round);
+					screentwo.repaint();
+				}else if(screentwo.playTime==2)
+					screentwo.repaint();
+				else
+					JOptionPane.showMessageDialog(jf,"No units deployed. Add some units to play");
+			}
+
+		});
+		startRound3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if (mouse3.allies.size() != 0) {
+					cs3.setVisible(false);
+					screenthree.playTime = 1;
+					screenthree.roundDisp.setText(""+screenthree.round);
+					screenthree.repaint();
+				}else if(screenthree.playTime==2)
+					screenthree.repaint();
+				else
+					JOptionPane.showMessageDialog(jf,"No units deployed. Add some units to play");
+			}
+
 		});
 		healtroy.addActionListener(new ActionListener(){
 
@@ -238,6 +305,7 @@ public class Main {
 				cs1.funds.setText(""+screenone.funds);
 				mapone.HP=RESET_HP;
 				mapone.troyHP.setText(mapone.HP+"/100");
+				screenone.roundDisp.setText(""+screenone.round);
 				screenone.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -253,6 +321,7 @@ public class Main {
 				cs2.funds.setText(""+screentwo.funds);
 				maptwo.HP=RESET_HP_2;
 				maptwo.troyHP.setText(maptwo.HP+"/200");
+				screentwo.roundDisp.setText(""+screentwo.round);
 				screentwo.playTime=0;
 				myLayout.show(parent, "maps");
 			}			
@@ -268,6 +337,7 @@ public class Main {
 				cs3.funds.setText(""+screenthree.funds);
 				mapthree.HP=RESET_HP_2;
 				mapthree.troyHP.setText(mapthree.HP+"/200");
+				screenthree.roundDisp.setText(""+screenthree.round);
 				screenthree.playTime=0;
 				myLayout.show(parent, "maps");
 			}			

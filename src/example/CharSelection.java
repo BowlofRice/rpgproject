@@ -56,7 +56,6 @@ public class CharSelection {
 		JButton selectRed = new JButton("Red Caster");
 		JButton selectGreen = new JButton("Green Caster");
 		JButton selectProphet = new JButton("Prophet");
-		JButton startRound = new JButton("Play!");
 		JLabel blank = new JLabel();
 		holder.add(selectArcher);
 		holder.add(selectFighter);
@@ -64,7 +63,6 @@ public class CharSelection {
 		holder.add(selectRed);
 		holder.add(selectGreen);
 		holder.add(selectProphet);
-		holder.add(startRound);
 		holder.add(blank);
 		selectArcher.addActionListener(new ActionListener() {
 			@Override
@@ -161,20 +159,6 @@ public class CharSelection {
 				} else 
 					JOptionPane.showMessageDialog(charHolder,"you're currently deploying a prophet. do so already.");
 			}
-		});
-
-		startRound.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				if (s.mouse.allies.size() != 0) {
-					charHolder.setVisible(false);
-					s.playTime = 1;
-					s.repaint();
-				} else 
-					JOptionPane.showMessageDialog(charHolder,"No units deployed. Add some units to play");
-			}
-
 		});
 		charHolder.add(holder);
 		charHolder.pack();
