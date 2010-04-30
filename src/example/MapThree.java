@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class MapThree {
@@ -17,6 +18,7 @@ public class MapThree {
 	public JTextArea troyHP=new JTextArea(HP+"/200");
 	int k=0;//enemy counter
 	boolean isitDead=false;
+	boolean gameOver=false;
 	public int[][] MapThree;
     public int[][] mapTraversal;
 	private MouseTracer3 mt;
@@ -115,28 +117,6 @@ public class MapThree {
     void moveEnemy(Graphics g, int i, int j){
     	Minion baddie=new Minion();
         enemies.add(baddie);
-        enemies.elementAt(k).setLocation(i, j);
-        for(int b=0;b<mt.allies.size();b++){
-        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-        		if(enemies.elementAt(k).health<0)
-        			isitDead=true;
-        	}
-        }
-        if(isitDead){
-        	isitDead=false;
-        	int currFunds=Integer.parseInt(cs.funds.getText());
-        	currFunds+=500;
-        	cs.funds.setText(""+currFunds);
-        	return;
-        }
-        for(int a=0;a<castles.size();a++){
-        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
-        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
-        		HP-=enemies.elementAt(k).attack;
-        		troyHP.setText(HP+"/200");
-        	}
-        }
     	int c = i;
         int d = j;
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newpath1.png");
@@ -171,7 +151,13 @@ public class MapThree {
                 		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                 		HP-=enemies.elementAt(k).attack;
                 		troyHP.setText(HP+"/200");
+                		if(HP<=0)
+                			gameOver=true;
                 	}
+                }
+                if(gameOver){
+        			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+        			System.exit(0);
                 }
                 c = i;
                 d = j;
@@ -202,7 +188,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -231,7 +223,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -260,7 +258,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -290,7 +294,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -321,7 +331,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -351,7 +367,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -380,7 +402,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -409,7 +437,13 @@ public class MapThree {
                     		enemies.elementAt(k).dealDamage(castles.elementAt(a));
                     		HP-=enemies.elementAt(k).attack;
                     		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
                     	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
