@@ -37,6 +37,7 @@ public class Main {
 		JButton map2=new JButton("map2");
 		JButton map3=new JButton("map3");
 		JButton quit=new JButton("quit");
+                JButton quit2=new JButton("quit");
 		mapselectbuttons.add(map1);
 		mapselectbuttons.add(map2);
 		mapselectbuttons.add(map3);
@@ -48,6 +49,7 @@ public class Main {
 		JButton selectplayers1=new JButton("Player Select");
         JButton selectplayers2=new JButton("Player Select");
         main.add(start);
+        main.add(quit2);
 		main.add(new Title());
 		mapselect.add(mapselectbuttons);
 		mapselect.add(new SelectaMap());
@@ -103,6 +105,12 @@ public class Main {
 		playmap2.add(screentwo);
 		playmap3.add(screenthree);
 		final CardLayout myLayout=new CardLayout();
+                quit2.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e){
+                        System.exit(0);
+                    }
+                });
 		start.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -116,6 +124,7 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				myLayout.show(parent, "title");
+
 			}
 			
 		});
