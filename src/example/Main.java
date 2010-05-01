@@ -243,8 +243,11 @@ public class Main {
 					if(choice==0){
 						int leftovers=Integer.parseInt(cs1.funds.getText())-10000;
 						cs1.funds.setText(""+leftovers);
+						cs1.s.funds=leftovers;
 						mapone.HP=100;
 						mapone.troyHP.setText(mapone.HP+"/100");
+						for(int i=0;i<mapone.castles.size();i++)
+							mapone.castles.elementAt(i).health=100;
 						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
 					}else if(choice==1 || choice==2)
 						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
@@ -265,8 +268,11 @@ public class Main {
 					if(choice==0){
 						int leftovers=Integer.parseInt(cs2.funds.getText())-10000;
 						cs2.funds.setText(""+leftovers);
+						cs2.s.funds=leftovers;
 						maptwo.HP=200;
 						maptwo.troyHP.setText(maptwo.HP+"/200");
+						for(int i=0;i<maptwo.castles.size();i++)
+							maptwo.castles.elementAt(i).health=100;
 						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
 					}else if(choice==1 || choice==2)
 						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
@@ -287,8 +293,11 @@ public class Main {
 					if(choice==0){
 						int leftovers=Integer.parseInt(cs3.funds.getText())-10000;
 						cs3.funds.setText(""+leftovers);
+						cs3.s.funds=leftovers;
 						mapthree.HP=200;
 						mapthree.troyHP.setText(mapthree.HP+"/200");
+						for(int i=0;i<mapthree.castles.size();i++)
+							mapthree.castles.elementAt(i).health=100;
 						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
 					}else if(choice==1 || choice==2)
 						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");

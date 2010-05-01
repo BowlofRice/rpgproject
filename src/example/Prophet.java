@@ -26,7 +26,7 @@ public class Prophet extends Ally{
     Point location=new Point();//default starting location
     float attack;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints;
     int range;
     int character_flag;
     
@@ -36,27 +36,29 @@ public class Prophet extends Ally{
     level = 1;
     attack = 2;
     attack_speed = 1;
-    upgradelevelmeter = 0;
+    expPoints = 0;
     range = 5;
     character_flag = PROPHET_FLAG_1; //ranges from 27 to 31 depending on range
 
     }
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .1;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("prophet level up!");
         increaseAttack();
         increaseAttackSpeed();
         level++;
-        character_flag++;
+        //character_flag++;
     }
 
     public void increaseAttack(){

@@ -26,7 +26,7 @@ public class Fighter extends Ally{
     Point location=new Point();//default starting location
     float attack;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints;
     int range ;
     int character_flag;
     public Fighter(int x, int y){
@@ -35,25 +35,27 @@ public class Fighter extends Ally{
     	level = 1;
     	attack = 8;
     	attack_speed = 1;
-    	upgradelevelmeter = 0;
+    	expPoints = 0;
     	range = 1;
     	character_flag = FIGHTER_FLAG_1; //ranges from 22 to 26 depending on the level
     }
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("fighter level up!");
         increaseAttackSpeed();
         increaseAttack();
         level++;
-        character_flag++;
+        //character_flag++;
     }
 
     public void increaseAttack(){

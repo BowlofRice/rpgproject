@@ -136,8 +136,10 @@ public class MapThree {
                 for(int b=0;b<mt.allies.size();b++){
                 	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                 		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                		if(enemies.elementAt(k).health<0)
+                		if(enemies.elementAt(k).health<0){
                 			isitDead=true;
+                			mt.allies.elementAt(b).gainExperience();
+                		}
                 	}
                 }
                 if(isitDead){
@@ -173,8 +175,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -208,8 +212,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -243,8 +249,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -279,8 +287,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -316,8 +326,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -352,8 +364,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -387,8 +401,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -422,8 +438,10 @@ public class MapThree {
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){

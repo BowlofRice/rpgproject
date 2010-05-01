@@ -26,7 +26,7 @@ public class RedCaster extends Ally{
     int level;
     Point location=new Point();//default starting location
     float attack;
-    int upgradelevelmeter;
+    double expPoints;
     int range;
     int character_flag;
     int attack_speed;
@@ -37,26 +37,28 @@ public class RedCaster extends Ally{
     	level = 1;
     	attack = 3;
     	attack_speed = 1;
-    	upgradelevelmeter = 0;
+    	expPoints = 0;
     	range = 2;
     	character_flag = REDCASTER_FLAG_1; //ranges from 17 to 21 depending on level
     }
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("red level up!");
         increaseAttack();
         increaseAttackSpeed();
         level++;
-        character_flag++;
+        //character_flag++;
     }
     
     public void increaseAttackSpeed() {

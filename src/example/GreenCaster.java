@@ -27,7 +27,7 @@ public class GreenCaster extends Ally{
     Point location=new Point();//default starting location
     float attack;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints;
     int range;
     int character_flag;
 
@@ -37,26 +37,28 @@ public class GreenCaster extends Ally{
     	level = 1;
     	attack = 3;
     	attack_speed = 1;
-    	upgradelevelmeter = 0;
+    	expPoints = 0;
     	range = 2;
     	character_flag = GREENCASTER_FLAG_1; //ranges from 12 to 16 depending on the level
     }
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .1;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("green level up!");
         increaseAttack();
         increaseAttackSpeed();
         level++;
-        character_flag++;
+        //character_flag++;
     }
 
     public void increaseAttackSpeed() {

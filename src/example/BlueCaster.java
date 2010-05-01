@@ -27,7 +27,7 @@ public class BlueCaster extends Ally{
     Point location=new Point() ;
     float attack ;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints;
     int range ;
     int character_flag;
 
@@ -37,26 +37,28 @@ public class BlueCaster extends Ally{
     	level = 1;
     	attack = 8;
     	attack_speed = 1;
-    	upgradelevelmeter = 0;
+    	expPoints = 0;
     	range = 2;
     	character_flag = BLUECASTER_FLAG_1; // this ranges from 7 - 11 depending on the level
     }
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("blue level up!");
         increaseAttack();
         increaseAttackSpeed();
         level++;
-        character_flag++;
+        //character_flag++;
     }
 
     public void increaseAttackSpeed() {
@@ -72,11 +74,11 @@ public class BlueCaster extends Ally{
          Random r = new Random();
          int randNum = r.nextInt(100) + 1;
          // Enemy is Chilled. Movement Speed is Decreased by Half
-         if(randNum % 2 == 0) {
+         /*if(randNum % 2 == 0) {
               while(m.health > 0) {
                    m.speed *= 0.50;
               }
-         } 
+         } */
     }
 
 	@Override
@@ -121,10 +123,10 @@ public class BlueCaster extends Ally{
         Random r = new Random();
         int randNum = r.nextInt(100) + 1;
         // Enemy is Chilled. Movement Speed is Decreased by Half
-        if(randNum % 2 == 0) {
+        /*if(randNum % 2 == 0) {
              while(b.health > 0) {
                   b.speed *= 0.50;
              }
-        } 
+        } */
 	}
 }

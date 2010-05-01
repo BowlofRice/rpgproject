@@ -134,12 +134,14 @@ public class MapOne {
                 for(int b=0;b<mt.allies.size();b++){
                 	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                 		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                		if(enemies.elementAt(k).health<=0)
+                		if(enemies.elementAt(k).health<=0){
                 			isitDead=true;
+                			mt.allies.elementAt(b).gainExperience();
+                		}
                 	}
                 }
                 if(isitDead){
-                	isitDead=false;
+                	isitDead=false;           
                 	int currFunds=Integer.parseInt(cs.funds.getText());
                 	currFunds+=500;
                 	cs.funds.setText(""+currFunds);
@@ -171,8 +173,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<=0)
+                    		if(enemies.elementAt(k).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -207,8 +211,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<=0)
+                    		if(enemies.elementAt(k).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -243,8 +249,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<=0)
+                    		if(enemies.elementAt(k).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -279,8 +287,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<=0)
+                    		if(enemies.elementAt(k).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -316,8 +326,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<=0)
+            	        		if(enemies.elementAt(k).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -351,8 +363,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<=0)
+            	        		if(enemies.elementAt(k).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -386,8 +400,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<=0)
+            	        		if(enemies.elementAt(k).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -421,8 +437,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<=0)
+            	        		if(enemies.elementAt(k).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -518,8 +536,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
                     		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-                    		if(bossSpawns.elementAt(h).health<=0)
+                    		if(bossSpawns.elementAt(h).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -554,8 +574,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
                     		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-                    		if(bossSpawns.elementAt(h).health<=0)
+                    		if(bossSpawns.elementAt(h).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -590,8 +612,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
                     		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-                    		if(bossSpawns.elementAt(h).health<=0)
+                    		if(bossSpawns.elementAt(h).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -626,8 +650,10 @@ public class MapOne {
             		for(int b=0;b<mt.allies.size();b++){
                     	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
                     		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-                    		if(bossSpawns.elementAt(h).health<=0)
+                    		if(bossSpawns.elementAt(h).health<=0){
                     			isitDead=true;
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -663,8 +689,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
             	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        		if(bossSpawns.elementAt(h).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -698,8 +726,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
             	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        		if(bossSpawns.elementAt(h).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -733,8 +763,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
             	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        		if(bossSpawns.elementAt(h).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -768,8 +800,10 @@ public class MapOne {
             			for(int b=0;b<mt.allies.size();b++){
             	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
             	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
-            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        		if(bossSpawns.elementAt(h).health<=0){
             	        			isitDead=true;
+            	        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){

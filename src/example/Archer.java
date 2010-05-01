@@ -26,7 +26,7 @@ public class Archer extends Ally{
     Point location=new Point();
     float attack;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints=0;
     int range;
     int character_flag;
 
@@ -37,26 +37,28 @@ public class Archer extends Ally{
     location.y=y;
     attack = 3;
     attack_speed = 1;
-    upgradelevelmeter = 0;
+    expPoints = 0;
     range = 3;
 	}
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("archer level up!");
         increaseAttack();
         increaseAttackSpeed();
         increaseRange();
         level++;
-        character_flag++;
+        //character_flag++;
     }
 
     public void increaseAttack(){

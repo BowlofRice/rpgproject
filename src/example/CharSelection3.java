@@ -20,8 +20,7 @@ public class CharSelection3 {
 	public boolean GREEN = false;
 	public boolean PROPHET = false;
 	final JFrame charHolder = new JFrame();
-	@SuppressWarnings("unused")
-	private Screen3 s;
+	public Screen3 s;
 	public JTextArea funds = new JTextArea();
 	@SuppressWarnings("unused")
 	private JFrame parent;
