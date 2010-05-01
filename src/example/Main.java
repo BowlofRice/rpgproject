@@ -21,6 +21,7 @@ public class Main {
 		final int RESET_FUNDS=20000;
 		final int RESET_HP=100;
 		final int RESET_HP_2=200;
+		final int RESET_ROUND=1;
 		final JFrame jf=new JFrame();
 		final JPanel parent=new JPanel();
 		final CharSelection cs1=new CharSelection(jf);
@@ -103,6 +104,7 @@ public class Main {
 		playmap1Menu.add(new JLabel());
 		playmap1Menu.add(new JLabel());
 		playmap1Menu.add(new JLabel("                 Round"));
+		screenone.roundDisp.setEditable(false);
 		playmap1Menu.add(screenone.roundDisp);
 		playmap2Menu.add(new JLabel("Funds/Score: "));
 		playmap2Menu.add(cs2.funds);
@@ -114,6 +116,7 @@ public class Main {
 		playmap2Menu.add(new JLabel());
 		playmap2Menu.add(new JLabel());
 		playmap2Menu.add(new JLabel("                 Round"));
+		screentwo.roundDisp.setEditable(false);
 		playmap2Menu.add(screentwo.roundDisp);
 		playmap3Menu.add(new JLabel("Funds/Score: "));
 		playmap3Menu.add(cs3.funds);
@@ -125,6 +128,7 @@ public class Main {
 		playmap3Menu.add(new JLabel());
 		playmap3Menu.add(new JLabel());
 		playmap3Menu.add(new JLabel("                 Round"));
+		screenthree.roundDisp.setEditable(false);
 		playmap3Menu.add(screenthree.roundDisp);
 		playmap1.add(playmap1Menu);
 		playmap2.add(playmap2Menu);
@@ -300,11 +304,14 @@ public class Main {
 				// TODO Auto-generated method stub
 				screenone.mouse.allies.removeAllElements();
 				mapone.enemies.removeAllElements();
+				mapone.bossSpawns.removeAllElements();
 				mapone.k=0;
+				mapone.h=0;
 				screenone.funds=RESET_FUNDS;
 				cs1.funds.setText(""+screenone.funds);
 				mapone.HP=RESET_HP;
 				mapone.troyHP.setText(mapone.HP+"/100");
+				screenone.round=RESET_ROUND;
 				screenone.roundDisp.setText(""+screenone.round);
 				screenone.playTime=0;
 				myLayout.show(parent, "maps");
@@ -316,11 +323,14 @@ public class Main {
 				// TODO Auto-generated method stub
 				screentwo.mouse.allies.removeAllElements();
 				maptwo.enemies.removeAllElements();
+				maptwo.bossSpawns.removeAllElements();
 				maptwo.k=0;
+				maptwo.h=0;
 				screentwo.funds=RESET_FUNDS;
 				cs2.funds.setText(""+screentwo.funds);
 				maptwo.HP=RESET_HP_2;
 				maptwo.troyHP.setText(maptwo.HP+"/200");
+				screentwo.round=RESET_ROUND;
 				screentwo.roundDisp.setText(""+screentwo.round);
 				screentwo.playTime=0;
 				myLayout.show(parent, "maps");
@@ -332,11 +342,14 @@ public class Main {
 				// TODO Auto-generated method stub
 				screenthree.mouse.allies.removeAllElements();
 				mapthree.enemies.removeAllElements();
+				mapthree.bossSpawns.removeAllElements();
 				mapthree.k=0;
+				mapthree.h=0;
 				screenthree.funds=RESET_FUNDS;
 				cs3.funds.setText(""+screenthree.funds);
 				mapthree.HP=RESET_HP_2;
 				mapthree.troyHP.setText(mapthree.HP+"/200");
+				screenthree.round=RESET_ROUND;
 				screenthree.roundDisp.setText(""+screenthree.round);
 				screenthree.playTime=0;
 				myLayout.show(parent, "maps");

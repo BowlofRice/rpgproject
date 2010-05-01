@@ -96,19 +96,22 @@ public class Prophet extends Ally{
 	}
 
 	@Override
-	public boolean withinRange(Minion m) {
+	public boolean withinRange(Enemy e) {
 		// TODO Auto-generated method stub
 		double dist;
-		int dx=m.getLocation().x-location.x/20;
-		int dy=m.getLocation().y-location.y/20;
+		int dx=e.getLocation().x-location.x/20;
+		int dy=e.getLocation().y-location.y/20;
 		dist= Math.sqrt(dx*dx + dy*dy);
-		//System.out.println("ally location is x="+location.x/20+", location y="+location.y/20);
-		//System.out.println("enemy location is "+m.getLocation());
-		//System.out.println("distance is "+dist);
 		if(dist<=range)
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public void dealDamageB(Boss b) {
+		// TODO Auto-generated method stub
+		b.health -= attack; 
 	}
 
 }

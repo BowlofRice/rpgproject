@@ -35,7 +35,7 @@ public class GreenCaster extends Ally{
     	location.x=x;
     	location.y=y;
     	level = 1;
-    	attack = 8;
+    	attack = 3;
     	attack_speed = 1;
     	upgradelevelmeter = 0;
     	range = 2;
@@ -105,19 +105,32 @@ public class GreenCaster extends Ally{
 	}
 
 	@Override
-	public boolean withinRange(Minion m) {
+	public boolean withinRange(Enemy e) {
 		// TODO Auto-generated method stub
 		double dist;
-		int dx=m.getLocation().x-location.x/20;
-		int dy=m.getLocation().y-location.y/20;
+		int dx=e.getLocation().x-location.x/20;
+		int dy=e.getLocation().y-location.y/20;
 		dist= Math.sqrt(dx*dx + dy*dy);
-		//System.out.println("ally location is x="+location.x/20+", location y="+location.y/20);
-		//System.out.println("enemy location is "+m.getLocation());
-		//System.out.println("distance is "+dist);
 		if(dist<=range)
 			return true;
 		else
 			return false;
 	}
 
+	@Override
+	public void dealDamageB(Boss b) {
+		// TODO Auto-generated method stub
+		b.health -= attack;
+        Random r = new Random();
+        int randNum = r.nextInt(100) + 1;
+        //Enemy is Poisoned. Extra 20% Damage over 8 seconds. 
+        if(randNum % 2 == 0) {
+             while(b.health > 0) {
+                  for(int counter = 0; counter < 8; counter++)
+                  {
+                       b.health -= attack * 0.20;
+                  }
+             }
+        }  
+	}
 }

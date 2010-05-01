@@ -3,6 +3,7 @@ package example;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 import javax.swing.JTextArea;
 
@@ -13,6 +14,7 @@ public class Screen2 extends Canvas{
 	public int round=1;
 	public JTextArea roundDisp=new JTextArea(""+round);
 	public int funds=20000;
+	Random r=new Random();
 	public MouseTracer2 mouse;
 	public Screen2(MapTwo map){
 		setSize(400,400);
@@ -34,23 +36,35 @@ public class Screen2 extends Canvas{
 				mouse.allies.elementAt(i).drawUnit(g);
 			switch(round){
 				case 1:
-					for(int i=1;i<=3;i++)
+					for(int i=1;i<=3;i++){
 						map.moveEnemy(g,18, 0);
+						if(r.nextInt(20)<2)
+							map.theycallhimBossFight(g, 18, 0);
+					}
 					round=2;
 					break;
 				case 2:
-					for(int i=1;i<=5;i++)
+					for(int i=1;i<=5;i++){
 						map.moveEnemy(g,18, 0);
+						if(r.nextInt(20)<3)
+							map.theycallhimBossFight(g, 18, 0);
+					}
 					round=3;
 					break;
 				case 3:
-					for(int i=1;i<=7;i++)
+					for(int i=1;i<=7;i++){
 						map.moveEnemy(g,18, 0);
+						if(r.nextInt(20)<4)
+							map.theycallhimBossFight(g, 18, 0);
+					}
 					round=4;
 					break;
 				case 4:
-					for(int i=1;i<=9;i++)
+					for(int i=1;i<=9;i++){
 						map.moveEnemy(g,18, 0);
+						if(r.nextInt(20)<5)
+							map.theycallhimBossFight(g, 18, 0);
+					}
 					round=1;
 					mouse.allies.removeAllElements();
 					playTime=2;

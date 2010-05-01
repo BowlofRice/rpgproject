@@ -41,6 +41,12 @@ public class Screen3 extends Canvas{
 							map.moveEnemy(g,1, 0);
 						else
 							map.moveEnemy(g,18, 0);
+						if(rand.nextInt(20)<2){
+							if(rand.nextInt(2)==0)
+								map.theycallhimBossFight(g, 1, 0);
+							else
+								map.theycallhimBossFight(g, 18, 0);
+						}
 					}
 					round=2;
 					break;
@@ -50,6 +56,12 @@ public class Screen3 extends Canvas{
 							map.moveEnemy(g,1, 0);
 						else
 							map.moveEnemy(g,18, 0);
+						if(rand.nextInt(20)<3){
+							if(rand.nextInt(2)==0)
+								map.theycallhimBossFight(g, 1, 0);
+							else
+								map.theycallhimBossFight(g, 18, 0);
+						}
 					}
 					round=3;
 					break;
@@ -59,6 +71,12 @@ public class Screen3 extends Canvas{
 							map.moveEnemy(g,1, 0);
 						else
 							map.moveEnemy(g,18, 0);
+						if(rand.nextInt(20)<4){
+							if(rand.nextInt(2)==0)
+								map.theycallhimBossFight(g, 1, 0);
+							else
+								map.theycallhimBossFight(g, 18, 0);
+						}
 					}
 					round=4;
 					break;
@@ -68,6 +86,12 @@ public class Screen3 extends Canvas{
 							map.moveEnemy(g,1, 0);
 						else
 							map.moveEnemy(g,18, 0);
+						if(rand.nextInt(20)<5){
+							if(rand.nextInt(2)==0)
+								map.theycallhimBossFight(g, 1, 0);
+							else
+								map.theycallhimBossFight(g, 18, 0);
+						}
 					}
 					round=1;
 					mouse.allies.removeAllElements();
