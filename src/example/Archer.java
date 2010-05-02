@@ -26,7 +26,7 @@ public class Archer extends Ally{
     Point location=new Point();
     float attack;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints=0;
     int range;
     int character_flag;
 
@@ -35,28 +35,30 @@ public class Archer extends Ally{
     level = 1;
     location.x=x;
     location.y=y;
-    attack = 8;
+    attack = 3;
     attack_speed = 1;
-    upgradelevelmeter = 0;
+    expPoints = 0;
     range = 3;
 	}
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+        expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("archer level up!");
         increaseAttack();
         increaseAttackSpeed();
         increaseRange();
         level++;
-        character_flag++;
+        //character_flag++;
     }
 
     public void increaseAttack(){
@@ -96,15 +98,21 @@ public class Archer extends Ally{
 	}
 
 	@Override
-	public boolean withinRange(Minion m) {
+	public boolean withinRange(Enemy e) {
 		// TODO Auto-generated method stub
 		double dist;
-		int dx=m.getLocation().x-location.x/20;
-		int dy=m.getLocation().y-location.y/20;
+		int dx=e.getLocation().x-location.x/20;
+		int dy=e.getLocation().y-location.y/20;
 		dist= Math.sqrt(dx*dx + dy*dy);
 		if(dist<=range)
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public void dealDamageB(Boss b) {
+		// TODO Auto-generated method stub
+		 b.health -= attack; 
 	}
 }
