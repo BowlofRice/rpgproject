@@ -26,37 +26,40 @@ public class RedCaster extends Ally{
     int level;
     Point location=new Point();//default starting location
     float attack;
-    int upgradelevelmeter;
+    double expPoints;
     int range;
     int character_flag;
     int attack_speed;
 
-public RedCaster(int x, int y){
-	location.x=x;
-	location.y=y;
-    level = 1;
-    attack = 8;
-    attack_speed = 1;
-    upgradelevelmeter = 0;
-    range = 2;
-    character_flag = REDCASTER_FLAG_1; //ranges from 17 to 21 depending on level
-}
+    public RedCaster(int x, int y){
+    	location.x=x;
+    	location.y=y;
+    	level = 1;
+    	attack = 3;
+    	attack_speed = 1;
+    	expPoints = 0;
+    	range = 2;
+    	character_flag = REDCASTER_FLAG_1; //ranges from 17 to 21 depending on level
+    }
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+    	if(level<5)
+    		expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
+    	System.out.println("red level up!");
         increaseAttack();
         increaseAttackSpeed();
         level++;
-        character_flag++;
+        //character_flag++;
     }
     
     public void increaseAttackSpeed() {
@@ -98,23 +101,41 @@ public RedCaster(int x, int y){
 		case REDCASTER_FLAG_5:
 			g.drawImage(img21, location.x, location.y, null);
 			break;
-	}
+		}
 	}
 
 	@Override
-	public boolean withinRange(Minion m) {
+	public void dealDamageB(Boss b) {
+		// TODO Auto-generated method stub
+		b.health -= attack;
+        Random r = new Random();
+        int randNum = r.nextInt(100) + 1;
+        if(randNum % 2 == 0) {
+            // Enemy is Burned (Extra 35% damage)
+            while(b.health > 0) {
+                b.health -= 0.35 * attack;
+            }
+        }   
+	}
+
+	@Override
+	public boolean withinRange(Enemy e) {
 		// TODO Auto-generated method stub
 		double dist;
-		int dx=m.getLocation().x-location.x/20;
-		int dy=m.getLocation().y-location.y/20;
+		int dx=e.getLocation().x-location.x/20;
+		int dy=e.getLocation().y-location.y/20;
 		dist= Math.sqrt(dx*dx + dy*dy);
-		//System.out.println("ally location is x="+location.x/20+", location y="+location.y/20);
-		//System.out.println("enemy location is "+m.getLocation());
-		//System.out.println("distance is "+dist);
 		if(dist<=range)
 			return true;
 		else
 			return false;
 	}
+
+    @Override
+    public String getJob() {
+        return "Red Caster";
+    }
+
+	
 
 }

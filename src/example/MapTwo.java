@@ -5,24 +5,22 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class MapTwo {
 	public Vector<Minion> enemies=new Vector<Minion>();
+	public Vector<Boss> bossSpawns=new Vector<Boss>();
 	public Vector<Square> squares=new Vector<Square>();
 	public Vector<TroyCastle> castles=new Vector<TroyCastle>();
-	public TroyCastle troyA=new TroyCastle(1,19);
-	public TroyCastle troyB=new TroyCastle(1,18);
-	public TroyCastle troyC=new TroyCastle(3,18);
-	public TroyCastle troyD=new TroyCastle(3,19);
-	public TroyCastle troyE=new TroyCastle(6,19);
-	public TroyCastle troyF=new TroyCastle(8,19);
-	public TroyCastle troyG=new TroyCastle(8,18);
-	public TroyCastle troyH=new TroyCastle(6,18);
-	public int totalHP=troyA.health+troyB.health+troyC.health+troyD.health+troyE.health+troyF.health+troyG.health+troyH.health;
-	public JTextArea troyHP=new JTextArea(""+totalHP+"/800");
+	public TroyCastle troyA=new TroyCastle(1,18);
+	public TroyCastle troyB=new TroyCastle(6,18);
+	public int HP=troyA.health+troyB.health;
+	public JTextArea troyHP=new JTextArea(HP+"/200");
 	int k=0;//enemy counter
+	int h=0;//boss counter
 	boolean isitDead=false;
+	boolean gameOver=false;
 	public int[][] MapTwo;
     public int[][] mapTraversal;
 	private MouseTracer2 mt;
@@ -68,12 +66,6 @@ public class MapTwo {
     	this.cs=cs;
     	castles.add(troyA);
     	castles.add(troyB);
-    	castles.add(troyC);
-    	castles.add(troyD);
-    	castles.add(troyE);
-    	castles.add(troyF);
-    	castles.add(troyG);
-    	castles.add(troyH);
         //A lengthy predefined map to use
     	//0 -- Sand
     	//1 -- Path
@@ -140,28 +132,6 @@ public class MapTwo {
 
     	Minion baddie=new Minion();
         enemies.add(baddie);
-        enemies.elementAt(k).setLocation(i, j);
-        for(int b=0;b<mt.allies.size();b++){
-        	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-        		System.out.println("enemy sighted!");
-        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-        		if(enemies.elementAt(k).health<0)
-        			isitDead=true;
-        		else
-        			System.out.println(enemies.elementAt(k).health);
-        	}
-        }
-        if(isitDead){
-        	int currFunds=Integer.parseInt(cs.funds.getText());
-        	currFunds+=500;
-        	cs.funds.setText(""+currFunds);
-        	isitDead=false;
-        	return;
-        }
-        for(int a=0;a<castles.size();a++){
-        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-        		System.out.println("Ahoy! therr be a castle!");
-        }
         int c = i;
         int d = j;
         Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newpath1.png");
@@ -178,12 +148,11 @@ public class MapTwo {
                 enemies.elementAt(k).setLocation(i, j);
                 for(int b=0;b<mt.allies.size();b++){
                 	if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                		System.out.println("enemy sighted!");
                 		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                		if(enemies.elementAt(k).health<0)
+                		if(enemies.elementAt(k).health<0){
                 			isitDead=true;
-                		else
-                			System.out.println(enemies.elementAt(k).health);
+                			mt.allies.elementAt(b).gainExperience();
+                		}
                 	}
                 }
                 if(isitDead){
@@ -195,8 +164,17 @@ public class MapTwo {
                 	break;
                 }
                 for(int a=0;a<castles.size();a++){
-                	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                		System.out.println("Ahoy! therr be a castle!");
+                	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                		HP-=enemies.elementAt(k).attack;
+                		troyHP.setText(HP+"/200");
+                		if(HP<=0)
+                			gameOver=true;
+                	}
+                }
+                if(gameOver){
+        			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+        			System.exit(0);
                 }
                 c = i;
                 d = j;
@@ -209,12 +187,11 @@ public class MapTwo {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -226,8 +203,17 @@ public class MapTwo {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -239,12 +225,11 @@ public class MapTwo {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -256,8 +241,17 @@ public class MapTwo {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -269,12 +263,11 @@ public class MapTwo {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -286,8 +279,17 @@ public class MapTwo {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -299,12 +301,11 @@ public class MapTwo {
             		enemies.elementAt(k).setLocation(i, j);
             		for(int b=0;b<mt.allies.size();b++){
             			if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-                    		System.out.println("enemy sighted!");
                     		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-                    		if(enemies.elementAt(k).health<0)
+                    		if(enemies.elementAt(k).health<0){
                     			isitDead=true;
-                    		else
-                    			System.out.println(enemies.elementAt(k).health);
+                    			mt.allies.elementAt(b).gainExperience();
+                    		}
                     	}
                     }
             		if(isitDead){
@@ -316,8 +317,17 @@ public class MapTwo {
                     	break;
                     }
             		for(int a=0;a<castles.size();a++){
-                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-                    		System.out.println("Ahoy! therr be a castle!");
+                    	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+                    		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+                    		HP-=enemies.elementAt(k).attack;
+                    		troyHP.setText(HP+"/200");
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
                     }
             		c = i;
             		d = j;
@@ -330,12 +340,11 @@ public class MapTwo {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             				if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<0)
+            	        		if(enemies.elementAt(k).health<0){
                         			isitDead=true;
-                        		else
-                        			System.out.println(enemies.elementAt(k).health);
+                        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -347,9 +356,18 @@ public class MapTwo {
                         	break;
                         }
             			for(int a=0;a<castles.size();a++){
-            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-            	        		System.out.println("Ahoy! therr be a castle!");
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+            	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+            	        		HP-=enemies.elementAt(k).attack;
+            	        		troyHP.setText(HP+"/200");
+            	        		if(HP<=0)
+                        			gameOver=true;
+            	        	}
             	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+                        }
             			c = i;
             			d = j;
             			j += 1;
@@ -359,12 +377,11 @@ public class MapTwo {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             				if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<0)
+            	        		if(enemies.elementAt(k).health<0){
                         			isitDead=true;
-                        		else
-                        			System.out.println(enemies.elementAt(k).health);
+                        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -376,9 +393,18 @@ public class MapTwo {
                         	break;
                         }
             			for(int a=0;a<castles.size();a++){
-            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-            	        		System.out.println("Ahoy! therr be a castle!");
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+            	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+            	        		HP-=enemies.elementAt(k).attack;
+            	        		troyHP.setText(HP+"/200");
+            	        		if(HP<=0)
+                        			gameOver=true;
+            	        	}
             	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+                        }
             			c = i;
             			d = j;
             			j -= 1;
@@ -388,12 +414,11 @@ public class MapTwo {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             				if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<0)
+            	        		if(enemies.elementAt(k).health<0){
                         			isitDead=true;
-                        		else
-                        			System.out.println(enemies.elementAt(k).health);
+                        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -405,9 +430,18 @@ public class MapTwo {
                         	break;
                         }
             			for(int a=0;a<castles.size();a++){
-            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-            	        		System.out.println("Ahoy! therr be a castle!");
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+            	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+            	        		HP-=enemies.elementAt(k).attack;
+            	        		troyHP.setText(HP+"/200");
+            	        		if(HP<=0)
+                        			gameOver=true;
+            	        	}
             	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+                        }
             			c = i;
             			d = j;
             			i += 1;
@@ -417,12 +451,11 @@ public class MapTwo {
             			enemies.elementAt(k).setLocation(i, j);
             			for(int b=0;b<mt.allies.size();b++){
             				if(mt.allies.elementAt(b).withinRange(enemies.elementAt(k))){
-            	        		System.out.println("enemy sighted!");
             	        		mt.allies.elementAt(b).dealDamage(enemies.elementAt(k));
-            	        		if(enemies.elementAt(k).health<0)
+            	        		if(enemies.elementAt(k).health<0){
                         			isitDead=true;
-                        		else
-                        			System.out.println(enemies.elementAt(k).health);
+                        			mt.allies.elementAt(b).gainExperience();
+            	        		}
             	        	}
             	        }
             			if(isitDead){
@@ -434,9 +467,18 @@ public class MapTwo {
                         	break;
                         }
             			for(int a=0;a<castles.size();a++){
-            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a)))
-            	        		System.out.println("Ahoy! therr be a castle!");
+            	        	if(enemies.elementAt(k).withinRange(castles.elementAt(a))){
+            	        		enemies.elementAt(k).dealDamage(castles.elementAt(a));
+            	        		HP-=enemies.elementAt(k).attack;
+            	        		troyHP.setText(HP+"/200");
+            	        		if(HP<=0)
+                        			gameOver=true;
+            	        	}
             	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+                        }
             			c = i;
             			d = j;
             			i -= 1;
@@ -452,7 +494,353 @@ public class MapTwo {
         }
         k++;
     }
-
+    void theycallhimBossFight(Graphics g, int i, int j){
+    	Boss boss=new Boss();
+        bossSpawns.add(boss);
+        int c = i;
+        int d = j;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newpath1.png");
+        Image img0 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/boss.png");
+        double randomnum = 0;
+        int rand = 0;
+        while (mapTraversal[i][j] > 0 && j < 19) {
+            randomnum = Math.random();
+            randomnum = randomnum * 6;
+            rand = (int) randomnum;
+            if(j==0){
+            	g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+                g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                bossSpawns.elementAt(h).setLocation(i, j);
+                for(int b=0;b<mt.allies.size();b++){
+                	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+                		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+                		if(bossSpawns.elementAt(h).health<=0)
+                			isitDead=true;
+                	}
+                }
+                if(isitDead){
+                	isitDead=false;
+                	int currFunds=Integer.parseInt(cs.funds.getText());
+                	currFunds+=500;
+                	cs.funds.setText(""+currFunds);
+                	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                	break;
+                }
+                for(int a=0;a<castles.size();a++){
+                	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+                		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+                		troyHP.setText(castles.elementAt(a).health+"/100");
+                		HP=castles.elementAt(a).health;
+                		if(HP<=0)
+                			gameOver=true;
+                	}
+                }
+                if(gameOver){
+        			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+        			System.exit(0);
+                }
+                c = i;
+                d = j;
+                j += 1;
+            }
+            if(j!=0){
+            	if(mapTraversal[i][j]<=mapTraversal[i][j+1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j-1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            		g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+            		bossSpawns.elementAt(h).setLocation(i, j);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+                    		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+                    		if(bossSpawns.elementAt(h).health<=0)
+                    			isitDead=true;
+                    	}
+                    }
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+                    		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+                    		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
+                    }
+            		c = i;
+            		d = j;
+            		j += 1;
+            	}
+            	else if (mapTraversal[i][j]<=mapTraversal[i][j-1] && (mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            		g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+            		bossSpawns.elementAt(h).setLocation(i, j);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+                    		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+                    		if(bossSpawns.elementAt(h).health<=0)
+                    			isitDead=true;
+                    	}
+                    }
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+                    		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+                    		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
+                    }
+            		c = i;
+            		d = j;
+            		j -= 1;
+            	}
+            	else if(mapTraversal[i][j]<=mapTraversal[i+1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i-1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            		g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            		bossSpawns.elementAt(h).setLocation(i, j);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+                    		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+                    		if(bossSpawns.elementAt(h).health<=0)
+                    			isitDead=true;
+                    	}
+                    }
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+                    		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+                    		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
+                    }
+            		c = i;
+            		d = j;
+            		i += 1;
+            	}
+            	else if(mapTraversal[i][j]<=mapTraversal[i-1][j] && (mapTraversal[i][j]>= mapTraversal[i][j-1] && mapTraversal[i][j]>= mapTraversal[i+1][j] && mapTraversal[i][j]>= mapTraversal[i][j+1])){
+            		g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            		g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            		bossSpawns.elementAt(h).setLocation(i, j);
+            		for(int b=0;b<mt.allies.size();b++){
+                    	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+                    		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+                    		if(bossSpawns.elementAt(h).health<=0)
+                    			isitDead=true;
+                    	}
+                    }
+            		if(isitDead){
+                    	isitDead=false;
+                    	int currFunds=Integer.parseInt(cs.funds.getText());
+                    	currFunds+=500;
+                    	cs.funds.setText(""+currFunds);
+                    	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                    	break;
+                    }
+            		for(int a=0;a<castles.size();a++){
+                    	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+                    		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+                    		troyHP.setText(castles.elementAt(a).health+"/100");
+                    		HP=castles.elementAt(a).health;
+                    		if(HP<=0)
+                    			gameOver=true;
+                    	}
+                    }
+            		if(gameOver){
+            			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+            			System.exit(0);
+                    }
+            		c = i;
+            		d = j;
+            		i -= 1;
+            	}
+            	if(j<19){
+            		if (rand < 2 && mapTraversal[i][j] <= mapTraversal[i][j + 1] && (j+1) != d) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            			g.drawImage(img0, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+            			bossSpawns.elementAt(h).setLocation(i, j);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+            	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        			isitDead=true;
+            	        	}
+            	        }
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, i * mapTraversal.length, (j + 1) * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+            	        		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+            	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
+            	        		if(HP<=0)
+            	        			gameOver=true;
+            	        	}
+            	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+            	        }
+            			c = i;
+            			d = j;
+            			j += 1;
+            		}else if(2 <= rand && rand <= 3 && mapTraversal[i][j] <= mapTraversal[i][j - 1] && (j-1)!=d) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            			g.drawImage(img0, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+            			bossSpawns.elementAt(h).setLocation(i, j);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+            	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        			isitDead=true;
+            	        	}
+            	        }
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, i * mapTraversal.length, (j - 1) * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+            	        		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+            	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
+            	        		if(HP<=0)
+            	        			gameOver=true;
+            	        	}
+            	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+            	        }
+            			c = i;
+            			d = j;
+            			j -= 1;
+            		}else if (3 < rand && rand <= 4 && mapTraversal[i][j] <= mapTraversal[i + 1][j] && (i+1)!=c) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            			g.drawImage(img0, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            			bossSpawns.elementAt(h).setLocation(i, j);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+            	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        			isitDead=true;
+            	        	}
+            	        }
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, (i + 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+            	        		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+            	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
+            	        		if(HP<=0)
+            	        			gameOver=true;
+            	        	}
+            	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+            	        }
+            			c = i;
+            			d = j;
+            			i += 1;
+            		}else if (4 < rand && rand <= 6 && mapTraversal[i][j] <= mapTraversal[i - 1][j] && (i-1)!=c) {
+            			g.drawImage(img1, i * mapTraversal.length, j * mapTraversal[0].length, null);
+            			g.drawImage(img0, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+            			bossSpawns.elementAt(h).setLocation(i, j);
+            			for(int b=0;b<mt.allies.size();b++){
+            	        	if(mt.allies.elementAt(b).withinRange(bossSpawns.elementAt(h))){
+            	        		mt.allies.elementAt(b).dealDamageB(bossSpawns.elementAt(h));
+            	        		if(bossSpawns.elementAt(h).health<=0)
+            	        			isitDead=true;
+            	        	}
+            	        }
+            			if(isitDead){
+                        	isitDead=false;
+                        	int currFunds=Integer.parseInt(cs.funds.getText());
+                        	currFunds+=500;
+                        	cs.funds.setText(""+currFunds);
+                        	g.drawImage(img1, (i - 1) * mapTraversal.length, j * mapTraversal[0].length, null);
+                        	break;
+                        }
+            			for(int a=0;a<castles.size();a++){
+            	        	if(bossSpawns.elementAt(h).withinRange(castles.elementAt(a))){
+            	        		bossSpawns.elementAt(h).dealDamage(castles.elementAt(a));
+            	        		troyHP.setText(castles.elementAt(a).health+"/100");
+            	        		HP=castles.elementAt(a).health;
+            	        		if(HP<=0)
+            	        			gameOver=true;
+            	        	}
+            	        }
+            			if(gameOver){
+                			JOptionPane.showMessageDialog(cs.charHolder, "FAILURE");
+                			System.exit(0);
+            	        }
+            			c = i;
+            			d = j;
+            			i -= 1;
+            		}else{}
+            	}
+            }
+            try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch bloch
+				e.printStackTrace();
+			}
+        }
+        h++;
+    }
 
     
     public void paint(Graphics g)

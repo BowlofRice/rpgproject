@@ -27,36 +27,40 @@ public class BlueCaster extends Ally{
     Point location=new Point() ;
     float attack ;
     int attack_speed;
-    int upgradelevelmeter;
+    double expPoints;
     int range ;
     int character_flag;
 
-public BlueCaster(int x, int y){
-	location.x=x;
-	location.y=y;
-    level = 1;
-    attack = 8;
-    attack_speed = 1;
-    upgradelevelmeter = 0;
-    range = 2;
-    character_flag = BLUECASTER_FLAG_1; // this ranges from 7 - 11 depending on the level
-}
+    public BlueCaster(int x, int y){
+    	location.x=x;
+    	location.y=y;
+    	level = 1;
+    	attack = 8;
+    	attack_speed = 1;
+    	expPoints = 0;
+    	range = 2;
+    	character_flag = BLUECASTER_FLAG_1; // this ranges from 7 - 11 depending on the level
+    }
 
-    public void gainExperience(int upgradelevelmeter)
+    public void gainExperience()
     {
-        upgradelevelmeter += .05;
-        if(upgradelevelmeter >= 1 && level<=5)
+    	if(level<5)
+    		expPoints += .2;
+        if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
-            upgradelevelmeter = 0;
+            expPoints = 0;
         }
+        System.out.println(expPoints);
     }
 
     public void increaseLevel(){
         increaseAttack();
         increaseAttackSpeed();
         level++;
-        character_flag++;
+
+    	System.out.println("blue level up! "+level);
+        //character_flag++;
     }
 
     public void increaseAttackSpeed() {
@@ -72,11 +76,11 @@ public BlueCaster(int x, int y){
          Random r = new Random();
          int randNum = r.nextInt(100) + 1;
          // Enemy is Chilled. Movement Speed is Decreased by Half
-         if(randNum % 2 == 0) {
+         /*if(randNum % 2 == 0) {
               while(m.health > 0) {
                    m.speed *= 0.50;
               }
-         } 
+         } */
     }
 
 	@Override
@@ -102,18 +106,32 @@ public BlueCaster(int x, int y){
 	}
 
 	@Override
-	public boolean withinRange(Minion m) {
+	public boolean withinRange(Enemy e) {
 		// TODO Auto-generated method stub
 		double dist;
-		int dx=m.getLocation().x-location.x/20;
-		int dy=m.getLocation().y-location.y/20;
+		int dx=e.getLocation().x-location.x/20;
+		int dy=e.getLocation().y-location.y/20;
 		dist= Math.sqrt(dx*dx + dy*dy);
-		//System.out.println("ally location is x="+location.x/20+", location y="+location.y/20);
-		//System.out.println("enemy location is "+m.getLocation());
-		//System.out.println("distance is "+dist);
 		if(dist<=range)
 			return true;
 		else
 			return false;
 	}
+
+	@Override
+	public void dealDamageB(Boss b) {
+		// TODO Auto-generated method stub
+		b.health -= attack;
+        Random r = new Random();
+        int randNum = r.nextInt(100) + 1;
+        // Enemy is Chilled. Movement Speed is Decreased by Half
+        if(randNum % 2 == 0) {
+             b.speed *= 0.50;
+        }
+	}
+
+    @Override
+    public String getJob() {
+        return "Blue Caster";
+    }
 }

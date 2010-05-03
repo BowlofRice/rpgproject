@@ -16,7 +16,8 @@ public class Boss extends Enemy{
     
     public Boss() {
     	level = 1;
-    	attack = 10;
+    	attack = 40;
+    	health=40;
     	speed = 2;
     	character_flag = BOSSCLASS_FLAG_1;
     	
