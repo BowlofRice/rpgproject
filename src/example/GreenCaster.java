@@ -44,7 +44,8 @@ public class GreenCaster extends Ally{
 
     public void gainExperience()
     {
-        expPoints += .1;
+    	if(level<5)
+    		expPoints += .1;
         if(expPoints >= 1 && level<=5)
         {
             increaseLevel();

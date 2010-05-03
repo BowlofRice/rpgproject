@@ -44,7 +44,8 @@ public class BlueCaster extends Ally{
 
     public void gainExperience()
     {
-        expPoints += .2;
+    	if(level<5)
+    		expPoints += .2;
         if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
@@ -54,10 +55,11 @@ public class BlueCaster extends Ally{
     }
 
     public void increaseLevel(){
-    	System.out.println("blue level up!");
         increaseAttack();
         increaseAttackSpeed();
         level++;
+
+    	System.out.println("blue level up! "+level);
         //character_flag++;
     }
 
