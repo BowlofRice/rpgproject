@@ -325,6 +325,7 @@ public class Main {
 				mapone.h=0;
 				screenone.funds=RESET_FUNDS;
 				cs1.funds.setText(""+screenone.funds);
+				mapone.troy.health=RESET_HP;
 				mapone.HP=RESET_HP;
 				mapone.troyHP.setText(mapone.HP+"/100");
 				screenone.round=RESET_ROUND;
@@ -344,6 +345,8 @@ public class Main {
 				maptwo.h=0;
 				screentwo.funds=RESET_FUNDS;
 				cs2.funds.setText(""+screentwo.funds);
+				maptwo.troyA.health=RESET_HP_2;
+				maptwo.troyB.health=RESET_HP_2;
 				maptwo.HP=RESET_HP_2;
 				maptwo.troyHP.setText(maptwo.HP+"/200");
 				screentwo.round=RESET_ROUND;
@@ -363,6 +366,8 @@ public class Main {
 				mapthree.h=0;
 				screenthree.funds=RESET_FUNDS;
 				cs3.funds.setText(""+screenthree.funds);
+				mapthree.troyA.health=RESET_HP_2;
+				mapthree.troyB.health=RESET_HP_2;
 				mapthree.HP=RESET_HP_2;
 				mapthree.troyHP.setText(mapthree.HP+"/200");
 				screenthree.round=RESET_ROUND;

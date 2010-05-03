@@ -41,7 +41,8 @@ public class Fighter extends Ally{
     }
     public void gainExperience()
     {
-        expPoints += .2;
+    	if(level<5)
+    		expPoints += .2;
         if(expPoints >= 1 && level<=5)
         {
             increaseLevel();
