@@ -73,7 +73,7 @@ public class Prophet extends Ally{
          m.health -= attack; 
     }
     public void EasterEgg() {
-        // Switch Statement of Prophet Sayings
+        
     }
 
 	@Override
