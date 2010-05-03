@@ -107,4 +107,9 @@ public class Fighter extends Ally{
 		 b.health -= attack; 
 	}
 
+    @Override
+    public String getJob() {
+        return "Fighter";
+    }
+
 }

@@ -116,4 +116,9 @@ public class Prophet extends Ally{
 		b.health -= attack; 
 	}
 
+    @Override
+    public String getJob() {
+        return "Prophet";
+    }
+
 }

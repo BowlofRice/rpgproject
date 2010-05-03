@@ -129,4 +129,9 @@ public class BlueCaster extends Ally{
              }
         } */
 	}
+
+    @Override
+    public String getJob() {
+        return "Blue Caster";
+    }
 }

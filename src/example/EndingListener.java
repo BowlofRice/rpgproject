@@ -11,15 +11,22 @@ import java.awt.event.ActionEvent;
 /**
  *
  * @author andrew
- */
+
 public class EndingListener implements ActionListener{
+
+
 
     public void actionPerformed(ActionEvent e) {
 
-        //exits for now
+        for(int i =0; i < CharUpgrade.num_allies; i++)
+        {
+            //scroll through checkboxes to see if checked and upgrade character
+            //if it is
+        }
         System.exit(0);
     }
 
 
 
 }
+*/

@@ -24,6 +24,7 @@ public class CharSelection {
 	public JTextArea funds = new JTextArea();
 	@SuppressWarnings("unused")
 	private JFrame parent;
+    private CharUpgrade cu;
 
 	public CharSelection(JFrame parent) {
 		this.parent = parent;
@@ -56,6 +57,7 @@ public class CharSelection {
 		JButton selectRed = new JButton("Red Caster");
 		JButton selectGreen = new JButton("Green Caster");
 		JButton selectProphet = new JButton("Prophet");
+                JButton upgrade = new JButton("Upgrade Units");
 		JLabel blank = new JLabel();
 		holder.add(selectArcher);
 		holder.add(selectFighter);
@@ -63,7 +65,14 @@ public class CharSelection {
 		holder.add(selectRed);
 		holder.add(selectGreen);
 		holder.add(selectProphet);
+                holder.add(upgrade);
 		holder.add(blank);
+                upgrade.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e){
+                        cu.setVisible(true);
+                    }
+                });
 		selectArcher.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +87,9 @@ public class CharSelection {
 					JOptionPane.showMessageDialog(charHolder,"click on the map to deploy an archer there. deploying an archer costs 1000G");
 				} else 
 					JOptionPane.showMessageDialog(charHolder,"you're currently deploying an archer. do so already.");
-			}
+			
+                        }
+
 		});
 		selectFighter.addActionListener(new ActionListener() {
 			@Override
@@ -175,4 +186,9 @@ public class CharSelection {
 		funds.setEditable(false);
 
 	}
+
+        public void addCharUp(CharUpgrade cu){
+            this.cu = cu;
+
+        }
 }

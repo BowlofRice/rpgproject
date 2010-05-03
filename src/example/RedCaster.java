@@ -130,6 +130,11 @@ public class RedCaster extends Ally{
 			return false;
 	}
 
+    @Override
+    public String getJob() {
+        return "Red Caster";
+    }
+
 	
 
 }

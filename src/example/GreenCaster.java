@@ -135,4 +135,9 @@ public class GreenCaster extends Ally{
              }
         }  
 	}
+
+    @Override
+    public String getJob() {
+        return "Green Caster";
+    }
 }

@@ -115,4 +115,9 @@ public class Archer extends Ally{
 		// TODO Auto-generated method stub
 		 b.health -= attack; 
 	}
+
+    @Override
+    public String getJob() {
+        return "Archer";
+    }
 }

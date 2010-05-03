@@ -13,18 +13,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.util.Array;
+
+
+import java.util.Vector;
 import javax.swing.JCheckBox;
 
 public class CharUpgrade extends JFrame {
 
     JFrame charUpgrade = new JFrame();
     
-    //??
-    public int num_allies = MouseTracer.allies.size();
+   
+     public int num_allies;
 
     public String[] checkboxes = new String[num_allies];
     public String holder;
+    
+    public Vector<JCheckBox> checkers = new Vector<JCheckBox>();
+    private Vector<Ally> a;
+
 
 
 
@@ -35,39 +41,47 @@ public class CharUpgrade extends JFrame {
 
     public CharUpgrade(){
         
-        super();
+        
+
+        
+
+        
+
+        //test
+        System.out.println(num_allies);
+
+        
         setLayout(new BorderLayout());
 
         JPanel myCheckBoxPanel = new JPanel();
         myCheckBoxPanel.setLayout(new GridLayout(0,1));
-        add(myCheckBoxPanel,BorderLayout.WEST);
+        
 
         for(int i=0; i<num_allies;i++)
         {
             //attempting to set the value in the string array of i to
             //word CheckBoxi
-            checkboxes[i] = ("CheckBox"+i);
-            holder = checkboxes[i];
+            
+            
+            JCheckBox temp = new JCheckBox();
+            checkers.add(temp);
 
-            //attempting to use that same string just created as name for
-            //checkbox to be added
-
-            myCheckBoxPanel.add(new JCheckBox(holder));
+            myCheckBoxPanel.add(temp);
 
 
         }
-
+        add(myCheckBoxPanel,BorderLayout.WEST);
 
         JPanel myGoodGuysToUpgrade = new JPanel();
         myGoodGuysToUpgrade.setLayout(new GridLayout(0,1));
-        add(myGoodGuysToUpgrade,BorderLayout.CENTER);
+        
 
         JLabel typeOfGoodGuy = new JLabel();
 
         for(int i=0;i<num_allies;i++)
         {
             //trying to set holder to contain the type of ally at that point in the vector
-            holder = MouseTracer.allies.get(i);
+            holder =a.elementAt(i).getJob();
 
             //setting the label to have holder as the label
             typeOfGoodGuy.setText(holder);
@@ -75,24 +89,37 @@ public class CharUpgrade extends JFrame {
             //adding label to panel
             myGoodGuysToUpgrade.add(typeOfGoodGuy);
         }
-
+        add(myGoodGuysToUpgrade,BorderLayout.CENTER);
         JLabel title = new JLabel("Check Units to Upgrade");
         add(title,BorderLayout.NORTH);
 
 
 
 
-        //adds upgrade level button which has action listener, which uses
-        //class EndingListener, which currently just closes program
+       
 
         JButton upgradeGo = new JButton("Upgrade Level");
-        EndingListener buttonEar = new EndingListener();
-        upgradeGo.addActionListener(buttonEar);
+       
+        upgradeGo.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e) {
+
+                    for(int i =0; i < checkers.size(); i++)
+                     {
+                         if(checkers.elementAt(i).isSelected())
+                         {
+                            a.elementAt(i).increaseLevel();
+                         }
+                     }
+                    setVisible(false);
+
+    }
+        });
         charUpgrade.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 
         add(upgradeGo,BorderLayout.SOUTH);
-        
+        setLocationRelativeTo(null);
+        pack();
 
     }
 
@@ -104,6 +131,12 @@ public class CharUpgrade extends JFrame {
 
     public void setVisible(boolean t){
         charUpgrade.setVisible(t);
+
+    }
+
+    public void setAllies(Vector<Ally> a){
+        this.a = a;
+        num_allies = a.size();
 
     }
 

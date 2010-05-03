@@ -14,6 +14,7 @@ abstract public class Ally {
 	abstract public void dealDamageB(Boss b);
 	abstract public boolean withinRange(Enemy e);
 	abstract public void drawUnit(Graphics g);
+        abstract public String getJob();
 
 	public Point getLocation() {
 		return location;
