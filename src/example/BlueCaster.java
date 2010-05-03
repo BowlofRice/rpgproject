@@ -125,11 +125,9 @@ public class BlueCaster extends Ally{
         Random r = new Random();
         int randNum = r.nextInt(100) + 1;
         // Enemy is Chilled. Movement Speed is Decreased by Half
-        /*if(randNum % 2 == 0) {
-             while(b.health > 0) {
-                  b.speed *= 0.50;
-             }
-        } */
+        if(randNum % 2 == 0) {
+             b.speed *= 0.50;
+        }
 	}
 
     @Override
