@@ -15,9 +15,9 @@ public class Minion extends Enemy {
 
 	public Minion() {
 		level = 1;
-		attack = 10;
+		attack = 15;
 		speed = 1;
-		health = 10;
+		health = 20;
 		character_flag = ENEMYCLASS_FLAG_1; // ranges from 32 to 36
 	}
 
