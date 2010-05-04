@@ -33,7 +33,7 @@ public class Fighter extends Ally{
     	location.x=x;
     	location.y=y;
     	level = 1;
-    	attack = 8;
+    	attack = 3;
     	attack_speed = 1;
     	expPoints = 0;
     	range = 1;

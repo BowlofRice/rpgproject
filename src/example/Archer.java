@@ -35,7 +35,7 @@ public class Archer extends Ally{
     level = 1;
     location.x=x;
     location.y=y;
-    attack = 3;
+    attack = 1.5;
     attack_speed = 1;
     expPoints = 0;
     range = 3;
@@ -73,7 +73,7 @@ public class Archer extends Ally{
          m.health -= attack; 
     }
     public void increaseRange() {
-        range *= range;
+        range += range - 2;
     }
 
 	@Override
