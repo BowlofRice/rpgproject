@@ -34,10 +34,10 @@ public class Prophet extends Ally{
     location.x=x;
     location.y=y;
     level = 1;
-    attack = 2;
+    attack = 1.5;
     attack_speed = 1;
     expPoints = 0;
-    range = 5;
+    range = 6;
     character_flag = PROPHET_FLAG_1; //ranges from 27 to 31 depending on range
 
     }

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,7 +20,7 @@ public class CharSelection3 {
 	public boolean RED = false;
 	public boolean GREEN = false;
 	public boolean PROPHET = false;
-	final JFrame charHolder = new JFrame();
+	final JDialog charHolder = new JDialog();
 	public Screen3 s;
 	public JTextArea funds = new JTextArea();
 	@SuppressWarnings("unused")

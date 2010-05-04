@@ -25,7 +25,6 @@ public class Main {
 		final JFrame jf=new JFrame();
 		final JPanel parent=new JPanel();
 		final CharSelection cs1=new CharSelection(jf);
-
 		final CharSelection2 cs2=new CharSelection2(jf);
 		final CharSelection3 cs3=new CharSelection3(jf);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,14 +79,11 @@ public class Main {
         final Screen1 screenone=new Screen1(mapone);
 		final Screen2 screentwo=new Screen2(maptwo);
 		final Screen3 screenthree=new Screen3(mapthree);
-
-                CharUpgrade cu = new CharUpgrade();
-		final MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder,cu);
-
-                cs1.addCharUp(cu);
-
+		final MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
 		mapone.setTracer(mouse);
-
+		CharUpgrade cu=new CharUpgrade(mouse);
+		cs1.setUpgradePanel(cu);
+		mouse.setUpgrade(cu);
 		final MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
 		maptwo.setTracer(mouse2);
 		final MouseTracer3 mouse3=new MouseTracer3(mapthree, cs3, screenthree, cs3.charHolder);
