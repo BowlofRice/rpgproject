@@ -3,8 +3,7 @@ package example;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Vector;
-
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 public class MouseTracer3 implements MouseListener{
@@ -13,9 +12,9 @@ public class MouseTracer3 implements MouseListener{
 	private MapThree mapthree;
 	private CharSelection3 cs3;
 	private Screen3 screenthree;
-	private JFrame parent;
+	private JDialog parent;
 	
-	public MouseTracer3(MapThree mapthree, CharSelection3 cs3, Screen3 screenthree, JFrame parent){
+	public MouseTracer3(MapThree mapthree, CharSelection3 cs3, Screen3 screenthree, JDialog parent){
 		this.mapthree=mapthree;
 		this.cs3=cs3;
 		this.screenthree=screenthree;

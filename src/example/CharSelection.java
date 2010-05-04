@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,12 +20,12 @@ public class CharSelection {
 	public boolean RED = false;
 	public boolean GREEN = false;
 	public boolean PROPHET = false;
-	final JFrame charHolder = new JFrame();
+	final JDialog charHolder = new JDialog();
 	public Screen1 s;
 	public JTextArea funds = new JTextArea();
 	@SuppressWarnings("unused")
 	private JFrame parent;
-    private CharUpgrade cu;
+	private CharUpgrade cu;
 
 	public CharSelection(JFrame parent) {
 		this.parent = parent;
@@ -70,7 +71,7 @@ public class CharSelection {
                 upgrade.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e){
-                        cu.setVisible(true);
+                    	cu.setVisible(true);
                     }
                 });
 		selectArcher.addActionListener(new ActionListener() {
@@ -186,9 +187,7 @@ public class CharSelection {
 		funds.setEditable(false);
 
 	}
-
-        public void addCharUp(CharUpgrade cu){
-            this.cu = cu;
-
-        }
+	public void setUpgradePanel(CharUpgrade cu){
+		this.cu=cu;
+	}
 }
