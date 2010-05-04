@@ -31,6 +31,10 @@ public class CharUpgrade extends JFrame {
     public Vector<JCheckBox> checkers = new Vector<JCheckBox>();
     private Vector<Ally> a;
 
+    JPanel myCheckBoxPanel = new JPanel();
+    JPanel myGoodGuysToUpgrade = new JPanel();
+    JLabel typeOfGoodGuy = new JLabel();
+
 
 
 
@@ -53,8 +57,8 @@ public class CharUpgrade extends JFrame {
         
         BorderLayout borderlay = new BorderLayout();
 
-        JPanel myCheckBoxPanel = new JPanel();
-        myCheckBoxPanel.setLayout(new GridLayout(num_allies,1));
+        
+        myCheckBoxPanel.setLayout(new GridLayout(0,1));
         
 
         for(int i=0; i<num_allies;i++)
@@ -77,8 +81,8 @@ public class CharUpgrade extends JFrame {
         //myCheckBoxPanel.setVisible(true);
         System.out.println("myCheckBoxPanel added to BorderLayout");
 
-        JPanel myGoodGuysToUpgrade = new JPanel();
-        myGoodGuysToUpgrade.setLayout(new GridLayout(num_allies,1));
+        //JPanel myGoodGuysToUpgrade = new JPanel();
+        myGoodGuysToUpgrade.setLayout(new GridLayout(0,1));
         
 
         JLabel typeOfGoodGuy = new JLabel();
@@ -147,9 +151,17 @@ public class CharUpgrade extends JFrame {
     }
 
     public void setAllies(Vector<Ally> a){
+        int i=0;
         this.a = a;
         num_allies = a.size();
         System.out.println("num_allies now equals "+num_allies);
+        JCheckBox temp = new JCheckBox();
+        checkers.add(temp);
+        myCheckBoxPanel.add(temp);
+        holder =a.elementAt(i).getJob();
+        typeOfGoodGuy.setText(holder);
+        myGoodGuysToUpgrade.add(typeOfGoodGuy);
+
 
     }
 
