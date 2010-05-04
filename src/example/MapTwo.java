@@ -72,26 +72,26 @@ public class MapTwo {
     	//2 -- Different Kind of Sand / Grass
     	//3 -- Castle Walls
         MapTwo = new int[][] {
-        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,4,3},
-        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,1,1,1,1},
-        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,1,2,4,3},
-        {0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,2,2},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,2,4,3},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,1,1,1,1},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,2,2,4,3},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,0,1,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,1,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {1,1,1,1,1,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2},
-        {0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,2,2,2} };
+        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,2 ,2 ,15,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,2 ,19,18,2 ,2 ,2 ,2 ,4 ,3} ,
+        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,19,18,2 ,2 ,2 ,1 ,1 ,1 ,1} ,
+        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,16,2 ,2 ,2 ,2 ,1 ,2 ,4 ,3} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,2 ,2 ,16,2 ,2 ,2 ,2 ,1 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,2 ,2 ,15,2 ,2 ,2 ,2 ,1 ,2 ,4 ,3} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,2 ,19,18,2 ,2 ,2 ,2 ,1 ,1 ,1 ,1} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,19,18,2 ,2 ,2 ,2 ,2 ,2 ,2 ,4 ,3} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,16,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,17,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,1 ,0 ,0 ,0 ,15,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,19,18,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,0 ,0 ,19,18,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,0 ,0 ,15,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,0 ,0 ,17,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,0 ,0 ,12,11,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,12,11,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {1 ,1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,12,11,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} ,
+        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,2 ,15,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2 ,2} };
 
         mapTraversal = new int[][]{
         {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0},
@@ -850,6 +850,15 @@ public class MapTwo {
         Image img2 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/newgrass.png");
         Image img3 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/castlelower.png");
         Image img4 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/castleupper.png");
+
+        Image img15 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/river1.png");
+        Image img19 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/rivergoLeftB.png");
+        Image img18 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/riverGoleftA.png");
+        Image img16 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/river2.png");
+        Image img22 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/bridge.png");
+        Image img17 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/river3.png");
+        Image img12 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/riverGorightB.png");
+        Image img11 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/rivergorightA.png");
         for(int i =   0; i < MapTwo.length; i++) {
         	for(int j = 0; j < MapTwo[0].length; j++) {
         		if(MapTwo[i][j] == 0) {
@@ -878,6 +887,54 @@ public class MapTwo {
         			}
         		} else if(MapTwo[i][j] == 4) {
         			g.drawImage(img4, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 15) {
+        			g.drawImage(img15, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 19) {
+        			g.drawImage(img19, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 18) {
+        			g.drawImage(img18, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 16) {
+        			g.drawImage(img16, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 22) {
+        			g.drawImage(img22, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] ==17) {
+        			g.drawImage(img17, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] ==12) {
+        			g.drawImage(img12, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 11) {
+        			g.drawImage(img11, i*MapTwo.length, j*MapTwo[0].length, null);
         			Square sq=new Square(j*20,i*20);
         			if(squares.size()<400){
         				squares.add(sq);
