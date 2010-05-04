@@ -72,26 +72,26 @@ public class MapThree {
     	//2 -- Different Kind of Sand / Grass
     	//3 -- Castle Walls
         MapThree = new int[][] {
-        {0 ,0 ,0 ,0 ,0 ,0 ,23,0 ,0 ,2 ,2 ,2 ,2 ,15,2 ,24,26,25,26,24},
-        {1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,2 ,19,18,2 ,2 ,24,23,24,26},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,19,18,2 ,2 ,24,2 ,24,2 ,25},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,16,2 ,2 ,2 ,2 ,2 ,2 ,26,2},
-        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,2 ,2 ,2},
-        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,0 ,2 ,2 ,17,2 ,2 ,2 ,2 ,1 ,2 ,2 ,2},
-        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,0 ,2 ,19,18,2 ,2 ,2 ,2 ,1 ,2 ,4,3},
-        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,23,0 ,19,18,2 ,2 ,2 ,2 ,2 ,1 ,1 ,1 ,1},
-        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,0 ,17,2 ,2 ,2 ,2 ,2 ,2 ,1 ,2 ,4,3},
-        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,12,11,2 ,2 ,2 ,2 ,2 ,1 ,2 ,2 ,2},
-        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,0 ,2 ,12,11,2 ,2 ,2 ,2 ,1 ,2 ,2 ,2},
-        {0 ,23,0 ,0 ,0 ,1 ,0 ,0 ,5 ,8 ,2 ,15,2 ,5 ,8 ,2 ,1 ,2 ,4,3},
-        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,6 ,9 ,2 ,16,2 ,6 ,9 ,2 ,1 ,1 ,1 ,1},
-        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,7 ,10,2 ,17,2 ,7 ,10,2 ,1 ,2 ,4,3},
-        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,0 ,2 ,2 ,15,2 ,2 ,2 ,2 ,1 ,2 ,2 ,2},
-        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,2 ,24,25},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,16,2 ,2 ,2 ,2 ,2 ,2 ,24,2},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,12,11,2 ,2 ,24,2 ,23,2 ,26},
-        {1 ,1 ,1 ,1 ,0 ,0 ,23,0 ,0 ,2 ,2 ,2 ,12,11,2 ,2 ,24,24,24,26},
-        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,2 ,2 ,2 ,2 ,12,11,24,26,25,26,24} };
+        {0 ,0 ,0 ,0 ,0 ,0 ,23,0 ,27,28,28,28,28,15,28,28,28,28,28,28},
+        {1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,27,28,28,28,19,18,28,28,28,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,19,18,28,28,28,28,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,16,28,28,28,28,28,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,28,28,28},
+        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,17,28,28,28,28,1 ,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,27,28,19,18,28,28,28,28,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,23,27,19,18,28,28,28,28,28,1 ,1 ,1 ,1 },
+        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,27,17,28,28,28,28,28,28,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,27,12,11,28,28,28,28,28,1 ,28,28,28},
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,27,28,12,11,28,28,28,28,1 ,28,28,28},
+        {0 ,23,0 ,0 ,0 ,1 ,0 ,0 ,27,28,28,15,28,28,28,28,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,27,28,28,16,28,28,28,28,1 ,1 ,1 ,1 },
+        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,17,28,28,28,28,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,15,28,28,28,28,1 ,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,16,28,28,28,28,28,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,12,11,28,28,28,28,28,28,28},
+        {1 ,1 ,1 ,1 ,0 ,0 ,23,0 ,27,28,28,28,12,11,28,28,28,28,28,28},
+        {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,27,28,28,28,28,12,11,28,28,28,28,28} };
 
         mapTraversal = new int[][]{
 
@@ -856,10 +856,17 @@ public class MapThree {
 
 
         Image img22 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/bridge.png");
+
+        //hut code good!!!
         Image img23 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/littlehut.png");
+
+
         Image img24 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treelessthick.png");
         Image img25 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesthick1.png");
         Image img26 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesthick2.png");
+
+        Image img27 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/newsand2.png");
+        Image img28 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/newsand3.png");
 
         for(int i = 0; i < MapThree.length; i++) {
         	for(int j = 0; j < MapThree[0].length; j++) {
@@ -875,7 +882,19 @@ public class MapThree {
         			if(squares.size()<400){
         				squares.add(sq);
         			}
-        		} else if(MapThree[i][j] == 2) {
+        		} else if(MapThree[i][j] == 27) {
+        			g.drawImage(img27, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 28) {
+        			g.drawImage(img28, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 2) {
         			g.drawImage(img2, i*MapThree.length, j*MapThree[0].length, null);
         			Square sq=new Square(j*20,i*20);
         			if(squares.size()<400){
