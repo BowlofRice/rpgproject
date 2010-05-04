@@ -112,5 +112,10 @@ public class Fighter extends Ally{
     public String getJob() {
         return "Fighter";
     }
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
 
 }

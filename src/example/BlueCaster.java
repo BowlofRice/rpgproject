@@ -132,4 +132,10 @@ public class BlueCaster extends Ally{
     public String getJob() {
         return "Blue Caster";
     }
+
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
 }

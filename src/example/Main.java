@@ -81,13 +81,22 @@ public class Main {
 		final Screen3 screenthree=new Screen3(mapthree);
 		final MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
 		mapone.setTracer(mouse);
-		CharUpgrade cu=new CharUpgrade(mouse);
+		final CharUpgrade cu=new CharUpgrade(mouse);
+		cu.setCharSel(cs1);
 		cs1.setUpgradePanel(cu);
 		mouse.setUpgrade(cu);
 		final MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
 		maptwo.setTracer(mouse2);
+		final CharUpgrade2 cu2=new CharUpgrade2(mouse2);
+		cu2.setCharSel(cs2);
+		cs2.setUpgradePanel(cu2);
+		mouse2.setUpgrade(cu2);
 		final MouseTracer3 mouse3=new MouseTracer3(mapthree, cs3, screenthree, cs3.charHolder);
 		mapthree.setTracer(mouse3);
+		final CharUpgrade3 cu3=new CharUpgrade3(mouse3);
+		cu3.setCharSel(cs3);
+		cs3.setUpgradePanel(cu3);
+		mouse3.setUpgrade(cu3);
 		screenone.addMouseTracer(mouse);
 		screenone.addMouseListener(mouse);
 		screentwo.addMouseTracer(mouse2);
@@ -315,12 +324,15 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				screenone.mouse.allies.removeAllElements();
+				mouse.canUpgrade=false;
+				cu.reset();
 				mapone.enemies.removeAllElements();
 				mapone.bossSpawns.removeAllElements();
 				mapone.k=0;
 				mapone.h=0;
 				screenone.funds=RESET_FUNDS;
 				cs1.funds.setText(""+screenone.funds);
+				cs1.charHolder.setVisible(false);
 				mapone.troy.health=RESET_HP;
 				mapone.HP=RESET_HP;
 				mapone.troyHP.setText(mapone.HP+"/100");
@@ -335,12 +347,15 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				screentwo.mouse.allies.removeAllElements();
+				mouse2.canUpgrade=false;
+				cu2.reset();
 				maptwo.enemies.removeAllElements();
 				maptwo.bossSpawns.removeAllElements();
 				maptwo.k=0;
 				maptwo.h=0;
 				screentwo.funds=RESET_FUNDS;
 				cs2.funds.setText(""+screentwo.funds);
+				cs2.charHolder.setVisible(false);
 				maptwo.troyA.health=RESET_HP_2;
 				maptwo.troyB.health=RESET_HP_2;
 				maptwo.HP=RESET_HP_2;
@@ -356,12 +371,15 @@ public class Main {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				screenthree.mouse.allies.removeAllElements();
+				mouse3.canUpgrade=false;
+				cu3.reset();
 				mapthree.enemies.removeAllElements();
 				mapthree.bossSpawns.removeAllElements();
 				mapthree.k=0;
 				mapthree.h=0;
 				screenthree.funds=RESET_FUNDS;
 				cs3.funds.setText(""+screenthree.funds);
+				cs3.charHolder.setVisible(false);
 				mapthree.troyA.health=RESET_HP_2;
 				mapthree.troyB.health=RESET_HP_2;
 				mapthree.HP=RESET_HP_2;

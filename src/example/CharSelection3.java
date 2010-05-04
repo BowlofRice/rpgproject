@@ -25,6 +25,7 @@ public class CharSelection3 {
 	public JTextArea funds = new JTextArea();
 	@SuppressWarnings("unused")
 	private JFrame parent;
+	private CharUpgrade3 cu;
 
 	public CharSelection3(JFrame parent) {
 		this.parent = parent;
@@ -58,6 +59,7 @@ public class CharSelection3 {
 		JButton selectRed = new JButton("Red Caster");
 		JButton selectGreen = new JButton("Green Caster");
 		JButton selectProphet = new JButton("Prophet");
+		JButton upgrade = new JButton("Upgrade Units");
 		JLabel blank = new JLabel();
 		holder.add(selectArcher);
 		holder.add(selectFighter);
@@ -65,7 +67,17 @@ public class CharSelection3 {
 		holder.add(selectRed);
 		holder.add(selectGreen);
 		holder.add(selectProphet);
+		holder.add(upgrade);
 		holder.add(blank);
+		upgrade.addActionListener(new ActionListener(){
+        	@Override
+            public void actionPerformed(ActionEvent e){
+        		if(cu.mouse.canUpgrade==true)
+        			cu.setVisible(true);
+                else
+                	JOptionPane.showMessageDialog(charHolder, "you do not have any units to upgrade at this time.");
+               	}
+         	});
 		selectArcher.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -176,5 +188,8 @@ public class CharSelection3 {
 		funds.setText("" + s.funds);
 		funds.setEditable(false);
 
+	}
+	public void setUpgradePanel(CharUpgrade3 cu){
+		this.cu=cu;
 	}
 }

@@ -136,6 +136,12 @@ public class RedCaster extends Ally{
         return "Red Caster";
     }
 
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
+
 	
 
 }

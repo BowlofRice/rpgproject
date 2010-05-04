@@ -12,14 +12,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
-public class CharUpgrade{
+public class CharUpgrade2{
 	public JDialog jd=new JDialog();
 	private JPanel holder=new JPanel();
-	public MouseTracer mouse;
+	public MouseTracer2 mouse;
 	private JButton ok=new JButton("ok");
 	private Vector<JCheckBox> boxes=new Vector<JCheckBox>();
-	private CharSelection cs;
-	public CharUpgrade(MouseTracer mt){
+	private CharSelection2 cs;
+	public CharUpgrade2(MouseTracer2 mt){
 		GridLayout grid=new GridLayout();
 		grid.setColumns(2);
 		grid.setRows(0);
@@ -88,7 +88,7 @@ public class CharUpgrade{
 		holder.add(new JLabel("    unit"));
 		holder.add(new JLabel("upgrade?"));
 	}
-	public void setCharSel(CharSelection cs){
+	public void setCharSel(CharSelection2 cs){
 		this.cs=cs;
 	}
 }

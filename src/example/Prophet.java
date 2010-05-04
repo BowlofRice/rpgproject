@@ -24,7 +24,7 @@ public class Prophet extends Ally{
     
     int level;
     Point location=new Point();//default starting location
-    float attack;
+    double attack;
     int attack_speed;
     double expPoints;
     int range;
@@ -121,5 +121,11 @@ public class Prophet extends Ally{
     public String getJob() {
         return "Prophet";
     }
+
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
 
 }
