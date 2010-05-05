@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 public class MouseTracer implements MouseListener{
 	public Vector<Ally> allies=new Vector<Ally>();
 	public int cost, remainingFunds;
+	public boolean canUpgrade=false;
 	private MapOne mapone;
 	private CharSelection cs1;
 	private Screen1 screenone;
@@ -26,7 +27,7 @@ public class MouseTracer implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+			
 			for(int i=0;i<mapone.squares.size();i++){
 				if(mapone.squares.elementAt(i).isInside(arg0.getX(), arg0.getY())){
 					if(mapone.squares.elementAt(i).getPoint().x+19>arg0.getX() && mapone.squares.elementAt(i).getPoint().y+19>arg0.getY()){
@@ -40,7 +41,8 @@ public class MouseTracer implements MouseListener{
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									archer.drawUnit(screenone.getGraphics());
-									cu.makeUpWindow();
+									cu.makeUpWindow(archer);
+									canUpgrade=true;
 									cs1.ARCHER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -59,7 +61,8 @@ public class MouseTracer implements MouseListener{
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									fighter.drawUnit(screenone.getGraphics());
-									cu.makeUpWindow();
+									cu.makeUpWindow(fighter);
+									canUpgrade=true;
 									cs1.FIGHTER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -78,7 +81,8 @@ public class MouseTracer implements MouseListener{
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									blue.drawUnit(screenone.getGraphics());
-									cu.makeUpWindow();
+									cu.makeUpWindow(blue);
+									canUpgrade=true;
 									cs1.BLUE=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -97,7 +101,8 @@ public class MouseTracer implements MouseListener{
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									red.drawUnit(screenone.getGraphics());
-									cu.makeUpWindow();
+									cu.makeUpWindow(red);
+									canUpgrade=true;
 									cs1.RED=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -116,7 +121,8 @@ public class MouseTracer implements MouseListener{
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									green.drawUnit(screenone.getGraphics());
-									cu.makeUpWindow();
+									cu.makeUpWindow(green);
+									canUpgrade=true;
 									cs1.GREEN=false;
 								}else	
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -135,7 +141,8 @@ public class MouseTracer implements MouseListener{
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									prophet.drawUnit(screenone.getGraphics());
-									cu.makeUpWindow();
+									cu.makeUpWindow(prophet);
+									canUpgrade=true;
 									cs1.PROPHET=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");

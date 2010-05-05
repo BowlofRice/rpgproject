@@ -9,10 +9,12 @@ import javax.swing.JOptionPane;
 public class MouseTracer3 implements MouseListener{
 	public Vector<Ally> allies=new Vector<Ally>();
 	public int cost, remainingFunds;
+	public boolean canUpgrade=false;
 	private MapThree mapthree;
 	private CharSelection3 cs3;
 	private Screen3 screenthree;
 	private JDialog parent;
+	private CharUpgrade3 cu;
 	
 	public MouseTracer3(MapThree mapthree, CharSelection3 cs3, Screen3 screenthree, JDialog parent){
 		this.mapthree=mapthree;
@@ -37,6 +39,8 @@ public class MouseTracer3 implements MouseListener{
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									archer.drawUnit(screenthree.getGraphics());
+									cu.makeUpWindow(archer);
+									canUpgrade=true;
 									cs3.ARCHER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -55,6 +59,8 @@ public class MouseTracer3 implements MouseListener{
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									fighter.drawUnit(screenthree.getGraphics());
+									cu.makeUpWindow(fighter);
+									canUpgrade=true;
 									cs3.FIGHTER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -73,6 +79,8 @@ public class MouseTracer3 implements MouseListener{
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									blue.drawUnit(screenthree.getGraphics());
+									cu.makeUpWindow(blue);
+									canUpgrade=true;
 									cs3.BLUE=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -91,6 +99,8 @@ public class MouseTracer3 implements MouseListener{
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									red.drawUnit(screenthree.getGraphics());
+									cu.makeUpWindow(red);
+									canUpgrade=true;
 									cs3.RED=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -109,6 +119,8 @@ public class MouseTracer3 implements MouseListener{
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									green.drawUnit(screenthree.getGraphics());
+									cu.makeUpWindow(green);
+									canUpgrade=true;
 									cs3.GREEN=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -127,6 +139,8 @@ public class MouseTracer3 implements MouseListener{
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									prophet.drawUnit(screenthree.getGraphics());
+									cu.makeUpWindow(prophet);
+									canUpgrade=true;
 									cs3.PROPHET=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -163,5 +177,7 @@ public class MouseTracer3 implements MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
-
+	public void setUpgrade(CharUpgrade3 cu){
+		this.cu=cu;
+	}
 }

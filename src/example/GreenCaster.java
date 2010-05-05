@@ -141,4 +141,10 @@ public class GreenCaster extends Ally{
     public String getJob() {
         return "Green Caster";
     }
+
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
 }

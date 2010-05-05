@@ -24,7 +24,7 @@ public class Archer extends Ally{
     
     int level;
     Point location=new Point();
-    float attack;
+    double attack;
     int attack_speed;
     double expPoints=0;
     int range;
@@ -121,4 +121,10 @@ public class Archer extends Ally{
     public String getJob() {
         return "Archer";
     }
+
+	@Override
+	public int getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
 }

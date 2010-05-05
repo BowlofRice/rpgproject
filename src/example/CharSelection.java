@@ -58,7 +58,7 @@ public class CharSelection {
 		JButton selectRed = new JButton("Red Caster");
 		JButton selectGreen = new JButton("Green Caster");
 		JButton selectProphet = new JButton("Prophet");
-                JButton upgrade = new JButton("Upgrade Units");
+        JButton upgrade = new JButton("Upgrade Units");
 		JLabel blank = new JLabel();
 		holder.add(selectArcher);
 		holder.add(selectFighter);
@@ -66,14 +66,17 @@ public class CharSelection {
 		holder.add(selectRed);
 		holder.add(selectGreen);
 		holder.add(selectProphet);
-                holder.add(upgrade);
+        holder.add(upgrade);
 		holder.add(blank);
-                upgrade.addActionListener(new ActionListener(){
-                    @Override
-                    public void actionPerformed(ActionEvent e){
-                    	cu.setVisible(true);
-                    }
-                });
+        upgrade.addActionListener(new ActionListener(){
+        	@Override
+            public void actionPerformed(ActionEvent e){
+        		if(cu.mouse.canUpgrade==true)
+        			cu.setVisible(true);
+                else
+                	JOptionPane.showMessageDialog(charHolder, "you do not have any units to upgrade at this time.");
+               	}
+         	});
 		selectArcher.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
