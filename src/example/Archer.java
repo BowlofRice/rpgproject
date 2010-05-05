@@ -35,7 +35,7 @@ public class Archer extends Ally{
     level = 1;
     location.x=x;
     location.y=y;
-    attack = 1.5;
+    attack = (float) 1.5;
     attack_speed = 1;
     expPoints = 0;
     range = 3;

@@ -73,22 +73,22 @@ public class MapThree {
     	//3 -- Castle Walls
         MapThree = new int[][] {
         {0 ,0 ,0 ,0 ,0 ,0 ,23,0 ,27,28,29,31,28,15,28,28,28,28,28,28},
-        {1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,27,28,30,32,19,18,28,28,28,29,31,28},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,19,18,28,28,28,28,30,32,28},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,16,28,28,28,28,28,28,28,28},
-        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,28,28,28},
-        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,17,28,28,28,28,1 ,28,28,28},
-        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,27,28,19,18,28,28,28,28,1 ,28,4 ,3 },
-        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,23,27,19,18,28,28,28,28,28,1 ,1 ,1 ,1 },
-        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,27,17,28,28,29,31,28,28,1 ,28,4 ,3 },
-        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,27,12,11,28,30,32,28,28,1 ,28,28,28},
-        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,27,28,12,11,28,28,28,28,1 ,28,28,28},
-        {0 ,23,0 ,0 ,0 ,1 ,0 ,0 ,27,28,28,15,28,29,31,28,1 ,28,4 ,3 },
-        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,27,28,28,16,28,30,32,28,1 ,1 ,1 ,1 },
-        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,17,28,28,28,28,1 ,28,4 ,3 },
-        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,15,28,28,28,28,1 ,28,28,28},
-        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,28,28,28},
-        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,16,28,28,28,28,28,28,28,28},
+        {1 ,1 ,1 ,1 ,0 ,33,35,0 ,27,28,30,32,19,18,28,28,28,29,31,28},
+        {0 ,0 ,0 ,1 ,0 ,34,36,0 ,27,28,28,19,18,28,28,28,28,30,32,28},
+        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,22,37,22,28,28,28,28,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,28,28,28},
+        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,27,28,22,38,22,28,28,28,1 ,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,27,28,19,18,51,57,64,70,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,23,27,19,18,28,52,58,65,71,1 ,1 ,1 ,1 },
+        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,27,17,28,28,53,59,66,72,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,27,12,11,28,54,60,67,73,1 ,28,28,28},
+        {0 ,0 ,0 ,0 ,0 ,1 ,0 ,0 ,27,28,12,11,55,61,68,74,1 ,28,28,28},
+        {0 ,23,0 ,0 ,0 ,1 ,0 ,0 ,27,28,28,15,56,62,69,28,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,1 ,1 ,1 ,0 ,0 ,27,28,28,16,28,29,31,28,1 ,1 ,1 ,1 },
+        {0 ,23,0 ,1 ,0 ,1 ,0 ,0 ,27,28,28,17,28,30,32,28,1 ,28,4 ,3 },
+        {0 ,0 ,0 ,1 ,0 ,1 ,0 ,0 ,27,28,22,37,22,28,28,28,1 ,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,28,28,28},
+        {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,22,38,22,28,28,28,28,28,28,28},
         {0 ,0 ,0 ,1 ,0 ,0 ,0 ,0 ,27,28,28,12,11,28,28,28,28,28,28,28},
         {1 ,1 ,1 ,1 ,0 ,0 ,23,0 ,27,29,31,28,12,11,28,28,28,29,31,28},
         {0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,27,30,32,28,28,12,11,28,28,30,32,28} };
@@ -872,6 +872,52 @@ public class MapThree {
         Image img30 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesilly2.png");
         Image img31 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesilly3.png");
         Image img32 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesilly4.png");
+        
+        Image img33 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesand1.png");
+        Image img34 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesand2.png");
+        Image img35 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesand3.png");
+        Image img36 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/treesand4.png");
+
+
+        Image img37 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/bridgeleft.png");
+        Image img38 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/bridgeright.png");
+
+
+
+        Image img51 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine1.png");
+        Image img52 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine2.png");
+        Image img53 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine3.png");
+        Image img54 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine4.png");
+        Image img55 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine5.png");
+        Image img56 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrin6.png");
+        Image img57 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine7.png");
+        Image img58 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine8.png");
+        Image img59 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine9.png");
+        Image img60 = Toolkit.getDefaultToolkit().getImage("../rpgproject/src/example/tiles/apolloshrine10.png");
+        //not put in for yet
+        Image img61 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine11.png");
+        Image img62 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine12.png");
+       // Image img13 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/riverGorightC.png");
+        Image img64 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine13.png");
+
+        Image img65 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine14.png");
+        Image img66 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine15.png");
+        Image img67 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine16.png");
+
+        Image img68 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine17.png");
+        Image img69 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine18.png");
+        Image img70 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine19.png");
+        Image img71 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine20.png");
+
+
+        Image img72 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine21.png");
+
+        //hut code good!!!
+        Image img73 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine22.png");
+
+
+        Image img74 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine23.png");
+        Image img75 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/apolloshrine24.png");
         for(int i = 0; i < MapThree.length; i++) {
         	for(int j = 0; j < MapThree[0].length; j++) {
         		if(MapThree[i][j] == 0) {
@@ -886,7 +932,187 @@ public class MapThree {
         			if(squares.size()<400){
         				squares.add(sq);
         			}
-        		} else if(MapThree[i][j] == 29) {
+        		} else if(MapThree[i][j] == 51) {
+        			g.drawImage(img51, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 52) {
+        			g.drawImage(img52, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 53) {
+        			g.drawImage(img53, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 54) {
+        			g.drawImage(img54, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 55) {
+        			g.drawImage(img55, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] ==56) {
+        			g.drawImage(img56, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] ==57) {
+        			g.drawImage(img57, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] ==58) {
+        			g.drawImage(img58, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 59) {
+        			g.drawImage(img59, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] ==60) {
+        			g.drawImage(img60, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 61) {
+        			g.drawImage(img61, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 62) {
+        			g.drawImage(img62, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 64) {
+        			g.drawImage(img64, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 65) {
+        			g.drawImage(img65, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 66) {
+        			g.drawImage(img66, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 67) {
+        			g.drawImage(img67, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 68) {
+        			g.drawImage(img68, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] ==69) {
+        			g.drawImage(img69, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 70) {
+        			g.drawImage(img70, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 71) {
+        			g.drawImage(img71, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 72) {
+        			g.drawImage(img72, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 73) {
+        			g.drawImage(img73, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 74) {
+        			g.drawImage(img74, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 75) {
+        			g.drawImage(img75, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 37) {
+        			g.drawImage(img37, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 38) {
+        			g.drawImage(img38, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 33) {
+        			g.drawImage(img33, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 34) {
+        			g.drawImage(img34, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 35) {
+        			g.drawImage(img35, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] ==36) {
+        			g.drawImage(img36, i*MapThree.length, j*MapThree[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapThree[i][j] == 29) {
         			g.drawImage(img29, i*MapThree.length, j*MapThree[0].length, null);
         			Square sq=new Square(j*20,i*20);
         			if(squares.size()<400){

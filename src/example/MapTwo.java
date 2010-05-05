@@ -75,9 +75,9 @@ public class MapTwo {
         {0 ,0 ,23,0 ,0 ,0 ,27,23,28,28,28,28,28,15,28,28,28,28,28,28} ,
         {0 ,0 ,0 ,0 ,0 ,0 ,27,28,28,28,28,28,19,18,28,28,28,28,4 ,3} ,
         {0 ,23,0 ,0 ,0 ,0 ,27,28,28,28,28,19,18,28,28,28,1 ,1 ,1 ,1} ,
-        {0 ,0 ,0 ,0 ,23,0 ,27,28,28,28,28,16,28,28,28,28,1 ,28,4 ,3} ,
-        {0 ,0 ,0 ,0 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,22,1 ,1 ,1 ,1 ,1 ,28,28,28} ,
-        {0 ,0 ,23,0 ,0 ,1 ,27,28,28,28,28,16,28,28,28,28,1 ,28,28,28} ,
+        {0 ,0 ,0 ,0 ,23,0 ,27,28,28,28,22,29,22,28,28,28,1 ,28,4 ,3} ,
+        {0 ,0 ,0 ,0 ,0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,28,28,28} ,
+        {0 ,0 ,23,0 ,0 ,1 ,27,28,28,28,22,30,22,28,28,28,1 ,28,28,28} ,
         {0 ,0 ,0 ,0 ,0 ,1 ,27,28,28,28,28,15,28,28,28,28,1 ,28,4 ,3} ,
         {23,0 ,0 ,0 ,0 ,1 ,27,23,28,28,19,18,28,28,28,28,1 ,1 ,1 ,1} ,
         {0 ,0 ,0 ,23,0 ,1 ,27,28,28,19,18,28,28,28,28,28,28,28,4 ,3} ,
@@ -866,6 +866,9 @@ public class MapTwo {
         Image img28 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/newsand3.png");
 
 
+        Image img29 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/bridgeleft.png");
+        Image img30 = Toolkit.getDefaultToolkit().getImage("..//rpgproject/src/example/tiles/bridgeright.png");
+
         for(int i =   0; i < MapTwo.length; i++) {
         	for(int j = 0; j < MapTwo[0].length; j++) {
         		if(MapTwo[i][j] == 0) {
@@ -880,7 +883,19 @@ public class MapTwo {
         			if(squares.size()<400){
         				squares.add(sq);
         			}
-        		} else if(MapTwo[i][j] == 27) {
+        		} else if(MapTwo[i][j] == 29) {
+        			g.drawImage(img29, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 30) {
+        			g.drawImage(img30, i*MapTwo.length, j*MapTwo[0].length, null);
+        			Square sq=new Square(j*20,i*20);
+        			if(squares.size()<400){
+        				squares.add(sq);
+        			}
+        		}else if(MapTwo[i][j] == 27) {
         			g.drawImage(img27, i*MapTwo.length, j*MapTwo[0].length, null);
         			Square sq=new Square(j*20,i*20);
         			if(squares.size()<400){

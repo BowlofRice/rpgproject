@@ -34,7 +34,7 @@ public class Prophet extends Ally{
     location.x=x;
     location.y=y;
     level = 1;
-    attack = 1.5;
+    attack = (float) 1.5;
     attack_speed = 1;
     expPoints = 0;
     range = 6;
