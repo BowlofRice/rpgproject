@@ -8,7 +8,6 @@ import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -26,6 +25,7 @@ public class CharSelection {
 	@SuppressWarnings("unused")
 	private JFrame parent;
 	private CharUpgrade cu;
+	private CharSell sellpanel;
 
 	public CharSelection(JFrame parent) {
 		this.parent = parent;
@@ -59,7 +59,7 @@ public class CharSelection {
 		JButton selectGreen = new JButton("Green Caster");
 		JButton selectProphet = new JButton("Prophet");
         JButton upgrade = new JButton("Upgrade Units");
-		JLabel blank = new JLabel();
+        JButton sell=new JButton("Sell Units");
 		holder.add(selectArcher);
 		holder.add(selectFighter);
 		holder.add(selectBlue);
@@ -67,11 +67,23 @@ public class CharSelection {
 		holder.add(selectGreen);
 		holder.add(selectProphet);
         holder.add(upgrade);
-		holder.add(blank);
+        holder.add(sell);
+        sell.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(sellpanel.mouse.canSell)
+					sellpanel.setVisible(true);
+				else
+                	JOptionPane.showMessageDialog(charHolder, "you do not have any units to sell at this time.");
+			}
+        	
+        });
         upgrade.addActionListener(new ActionListener(){
         	@Override
             public void actionPerformed(ActionEvent e){
-        		if(cu.mouse.canUpgrade==true)
+        		if(cu.mouse.canUpgrade)
         			cu.setVisible(true);
                 else
                 	JOptionPane.showMessageDialog(charHolder, "you do not have any units to upgrade at this time.");
@@ -192,5 +204,8 @@ public class CharSelection {
 	}
 	public void setUpgradePanel(CharUpgrade cu){
 		this.cu=cu;
+	}
+	public void setSellPanel(CharSell sell){
+		this.sellpanel=sell;
 	}
 }

@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +20,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		final Title title=new Title();
 		final int RESET_FUNDS=20000;
 		final int RESET_HP=100;
 		final int RESET_HP_2=200;
@@ -28,10 +31,17 @@ public class Main {
 		final CharSelection2 cs2=new CharSelection2(jf);
 		final CharSelection3 cs3=new CharSelection3(jf);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel main=new JPanel(), mapselect=new JPanel(), playmap1Menu=new JPanel(), playmap2Menu=new JPanel(), playmap3Menu=new JPanel();
+		final JPanel main=new JPanel();
+		JPanel mapselect=new JPanel(), playmap1Menu=new JPanel(), playmap2Menu=new JPanel(), playmap3Menu=new JPanel();
 		JPanel playmap1=new JPanel();
 		JPanel playmap2=new JPanel();
 		JPanel playmap3=new JPanel();
+		jf.addWindowListener(new WindowAdapter(){
+			public void windowActivated(WindowEvent e){
+				System.out.println("i was activated");
+				title.paint(title.getGraphics());
+			}
+		});
 		JButton start=new JButton("start");
 		GridLayout grid=new GridLayout();
 		grid.setColumns(2);
@@ -61,7 +71,7 @@ public class Main {
         JButton startRound3 = new JButton("Play!");
         main.add(quit2);
         main.add(start);
-        main.add(new Title());
+        main.add(title);
 		mapselect.add(mapselectbuttons);
 		mapselect.add(new SelectaMap());
 		final MapOne mapone=new MapOne(cs1);
@@ -82,9 +92,13 @@ public class Main {
 		final MouseTracer mouse=new MouseTracer(mapone, cs1, screenone, cs1.charHolder);
 		mapone.setTracer(mouse);
 		final CharUpgrade cu=new CharUpgrade(mouse);
+		final CharSell sellpanel=new CharSell(mouse);
 		cu.setCharSel(cs1);
+		sellpanel.setCharSel(cs1);
 		cs1.setUpgradePanel(cu);
+		cs1.setSellPanel(sellpanel);
 		mouse.setUpgrade(cu);
+		mouse.setSell(sellpanel);
 		final MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
 		maptwo.setTracer(mouse2);
 		final CharUpgrade2 cu2=new CharUpgrade2(mouse2);
@@ -325,7 +339,9 @@ public class Main {
 				// TODO Auto-generated method stub
 				screenone.mouse.allies.removeAllElements();
 				mouse.canUpgrade=false;
+				mouse.canSell=false;
 				cu.reset();
+				sellpanel.reset();
 				mapone.enemies.removeAllElements();
 				mapone.bossSpawns.removeAllElements();
 				mapone.k=0;

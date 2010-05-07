@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 public class MouseTracer implements MouseListener{
 	public Vector<Ally> allies=new Vector<Ally>();
 	public int cost, remainingFunds;
-	public boolean canUpgrade=false;
+	public boolean canUpgrade=false, canSell=false;
 	private MapOne mapone;
 	private CharSelection cs1;
 	private Screen1 screenone;
 	private JDialog parent;
 	private CharUpgrade cu;
+	private CharSell sellpanel;
 
 	
 	public MouseTracer(MapOne mapone, CharSelection cs1, Screen1 screenone, JDialog parent){
@@ -36,13 +37,16 @@ public class MouseTracer implements MouseListener{
 							if(Integer.parseInt(cs1.funds.getText())-cost>0){
 								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
 									Archer archer=new Archer(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									archer.setSellWorth(cost/2);
 									allies.add(archer);
 									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									archer.drawUnit(screenone.getGraphics());
 									cu.makeUpWindow(archer);
+									sellpanel.makeUpWindow(archer);
 									canUpgrade=true;
+									canSell=true;
 									cs1.ARCHER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -56,13 +60,16 @@ public class MouseTracer implements MouseListener{
 							if(Integer.parseInt(cs1.funds.getText())-cost>0){
 								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
 									Fighter fighter=new Fighter(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									fighter.setSellWorth(cost/2);
 									allies.add(fighter);
 									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									fighter.drawUnit(screenone.getGraphics());
 									cu.makeUpWindow(fighter);
+									sellpanel.makeUpWindow(fighter);
 									canUpgrade=true;
+									canSell=true;
 									cs1.FIGHTER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -76,13 +83,16 @@ public class MouseTracer implements MouseListener{
 							if(Integer.parseInt(cs1.funds.getText())-cost>0){
 								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
 									BlueCaster blue=new BlueCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									blue.setSellWorth(cost/2);
 									allies.add(blue);
 									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									blue.drawUnit(screenone.getGraphics());
 									cu.makeUpWindow(blue);
+									sellpanel.makeUpWindow(blue);
 									canUpgrade=true;
+									canSell=true;
 									cs1.BLUE=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -96,13 +106,16 @@ public class MouseTracer implements MouseListener{
 							if(Integer.parseInt(cs1.funds.getText())-cost>0){
 								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
 									RedCaster red=new RedCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									red.setSellWorth(cost/2);
 									allies.add(red);
 									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									red.drawUnit(screenone.getGraphics());
 									cu.makeUpWindow(red);
+									sellpanel.makeUpWindow(red);
 									canUpgrade=true;
+									canSell=true;
 									cs1.RED=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -116,13 +129,16 @@ public class MouseTracer implements MouseListener{
 							if(Integer.parseInt(cs1.funds.getText())-cost>0){
 								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
 									GreenCaster green=new GreenCaster(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									green.setSellWorth(cost/2);
 									allies.add(green);
 									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									green.drawUnit(screenone.getGraphics());
 									cu.makeUpWindow(green);
+									sellpanel.makeUpWindow(green);
 									canUpgrade=true;
+									canSell=true;
 									cs1.GREEN=false;
 								}else	
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -136,13 +152,16 @@ public class MouseTracer implements MouseListener{
 							if(Integer.parseInt(cs1.funds.getText())-cost>0){
 								if(mapone.mapTraversal[mapone.squares.elementAt(i).getPoint().x/20][mapone.squares.elementAt(i).getPoint().y/20]==0){
 									Prophet prophet=new Prophet(mapone.squares.elementAt(i).getPoint().x,mapone.squares.elementAt(i).getPoint().y);
+									prophet.setSellWorth(cost/2);
 									allies.add(prophet);
 									remainingFunds=Integer.parseInt(cs1.funds.getText())-cost;
 									screenone.funds=remainingFunds;
 									cs1.funds.setText(""+remainingFunds);
 									prophet.drawUnit(screenone.getGraphics());
 									cu.makeUpWindow(prophet);
+									sellpanel.makeUpWindow(prophet);
 									canUpgrade=true;
+									canSell=true;
 									cs1.PROPHET=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -182,6 +201,9 @@ public class MouseTracer implements MouseListener{
 	
 	public void setUpgrade(CharUpgrade cu){
 		this.cu=cu;
+	}
+	public void setSell(CharSell sell){
+		this.sellpanel=sell;
 	}
 
 }
