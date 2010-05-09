@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 public class MouseTracer3 implements MouseListener{
 	public Vector<Ally> allies=new Vector<Ally>();
 	public int cost, remainingFunds;
-	public boolean canUpgrade=false;
+	public boolean canUpgrade=false, canSell=false;
 	private MapThree mapthree;
 	private CharSelection3 cs3;
 	private Screen3 screenthree;
 	private JDialog parent;
 	private CharUpgrade3 cu;
+	private CharSell3 sellpanel;
 	
 	public MouseTracer3(MapThree mapthree, CharSelection3 cs3, Screen3 screenthree, JDialog parent){
 		this.mapthree=mapthree;
@@ -34,13 +35,16 @@ public class MouseTracer3 implements MouseListener{
 							if(Integer.parseInt(cs3.funds.getText())-cost>0){
 								if(mapthree.mapTraversal[mapthree.squares.elementAt(i).getPoint().x/20][mapthree.squares.elementAt(i).getPoint().y/20]==0){
 									Archer archer=new Archer(mapthree.squares.elementAt(i).getPoint().x,mapthree.squares.elementAt(i).getPoint().y);
+									archer.setSellWorth(cost/2);
 									allies.add(archer);
 									remainingFunds=Integer.parseInt(cs3.funds.getText())-cost;
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									archer.drawUnit(screenthree.getGraphics());
 									cu.makeUpWindow(archer);
+									sellpanel.makeUpWindow(archer);
 									canUpgrade=true;
+									canSell=true;
 									cs3.ARCHER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -54,13 +58,16 @@ public class MouseTracer3 implements MouseListener{
 							if(Integer.parseInt(cs3.funds.getText())-cost>0){
 								if(mapthree.mapTraversal[mapthree.squares.elementAt(i).getPoint().x/20][mapthree.squares.elementAt(i).getPoint().y/20]==0){
 									Fighter fighter=new Fighter(mapthree.squares.elementAt(i).getPoint().x,mapthree.squares.elementAt(i).getPoint().y);
+									fighter.setSellWorth(cost/2);
 									allies.add(fighter);
 									remainingFunds=Integer.parseInt(cs3.funds.getText())-cost;
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									fighter.drawUnit(screenthree.getGraphics());
 									cu.makeUpWindow(fighter);
+									sellpanel.makeUpWindow(fighter);
 									canUpgrade=true;
+									canSell=true;
 									cs3.FIGHTER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -74,13 +81,16 @@ public class MouseTracer3 implements MouseListener{
 							if(Integer.parseInt(cs3.funds.getText())-cost>0){
 								if(mapthree.mapTraversal[mapthree.squares.elementAt(i).getPoint().x/20][mapthree.squares.elementAt(i).getPoint().y/20]==0){
 									BlueCaster blue=new BlueCaster(mapthree.squares.elementAt(i).getPoint().x,mapthree.squares.elementAt(i).getPoint().y);
+									blue.setSellWorth(cost/2);
 									allies.add(blue);
 									remainingFunds=Integer.parseInt(cs3.funds.getText())-cost;
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									blue.drawUnit(screenthree.getGraphics());
 									cu.makeUpWindow(blue);
+									sellpanel.makeUpWindow(blue);
 									canUpgrade=true;
+									canSell=true;
 									cs3.BLUE=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -94,13 +104,16 @@ public class MouseTracer3 implements MouseListener{
 							if(Integer.parseInt(cs3.funds.getText())-cost>0){
 								if(mapthree.mapTraversal[mapthree.squares.elementAt(i).getPoint().x/20][mapthree.squares.elementAt(i).getPoint().y/20]==0){
 									RedCaster red=new RedCaster(mapthree.squares.elementAt(i).getPoint().x,mapthree.squares.elementAt(i).getPoint().y);
+									red.setSellWorth(cost/2);
 									allies.add(red);
 									remainingFunds=Integer.parseInt(cs3.funds.getText())-cost;
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									red.drawUnit(screenthree.getGraphics());
 									cu.makeUpWindow(red);
+									sellpanel.makeUpWindow(red);
 									canUpgrade=true;
+									canSell=true;
 									cs3.RED=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -114,13 +127,16 @@ public class MouseTracer3 implements MouseListener{
 							if(Integer.parseInt(cs3.funds.getText())-cost>0){
 								if(mapthree.mapTraversal[mapthree.squares.elementAt(i).getPoint().x/20][mapthree.squares.elementAt(i).getPoint().y/20]==0){
 									GreenCaster green=new GreenCaster(mapthree.squares.elementAt(i).getPoint().x,mapthree.squares.elementAt(i).getPoint().y);
+									green.setSellWorth(cost/2);
 									allies.add(green);
 									remainingFunds=Integer.parseInt(cs3.funds.getText())-cost;
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									green.drawUnit(screenthree.getGraphics());
 									cu.makeUpWindow(green);
+									sellpanel.makeUpWindow(green);
 									canUpgrade=true;
+									canSell=true;
 									cs3.GREEN=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -134,13 +150,16 @@ public class MouseTracer3 implements MouseListener{
 							if(Integer.parseInt(cs3.funds.getText())-cost>0){
 								if(mapthree.mapTraversal[mapthree.squares.elementAt(i).getPoint().x/20][mapthree.squares.elementAt(i).getPoint().y/20]==0){
 									Prophet prophet=new Prophet(mapthree.squares.elementAt(i).getPoint().x,mapthree.squares.elementAt(i).getPoint().y);
+									prophet.setSellWorth(cost/2);
 									allies.add(prophet);
 									remainingFunds=Integer.parseInt(cs3.funds.getText())-cost;
 									screenthree.funds=remainingFunds;
 									cs3.funds.setText(""+remainingFunds);
 									prophet.drawUnit(screenthree.getGraphics());
 									cu.makeUpWindow(prophet);
+									sellpanel.makeUpWindow(prophet);
 									canUpgrade=true;
+									canSell=true;
 									cs3.PROPHET=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -179,5 +198,8 @@ public class MouseTracer3 implements MouseListener{
 	}
 	public void setUpgrade(CharUpgrade3 cu){
 		this.cu=cu;
+	}
+	public void setSell(CharSell3 sell){
+		this.sellpanel=sell;
 	}
 }

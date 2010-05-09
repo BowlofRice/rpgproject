@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 public class MouseTracer2 implements MouseListener{
 	public Vector<Ally> allies=new Vector<Ally>();
 	public int cost, remainingFunds;
-	public boolean canUpgrade=false;
+	public boolean canUpgrade=false, canSell=false;
 	private MapTwo maptwo;
 	private CharSelection2 cs2;
 	private Screen2 screentwo;
 	private JDialog parent;
 	private CharUpgrade2 cu;
+	private CharSell2 sellpanel;
 	
 	public MouseTracer2(MapTwo maptwo, CharSelection2 cs2, Screen2 screentwo, JDialog parent){
 		this.maptwo=maptwo;
@@ -34,13 +35,16 @@ public class MouseTracer2 implements MouseListener{
 							if(Integer.parseInt(cs2.funds.getText())-cost>0){
 								if(maptwo.mapTraversal[maptwo.squares.elementAt(i).getPoint().x/20][maptwo.squares.elementAt(i).getPoint().y/20]==0){
 									Archer archer=new Archer(maptwo.squares.elementAt(i).getPoint().x,maptwo.squares.elementAt(i).getPoint().y);
+									archer.setSellWorth(cost/2);
 									allies.add(archer);
 									remainingFunds=Integer.parseInt(cs2.funds.getText())-cost;
 									screentwo.funds=remainingFunds;
 									cs2.funds.setText(""+remainingFunds);
 									archer.drawUnit(screentwo.getGraphics());
 									cu.makeUpWindow(archer);
+									sellpanel.makeUpWindow(archer);
 									canUpgrade=true;
+									canSell=true;
 									cs2.ARCHER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -54,13 +58,16 @@ public class MouseTracer2 implements MouseListener{
 							if(Integer.parseInt(cs2.funds.getText())-cost>0){
 								if(maptwo.mapTraversal[maptwo.squares.elementAt(i).getPoint().x/20][maptwo.squares.elementAt(i).getPoint().y/20]==0){
 									Fighter fighter=new Fighter(maptwo.squares.elementAt(i).getPoint().x,maptwo.squares.elementAt(i).getPoint().y);
+									fighter.setSellWorth(cost/2);
 									allies.add(fighter);
 									remainingFunds=Integer.parseInt(cs2.funds.getText())-cost;
 									screentwo.funds=remainingFunds;
 									cs2.funds.setText(""+remainingFunds);
 									fighter.drawUnit(screentwo.getGraphics());
 									cu.makeUpWindow(fighter);
+									sellpanel.makeUpWindow(fighter);
 									canUpgrade=true;
+									canSell=true;
 									cs2.FIGHTER=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -74,13 +81,16 @@ public class MouseTracer2 implements MouseListener{
 							if(Integer.parseInt(cs2.funds.getText())-cost>0){
 								if(maptwo.mapTraversal[maptwo.squares.elementAt(i).getPoint().x/20][maptwo.squares.elementAt(i).getPoint().y/20]==0){
 									BlueCaster blue=new BlueCaster(maptwo.squares.elementAt(i).getPoint().x,maptwo.squares.elementAt(i).getPoint().y);
+									blue.setSellWorth(cost/2);
 									allies.add(blue);
 									remainingFunds=Integer.parseInt(cs2.funds.getText())-cost;
 									screentwo.funds=remainingFunds;
 									cs2.funds.setText(""+remainingFunds);
 									blue.drawUnit(screentwo.getGraphics());
 									cu.makeUpWindow(blue);
+									sellpanel.makeUpWindow(blue);
 									canUpgrade=true;
+									canSell=true;
 									cs2.BLUE=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -94,13 +104,16 @@ public class MouseTracer2 implements MouseListener{
 							if(Integer.parseInt(cs2.funds.getText())-cost>0){
 								if(maptwo.mapTraversal[maptwo.squares.elementAt(i).getPoint().x/20][maptwo.squares.elementAt(i).getPoint().y/20]==0){
 									RedCaster red=new RedCaster(maptwo.squares.elementAt(i).getPoint().x,maptwo.squares.elementAt(i).getPoint().y);
+									red.setSellWorth(cost/2);
 									allies.add(red);
 									remainingFunds=Integer.parseInt(cs2.funds.getText())-cost;
 									screentwo.funds=remainingFunds;
 									cs2.funds.setText(""+remainingFunds);
 									red.drawUnit(screentwo.getGraphics());
 									cu.makeUpWindow(red);
+									sellpanel.makeUpWindow(red);
 									canUpgrade=true;
+									canSell=true;
 									cs2.RED=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -114,13 +127,16 @@ public class MouseTracer2 implements MouseListener{
 							if(Integer.parseInt(cs2.funds.getText())-cost>0){
 								if(maptwo.mapTraversal[maptwo.squares.elementAt(i).getPoint().x/20][maptwo.squares.elementAt(i).getPoint().y/20]==0){
 									GreenCaster green=new GreenCaster(maptwo.squares.elementAt(i).getPoint().x,maptwo.squares.elementAt(i).getPoint().y);
+									green.setSellWorth(cost/2);
 									allies.add(green);
 									remainingFunds=Integer.parseInt(cs2.funds.getText())-cost;
 									screentwo.funds=remainingFunds;
 									cs2.funds.setText(""+remainingFunds);
 									green.drawUnit(screentwo.getGraphics());
 									cu.makeUpWindow(green);
+									sellpanel.makeUpWindow(green);
 									canUpgrade=true;
+									canSell=true;
 									cs2.GREEN=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -134,13 +150,16 @@ public class MouseTracer2 implements MouseListener{
 							if(Integer.parseInt(cs2.funds.getText())-cost>0){
 								if(maptwo.mapTraversal[maptwo.squares.elementAt(i).getPoint().x/20][maptwo.squares.elementAt(i).getPoint().y/20]==0){
 									Prophet prophet=new Prophet(maptwo.squares.elementAt(i).getPoint().x,maptwo.squares.elementAt(i).getPoint().y);
+									prophet.setSellWorth(cost/2);
 									allies.add(prophet);
 									remainingFunds=Integer.parseInt(cs2.funds.getText())-cost;
 									screentwo.funds=remainingFunds;
 									cs2.funds.setText(""+remainingFunds);
 									prophet.drawUnit(screentwo.getGraphics());
 									cu.makeUpWindow(prophet);
+									sellpanel.makeUpWindow(prophet);
 									canUpgrade=true;
+									canSell=true;
 									cs2.PROPHET=false;
 								}else
 									JOptionPane.showMessageDialog(parent, "Unit cannot be place there");
@@ -179,5 +198,8 @@ public class MouseTracer2 implements MouseListener{
 	}
 	public void setUpgrade(CharUpgrade2 cu){
 		this.cu=cu;
+	}
+	public void setSell(CharSell2 sell){
+		this.sellpanel=sell;
 	}
 }

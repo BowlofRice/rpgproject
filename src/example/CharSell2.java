@@ -12,20 +12,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
-public class CharSell{
+public class CharSell2{
 	public JDialog jd=new JDialog();
 	private JPanel holder=new JPanel();
-	public MouseTracer mouse;
+	public MouseTracer2 mouse;
 	private JButton ok=new JButton("ok");
 	private Vector<JCheckBox> boxes=new Vector<JCheckBox>();
 	private Vector<Integer> boxes2remove=new Vector<Integer>();
 	private Vector<JLabel> names=new Vector<JLabel>();
 	private Vector<JLabel> prices=new Vector<JLabel>();
 	private Vector<JLabel> blanks=new Vector<JLabel>();
-	private CharSelection cs;
-	private Screen1 s;
-	private CharUpgrade cu;
-	public CharSell(MouseTracer mt){
+	private CharSelection2 cs;
+	private Screen2 s;
+	private CharUpgrade2 cu;
+	public CharSell2(MouseTracer2 mt){
 		GridLayout grid=new GridLayout();
 		grid.setColumns(2);
 		grid.setRows(0);
@@ -126,13 +126,13 @@ public class CharSell{
 		holder.add(new JLabel("unit"));
 		holder.add(new JLabel("worth"));
 	}
-	public void setCharSel(CharSelection cs){
+	public void setCharSel(CharSelection2 cs){
 		this.cs=cs;
 	}
-	public void setScreen(Screen1 s){
+	public void setScreen(Screen2 s){
 		this.s=s;
 	}
-	public void setCharUpgrade(CharUpgrade cu){
+	public void setCharUpgrade(CharUpgrade2 cu){
 		this.cu=cu;
 	}
 }

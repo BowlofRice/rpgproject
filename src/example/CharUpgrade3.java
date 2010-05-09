@@ -14,10 +14,11 @@ import javax.swing.JPanel;
 
 public class CharUpgrade3{
 	public JDialog jd=new JDialog();
-	private JPanel holder=new JPanel();
+	public JPanel holder=new JPanel();
 	public MouseTracer3 mouse;
 	private JButton ok=new JButton("ok");
-	private Vector<JCheckBox> boxes=new Vector<JCheckBox>();
+	public Vector<JCheckBox> boxes=new Vector<JCheckBox>();
+	public Vector<JLabel> labels=new Vector<JLabel>();
 	private CharSelection3 cs;
 	public CharUpgrade3(MouseTracer3 mt){
 		GridLayout grid=new GridLayout();
@@ -72,8 +73,10 @@ public class CharUpgrade3{
 	}
 	public void makeUpWindow(Ally a){
 			JCheckBox temp=new JCheckBox();
+			JLabel label=new JLabel(" "+a.getJob());
 			boxes.add(temp);
-			holder.add(new JLabel(" "+a.getJob()));
+			labels.add(label);
+			holder.add(label);
 			holder.add(temp);
 			jd.pack();
 	}

@@ -95,22 +95,36 @@ public class Main {
 		final CharSell sellpanel=new CharSell(mouse);
 		cu.setCharSel(cs1);
 		sellpanel.setCharSel(cs1);
+		sellpanel.setScreen(screenone);
 		cs1.setUpgradePanel(cu);
+		sellpanel.setCharUpgrade(cu);
 		cs1.setSellPanel(sellpanel);
 		mouse.setUpgrade(cu);
 		mouse.setSell(sellpanel);
 		final MouseTracer2 mouse2=new MouseTracer2(maptwo, cs2, screentwo, cs2.charHolder);
 		maptwo.setTracer(mouse2);
 		final CharUpgrade2 cu2=new CharUpgrade2(mouse2);
+		final CharSell2 sellpanel2=new CharSell2(mouse2);
 		cu2.setCharSel(cs2);
+		sellpanel2.setCharSel(cs2);
+		sellpanel2.setScreen(screentwo);
 		cs2.setUpgradePanel(cu2);
+		sellpanel2.setCharUpgrade(cu2);
+		cs2.setSellPanel(sellpanel2);
 		mouse2.setUpgrade(cu2);
+		mouse2.setSell(sellpanel2);
 		final MouseTracer3 mouse3=new MouseTracer3(mapthree, cs3, screenthree, cs3.charHolder);
 		mapthree.setTracer(mouse3);
 		final CharUpgrade3 cu3=new CharUpgrade3(mouse3);
+		final CharSell3 sellpanel3=new CharSell3(mouse3);
 		cu3.setCharSel(cs3);
+		sellpanel3.setCharSel(cs3);
+		sellpanel3.setScreen(screenthree);
 		cs3.setUpgradePanel(cu3);
+		sellpanel3.setCharUpgrade(cu3);
+		cs3.setSellPanel(sellpanel3);
 		mouse3.setUpgrade(cu3);
+		mouse3.setSell(sellpanel3);
 		screenone.addMouseTracer(mouse);
 		screenone.addMouseListener(mouse);
 		screentwo.addMouseTracer(mouse2);
@@ -297,8 +311,8 @@ public class Main {
 						cs2.s.funds=leftovers;
 						maptwo.HP=200;
 						maptwo.troyHP.setText(maptwo.HP+"/200");
-						for(int i=0;i<maptwo.castles.size();i++)
-							maptwo.castles.elementAt(i).health=100;
+						maptwo.troyA.health=100;
+						maptwo.troyB.health=100;
 						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
 					}else if(choice==1 || choice==2)
 						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
@@ -322,8 +336,8 @@ public class Main {
 						cs3.s.funds=leftovers;
 						mapthree.HP=200;
 						mapthree.troyHP.setText(mapthree.HP+"/200");
-						for(int i=0;i<mapthree.castles.size();i++)
-							mapthree.castles.elementAt(i).health=100;
+						mapthree.troyA.health=100;
+						mapthree.troyB.health=100;
 						JOptionPane.showMessageDialog(jf, "Troy was fully restored.");
 					}else if(choice==1 || choice==2)
 						JOptionPane.showMessageDialog(jf, "Restoration was cancelled");
@@ -365,6 +379,7 @@ public class Main {
 				screentwo.mouse.allies.removeAllElements();
 				mouse2.canUpgrade=false;
 				cu2.reset();
+				sellpanel2.reset();
 				maptwo.enemies.removeAllElements();
 				maptwo.bossSpawns.removeAllElements();
 				maptwo.k=0;
@@ -389,6 +404,7 @@ public class Main {
 				screenthree.mouse.allies.removeAllElements();
 				mouse3.canUpgrade=false;
 				cu3.reset();
+				sellpanel3.reset();
 				mapthree.enemies.removeAllElements();
 				mapthree.bossSpawns.removeAllElements();
 				mapthree.k=0;

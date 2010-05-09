@@ -3,12 +3,9 @@ package example;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -26,28 +23,10 @@ public class CharSelection3 {
 	@SuppressWarnings("unused")
 	private JFrame parent;
 	private CharUpgrade3 cu;
+	private CharSell3 sellpanel;
 
 	public CharSelection3(JFrame parent) {
 		this.parent = parent;
-		charHolder.addWindowListener(new WindowListener() {
-			@Override
-			public void windowActivated(WindowEvent arg0) {}
-			@Override
-			public void windowClosed(WindowEvent arg0) {}
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-				charHolder.setVisible(false);
-			}
-			@Override
-			public void windowDeactivated(WindowEvent arg0) {}
-			@Override
-			public void windowDeiconified(WindowEvent arg0) {}
-			@Override
-			public void windowIconified(WindowEvent arg0) {}
-			@Override
-			public void windowOpened(WindowEvent arg0) {}
-		});
 		JPanel holder = new JPanel();
 		GridLayout my_layout = new GridLayout();
 		my_layout.setColumns(2);
@@ -60,7 +39,7 @@ public class CharSelection3 {
 		JButton selectGreen = new JButton("Green Caster");
 		JButton selectProphet = new JButton("Prophet");
 		JButton upgrade = new JButton("Upgrade Units");
-		JLabel blank = new JLabel();
+		JButton sell=new JButton("Sell Units");
 		holder.add(selectArcher);
 		holder.add(selectFighter);
 		holder.add(selectBlue);
@@ -68,7 +47,19 @@ public class CharSelection3 {
 		holder.add(selectGreen);
 		holder.add(selectProphet);
 		holder.add(upgrade);
-		holder.add(blank);
+		holder.add(sell);
+		sell.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(sellpanel.mouse.canSell==true)
+					sellpanel.setVisible(true);
+				else
+                	JOptionPane.showMessageDialog(charHolder, "you do not have any units to sell at this time.");
+			}
+        	
+        });
 		upgrade.addActionListener(new ActionListener(){
         	@Override
             public void actionPerformed(ActionEvent e){
@@ -191,5 +182,8 @@ public class CharSelection3 {
 	}
 	public void setUpgradePanel(CharUpgrade3 cu){
 		this.cu=cu;
+	}
+	public void setSellPanel(CharSell3 sell){
+		this.sellpanel=sell;
 	}
 }

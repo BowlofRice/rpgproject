@@ -3,8 +3,6 @@ package example;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -29,24 +27,6 @@ public class CharSelection {
 
 	public CharSelection(JFrame parent) {
 		this.parent = parent;
-		charHolder.addWindowListener(new WindowListener() {
-			@Override
-			public void windowActivated(WindowEvent arg0) {}
-			@Override
-			public void windowClosed(WindowEvent arg0) {}
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-				charHolder.setVisible(false);
-			}
-			@Override
-			public void windowDeactivated(WindowEvent arg0) {}
-			@Override
-			public void windowDeiconified(WindowEvent arg0) {}
-			@Override
-			public void windowIconified(WindowEvent arg0) {}
-			@Override
-			public void windowOpened(WindowEvent arg0) {}});
 		JPanel holder = new JPanel();
 		GridLayout my_layout = new GridLayout();
 		my_layout.setColumns(2);
